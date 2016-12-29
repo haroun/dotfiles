@@ -1,0 +1,5 @@
+# performs filename matching and completion in a case-insensitive fashion
+set completion-ignore-case on
+
+# default set of key bindings is used
+set editing-mode vi
