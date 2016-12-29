@@ -7,6 +7,7 @@
 * install [atom](https://atom.io)
 * install [hyper-snazzy theme for terminal](https://github.com/sindresorhus/terminal-snazzy)
 * install [solarized theme for terminal](https://github.com/tomislav/osx-terminal.app-colors-solarized)
+* copy `git/.gitconfig.user.example` to `git/.gitconfig.user`
 
 ```sh
 # install node
