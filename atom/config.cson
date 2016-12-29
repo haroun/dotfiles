@@ -1,0 +1,45 @@
+"*":
+  core:
+    disabledPackages: [
+      "language-c"
+      "language-csharp"
+      "language-clojure"
+      "language-go"
+      "language-java"
+      "language-mustache"
+      "language-objective-c"
+      "language-perl"
+      "language-python"
+      "language-ruby"
+      "language-ruby-on-rails"
+      "language-sass"
+      "language-source"
+      "language-xml"
+    ]
+    projectHome: "/Users/harouna/repositories"
+    telemetryConsent: "limited"
+  editor:
+    fontFamily: "Menlo"
+    preferredLineLength: 100
+    scrollPastEnd: true
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "0602831a-299e-5b96-11c6-326ec89bbb33"
+  "find-and-replace":
+    openProjectFindResultsInRightPane: true
+  "git-diff":
+    showIconsInEditorGutter: true
+  linter:
+    showErrorTabLine: true
+  "linter-eslint": {}
+  "markdown-preview":
+    useGitHubStyle: true
+  minimap:
+    plugins:
+      linter: true
+      linterDecorationsZIndex: 0
+  pigments:
+    extendAutocompleteToColorValue: true
+    groupPaletteColors: "by file"
+  "tree-view":
+    hideIgnoredNames: true
