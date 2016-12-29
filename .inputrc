@@ -1,5 +1,34 @@
 # performs filename matching and completion in a case-insensitive fashion
 set completion-ignore-case on
 
+# the number of possible completions that determines when the user is asked whether
+# the list of possibilities should be displayed
+set completion-query-items 200
+
 # default set of key bindings is used
 set editing-mode vi
+
+# current keymap for key binding commands
+set keymap vi
+
+# don't match files whose names begin with a '.' (hidden files) when performing
+# filename completion, unless the leading '.' is supplied
+set match-hidden-files off
+
+# completed names which are symbolic links to directories have a slash appended
+set mark-symlinked-directories on
+
+# disable internal more-like pager to display a screenful of possible completions at a time
+set page-completions off
+
+# words which have more than one possible completion cause the matches to be listed
+# immediately instead of ringing the bell
+set show-all-if-ambiguous on
+
+# does not insert characters from the completion that match characters after point
+# in the word being completed
+set skip-completed-text on
+
+# map Up/Down arrow to allow search for completions
+"\e[B": history-search-forward
+"\e[A": history-search-backward
