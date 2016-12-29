@@ -1,3 +1,5 @@
+# http://cnswww.cns.cwru.edu/php/chet/readline/rluserman.html
+
 # performs filename matching and completion in a case-insensitive fashion
 set completion-ignore-case on
 
