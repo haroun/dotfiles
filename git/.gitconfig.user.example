@@ -1,0 +1,4 @@
+[user]
+	name = AUTHOR_NAME
+	email = AUTHOR_EMAIL
+	signingkey = GPG_KEY_ID
