@@ -2,3 +2,6 @@
 	name = AUTHOR_NAME
 	email = AUTHOR_EMAIL
 	signingkey = GPG_KEY_ID
+
+[alias]
+	switch-pro = "!git config commit.gpgsign false && git config user.email 'ANOTHER_AUTHOR_NAME' && git config user.name 'ANOTHER_AUTHOR_EMAIL' && git config user.signingkey ''"
