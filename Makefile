@@ -47,7 +47,7 @@ update:
 	@echo 'homebrew'
 	brew update
 	@echo 'npm'
-	npm update
+	npm -g update
 
 zsh:
 	@echo '>> zsh'
