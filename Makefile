@@ -1,4 +1,4 @@
-.PHONY: atom atom-save git gpg install update zsh
+.PHONY: atom atom-save git gpg install php update zsh
 # .SILENT:
 
 CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
@@ -40,6 +40,13 @@ install:
 	make zsh
 	@echo 'Link .inputrc'
 	ln -fs "$(CURDIR)/.inputrc" "$(TARGETDIR)/.inputrc"
+
+php:
+	@echo '> php'
+	@echo 'Link composer.json & composer.lock'
+	ln -fs "$(CURDIR)/php/composer.json" "$(TARGETDIR)/.composer/composer.json"
+	ln -fs "$(CURDIR)/php/composer.lock" "$(TARGETDIR)/.composer/composer.lock"
+	composer global update
 
 update:
 	@echo '>> update'
