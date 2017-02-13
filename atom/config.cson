@@ -43,9 +43,6 @@
     plugins:
       linter: true
       linterDecorationsZIndex: 0
-  pigments:
-    extendAutocompleteToColorValue: true
-    groupPaletteColors: "by file"
   tabs:
     enableVcsColoring: true
   "tree-view":
