@@ -1,4 +1,6 @@
 "*":
+  "autocomplete-plus":
+    backspaceTriggersAutocomplete: true
   core:
     disabledPackages: [
       "language-c"
@@ -27,6 +29,8 @@
     userId: "0602831a-299e-5b96-11c6-326ec89bbb33"
   "find-and-replace":
     openProjectFindResultsInRightPane: true
+  "fuzzy-finder":
+    searchAllPanes: true
   "git-diff":
     showIconsInEditorGutter: true
   linter:
@@ -35,11 +39,17 @@
   "markdown-preview":
     useGitHubStyle: true
   minimap:
+    displayMinimapOnLeft: true
     plugins:
       linter: true
       linterDecorationsZIndex: 0
   pigments:
     extendAutocompleteToColorValue: true
     groupPaletteColors: "by file"
+  tabs:
+    enableVcsColoring: true
   "tree-view":
     hideIgnoredNames: true
+".html.php.text":
+  editor:
+    preferredLineLength: 120
