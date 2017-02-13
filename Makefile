@@ -43,7 +43,7 @@ install:
 
 php:
 	@echo '> php'
-	@echo 'Link composer.json & composer.lock'
+	@echo 'Link composer.json/composer.lock & update dependencies'
 	ln -fs "$(CURDIR)/php/composer.json" "$(TARGETDIR)/.composer/composer.json"
 	ln -fs "$(CURDIR)/php/composer.lock" "$(TARGETDIR)/.composer/composer.lock"
 	composer global update
