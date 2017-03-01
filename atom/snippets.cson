@@ -19,3 +19,17 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
+
+'.source.js':
+  'test':
+    'prefix': 'test#tape'
+    'body': '''
+      test('${2:What component aspect are you testing?}', assert => {
+        const actual = ${3:'What is the actual output?'};
+        const expected = ${4:'What is the expected output?'};
+
+        assert.equal(actual, expected, '${1:What should the feature do?}');
+
+        assert.end();
+      });
+      '''
