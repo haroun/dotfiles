@@ -28,7 +28,7 @@
   "exception-reporting":
     userId: "0602831a-299e-5b96-11c6-326ec89bbb33"
   "find-and-replace":
-    openProjectFindResultsInRightPane: true
+    projectSearchResultsPaneSplitDirection: "right"
   "fuzzy-finder":
     searchAllPanes: true
   "git-diff":
