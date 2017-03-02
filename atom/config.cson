@@ -27,6 +27,8 @@
     showIndentGuide: true
   "exception-reporting":
     userId: "0602831a-299e-5b96-11c6-326ec89bbb33"
+  "file-icons":
+    onChanges: true
   "find-and-replace":
     projectSearchResultsPaneSplitDirection: "right"
   "fuzzy-finder":
