@@ -8,4 +8,5 @@ linter-eslint@8.1.2
 linter-xo@0.21.2
 minimap@4.26.8
 minimap-linter@1.6.0
+sort-lines@0.14.0
 
