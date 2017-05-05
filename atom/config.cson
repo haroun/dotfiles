@@ -35,9 +35,10 @@
     searchAllPanes: true
   "git-diff":
     showIconsInEditorGutter: true
-  linter:
-    showErrorTabLine: true
+  linter: {}
   "linter-eslint": {}
+  "linter-ui-default":
+    showPanel: true
   "markdown-preview":
     useGitHubStyle: true
   minimap:
@@ -49,6 +50,9 @@
     enableVcsColoring: true
   "tree-view":
     hideIgnoredNames: true
+  welcome:
+    showOnStartup: false
 ".html.php.text":
   editor:
     preferredLineLength: 120
+    tabLength: 4
