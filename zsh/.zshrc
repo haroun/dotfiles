@@ -1,5 +1,5 @@
 # GPG, https://gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
-export PATH="/usr/local/opt/dirmngr/bin:/usr/local/opt/gpg-agent/bin:$PATH"
+export PATH="/usr/local/opt/dirmngr/bin:/usr/local/opt/gpg-agent/bin:/usr/local/sbin:$PATH"
 GPG_TTY=$(tty)
 export GPG_TTY
 
