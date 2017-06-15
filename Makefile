@@ -13,12 +13,12 @@ atom:
 	ln -fs "$(CURDIR)/atom/snippets.cson" "$(TARGETDIR)/.atom/snippets.cson"
 	ln -fs "$(CURDIR)/atom/styles.less" "$(TARGETDIR)/.atom/styles.less"
 	@echo 'Install atom packages from packages.list'
-	apm install --packages-file "$(CURDIR)/atom/packages.list"
+	apm-beta install --packages-file "$(CURDIR)/atom/packages.list"
 
 atom-save:
 	@echo '>> atom-save'
 	@echo 'Save atom installed packages in packages.list'
-	apm list --installed --bare > "$(CURDIR)/atom/packages.list"
+	apm-beta list --installed --bare > "$(CURDIR)/atom/packages.list"
 
 git:
 	@echo '>> git'
