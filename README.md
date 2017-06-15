@@ -3,8 +3,8 @@
 ## Install
 
 * set zsh as default shell
-* install [homebrew](http://brew.sh)
-* install [atom](https://atom.io)
+* install [homebrew]https://brew.sh)
+* install [atom](https://atom.io/beta)
 * install [hyper-snazzy theme for terminal](https://github.com/sindresorhus/terminal-snazzy)
 * install [solarized theme for terminal](https://github.com/tomislav/osx-terminal.app-colors-solarized)
 * copy `git/.gitconfig.user.example` to `git/.gitconfig.user`
