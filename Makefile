@@ -56,6 +56,14 @@ update:
 	@echo 'npm'
 	npm -g update
 
+upgrade:
+	@echo '>> upgrade'
+	git pull
+	@echo 'homebrew'
+	brew upgrade
+	@echo 'npm'
+	npm i -g npm
+
 zsh:
 	@echo '>> zsh'
 	@echo 'Link .zshrc'
