@@ -25,13 +25,13 @@
     'prefix': 'test#tape'
     'body': '''
       test('${1:What component aspect are you testing?}', assert => {
-        const message = '${2:What should the feature do?}';
+        const message = '${2:What should the feature do?}'
 
-        const actual = ${3:'What is the actual output?'};
-        const expected = ${4:'What is the expected output?'};
+        const actual = ${3:'What is the actual output?'}
+        const expected = ${4:'What is the expected output?'}
 
-        assert.equal(actual, expected, message);
+        assert.equal(actual, expected, message)
 
-        assert.end();
-      });
+        assert.end()
+      })
       '''
