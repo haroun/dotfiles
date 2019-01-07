@@ -35,3 +35,46 @@
         assert.end()
       })
       '''
+  'pipe':
+    'prefix': 'pipe#functional'
+    'body': '''
+      // pipe(...functions: [...Function]) => initial => result
+      // Create a pipeline of functions to iterate over left to right
+      const pipe = (...functions) => inital => functions.reduce((accumulator, current) => current(accumulator), initial)
+      '''
+  'compose':
+    'prefix': 'compose#functional'
+    'body': '''
+      // compose(...functions: [...Function]) => initial => result
+      // Create a pipeline of functions to iterate over right to left
+      creates a pipeline of functions with the output of one function connected to the input of the next.
+      const compose = (...functions) => initial => functions.reduceRight((accumulator, current) => current(accumulator), initial)
+    '''
+  'curry':
+    'prefix': 'curry#functional'
+    'body': '''
+      // curry(f: Function, arr: Array) => result
+      // Autocurry, return a function that takes multiple parameters one at a time
+      const curry = (f, arr = []) =>
+        (...args) => (
+          a => a.length === f.length ? f(...a) : curry(f, a)
+        )([...arr, ...args])
+    '''
+  'reduce':
+     'prefix': 'reduce#functional'
+     'body': '''
+        ${1:array}.reduce((accumulator, current) => {
+          ${2:// Body}
+        }, ${3:initial})
+     '''
+  'reducer':
+    'prefix': 'reducer'
+    'body': '''
+      const ${1:myReducer} = (state = {}, action = {}) => {
+        const {type, payload} = action
+        switch (type) {
+          case '${2:FOO}': return {...state, ...payload}
+          default: return state
+        }
+      }
+    '''
