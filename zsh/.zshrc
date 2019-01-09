@@ -26,13 +26,22 @@ prompt_pure_update_vim_prompt() {
     return 1
   }
   VIM_PROMPT=${${KEYMAP/vicmd/❮}/(main|viins)/❯}
-  zle .reset-prompt
+  # [[ ! -o zle ]] && print 'zle\n'
+  # setopt NO_SINGLE_LINE_ZLE
+  [[ ! -z $BUFFER ]] && zle .reset-prompt
 }
 function zle-line-init zle-keymap-select {
   prompt_pure_update_vim_prompt
 }
+prompt_pure_post_vim_prompt() {
+  echo ''
+}
+function zle-line-finish {
+  prompt_pure_post_vim_prompt
+}
 zle -N zle-line-init
 zle -N zle-keymap-select
+zle -N zle-line-finish
 
 # Completions
 fpath=(/usr/local/share/zsh-completions $fpath)
