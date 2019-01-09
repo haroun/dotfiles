@@ -2,18 +2,16 @@
   "autocomplete-plus":
     backspaceTriggersAutocomplete: true
   core:
+    automaticallyUpdate: false
     disabledPackages: [
       "language-c"
       "language-csharp"
       "language-clojure"
-      "language-go"
       "language-java"
       "language-mustache"
       "language-objective-c"
       "language-perl"
       "language-python"
-      "language-ruby"
-      "language-ruby-on-rails"
       "language-sass"
       "language-source"
       "language-xml"
@@ -21,7 +19,8 @@
     projectHome: "/Users/harouna/repositories"
     telemetryConsent: "limited"
   editor:
-    fontFamily: "Menlo"
+    atomicSoftTabs: false
+    fontFamily: "SF Mono"
     preferredLineLength: 100
     scrollPastEnd: true
     showIndentGuide: true
@@ -38,7 +37,9 @@
   linter: {}
   "linter-eslint": {}
   "linter-ui-default":
-    showPanel: true
+    gutterPosition: "Left"
+    panelHeight: 69
+    showProviderName: true
   "markdown-preview":
     useGitHubStyle: true
   minimap:
@@ -46,10 +47,12 @@
     plugins:
       linter: true
       linterDecorationsZIndex: 0
+  "minimap-linter": {}
   tabs:
     enableVcsColoring: true
   "tree-view":
     hideIgnoredNames: true
+    hideVcsIgnoredFiles: true
   welcome:
     showOnStartup: false
 ".html.php.text":
