@@ -47,7 +47,6 @@
     'body': '''
       // compose(...functions: [...Function]) => initial => result
       // Create a pipeline of functions to iterate over right to left
-      creates a pipeline of functions with the output of one function connected to the input of the next.
       const compose = (...functions) => initial => functions.reduceRight((accumulator, current) => current(accumulator), initial)
     '''
   'curry':
