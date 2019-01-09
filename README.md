@@ -44,3 +44,4 @@ make update
 * [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * [git & gpg](https://help.github.com/categories/gpg/)
+* [san francisco mono font](https://developer.apple.com/fonts/)
