@@ -40,7 +40,7 @@
     'body': '''
       // pipe(...functions: [...Function]) => initial => result
       // Create a pipeline of functions to iterate over left to right
-      const pipe = (...functions) => inital => functions.reduce((accumulator, current) => current(accumulator), initial)
+      const pipe = (...functions) => initial => functions.reduce((accumulator, current) => current(accumulator), initial)
       '''
   'compose':
     'prefix': 'compose#functional'
