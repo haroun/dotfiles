@@ -1,6 +1,8 @@
-# GPG, https://gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 export LANG=en
-export PATH="/usr/local/opt/dirmngr/bin:/usr/local/opt/gpg-agent/bin:/usr/local/sbin:$PATH"
+export LC_CTYPE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+export PATH="/usr/local/sbin:$PATH"
+# GPG, https://gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 GPG_TTY=$(tty)
 export GPG_TTY
 
@@ -51,7 +53,7 @@ autoload -Uz compinit; compinit
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # History substring search (require to be set after syntax highlighting according to documentation)
-source /usr/local/opt/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^[f' vi-forward-word
@@ -64,6 +66,9 @@ alias ls='ls -F -G' # Color output for ls
 alias ll='ls -lah' # Lists human readable sizes, hidden files.
 alias grep='grep --color=auto' # Mark up the matching text with color
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # ip address
+alias GET='lwp-request -m "GET"' # Send a GET request
 alias DELETE='lwp-request -m "DELETE"' # Send a DELETE request
 alias POST='lwp-request -m "POST"' # Send a POST request
 alias PUT='lwp-request -m "PUT"' # Send a PUT request
+alias PATCH='lwp-request -m "PATCH"' # Send a PATCH request
+alias HEAD='lwp-request -m "HEAD"' # Send a HEAD request
