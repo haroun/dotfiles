@@ -79,3 +79,34 @@
         }
       }
     '''
+'.source.json':
+  'xo':
+    'prefix': 'xo'
+    'body': '''
+      "xo": {
+        "space": true,
+        "semicolon": false,
+        "rules": {
+          "indent": [
+            "error",
+            2,
+            {
+              "ignoredNodes": [
+                "ConditionalExpression"
+              ]
+            }
+          ],
+          "operator-linebreak": [
+            "error",
+            "after",
+            {
+              "overrides": {
+                "?": "before",
+                ":": "before",
+                "||": "before"
+              }
+            }
+          ]
+        }
+      }
+    '''
