@@ -80,6 +80,11 @@
       }
     '''
 '.source.json':
+  'test':
+    'prefix': 'test#tape'
+    'body': '''
+      "test": "tape '{,!(node_modules)/**/}*.test.js' | faucet"
+    '''
   'xo':
     'prefix': 'xo'
     'body': '''
