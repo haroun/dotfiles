@@ -4,3 +4,6 @@
 [submodule "vim/pack/editorconfig/start/editorconfig-vim"]
 	path = vim/pack/editorconfig/start/editorconfig-vim
 	url = https://github.com/editorconfig/editorconfig-vim.git
+[submodule "vim/pack/w0rp/start/ale"]
+	path = vim/pack/w0rp/start/ale
+	url = https://github.com/w0rp/ale.git
