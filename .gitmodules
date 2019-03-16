@@ -16,3 +16,6 @@
 [submodule "vim/pack/sheerun/start/vim-polyglot"]
 	path = vim/pack/sheerun/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "vim/pack/trevordmiller/start/nova-vim"]
+	path = vim/pack/trevordmiller/start/nova-vim
+	url = https://github.com/trevordmiller/nova-vim.git
