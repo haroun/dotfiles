@@ -20,6 +20,26 @@
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#_cson
 
+'.source.editorconfig':
+  'root':
+    'prefix': 'root#default'
+    'body': '''
+      root = true
+
+      [*]
+      charset = utf-8
+      indent_size = 2
+      indent_style = space
+      end_of_line = lf
+      insert_final_newline = true
+      trim_trailing_whitespace = true
+
+      [*.md]
+      trim_trailing_whitespace = false
+
+      [Makefile]
+      indent_style = tab
+    '''
 '.source.js':
   'test':
     'prefix': 'test#tape'
@@ -80,6 +100,16 @@
       }
     '''
 '.source.json':
+  'postversion':
+    'prefix': 'postversion'
+    'body': '''
+      "postversion": "git push && git push --tags"
+    '''
+  'start':
+    'prefix': 'start'
+    'body': '''
+      "start": "${1:export $(cat .env | xargs); }node ${2:index.js}"
+    '''
   'test':
     'prefix': 'test#tape'
     'body': '''
@@ -114,4 +144,12 @@
           ]
         }
       }
+    '''
+'.text.plain':
+  'node':
+    'prefix': 'node'
+    'body': '''
+      .env
+      node_modules
+      npm-debug.log
     '''
