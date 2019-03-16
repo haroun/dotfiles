@@ -7,3 +7,6 @@
 [submodule "vim/pack/w0rp/start/ale"]
 	path = vim/pack/w0rp/start/ale
 	url = https://github.com/w0rp/ale.git
+[submodule "vim/pack/airblade/start/vim-gitgutter"]
+	path = vim/pack/airblade/start/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
