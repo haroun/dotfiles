@@ -19,3 +19,6 @@
 [submodule "vim/pack/trevordmiller/start/nova-vim"]
 	path = vim/pack/trevordmiller/start/nova-vim
 	url = https://github.com/trevordmiller/nova-vim.git
+[submodule "vim/pack/junegunn/start/fzf"]
+	path = vim/pack/junegunn/start/fzf
+	url = https://github.com/junegunn/fzf.vim
