@@ -31,3 +31,6 @@
 [submodule "vim/pack/scrooloose/start/nerdtree"]
 	path = vim/pack/scrooloose/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/pack/itchyny/start/lightline"]
+	path = vim/pack/itchyny/start/lightline
+	url = https://github.com/itchyny/lightline.vim.git
