@@ -22,3 +22,6 @@
 [submodule "vim/pack/junegunn/start/fzf"]
 	path = vim/pack/junegunn/start/fzf
 	url = https://github.com/junegunn/fzf.vim
+[submodule "vim/pack/tpope/start/vim-eunuch"]
+	path = vim/pack/tpope/start/vim-eunuch
+	url = https://github.com/tpope/vim-eunuch.git
