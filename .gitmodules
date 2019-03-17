@@ -25,3 +25,6 @@
 [submodule "vim/pack/tpope/start/vim-eunuch"]
 	path = vim/pack/tpope/start/vim-eunuch
 	url = https://github.com/tpope/vim-eunuch.git
+[submodule "vim/pack/matthn/start/emmet-vim"]
+	path = vim/pack/matthn/start/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
