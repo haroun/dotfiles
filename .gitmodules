@@ -28,3 +28,6 @@
 [submodule "vim/pack/matthn/start/emmet-vim"]
 	path = vim/pack/matthn/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "vim/pack/scrooloose/start/nerdtree"]
+	path = vim/pack/scrooloose/start/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
