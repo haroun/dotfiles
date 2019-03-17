@@ -34,3 +34,6 @@
 [submodule "vim/pack/itchyny/start/lightline"]
 	path = vim/pack/itchyny/start/lightline
 	url = https://github.com/itchyny/lightline.vim.git
+[submodule "vim/pack/junegunn/start/fzf.vim"]
+	path = vim/pack/junegunn/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
