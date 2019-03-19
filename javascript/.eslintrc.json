@@ -1,0 +1,33 @@
+{
+  "name": "haroun/default",
+	"eslintConfig": {
+		"extends": "xo/esnext",
+    "rules": {
+      "semi": [
+        "error",
+        "never"
+      ],
+      "indent": [
+        "error",
+        2,
+        {
+          "SwitchCase": 1,
+          "ignoredNodes": [
+            "ConditionalExpression"
+          ]
+        }
+      ],
+      "operator-linebreak": [
+        "error",
+        "after",
+        {
+          "overrides": {
+            "?": "before",
+            ":": "before",
+            "||": "before"
+          }
+        }
+      ]
+    }
+	}
+}
