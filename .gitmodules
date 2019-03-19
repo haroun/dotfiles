@@ -37,3 +37,9 @@
 [submodule "vim/pack/junegunn/start/fzf.vim"]
 	path = vim/pack/junegunn/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
+[submodule "vim/pack/morhetz/opt/gruvbox"]
+	path = vim/pack/morhetz/opt/gruvbox
+	url = https://github.com/morhetz/gruvbox.git
+[submodule "vim/pack/joshdick/opt/onedark.vim"]
+	path = vim/pack/joshdick/opt/onedark.vim
+	url = https://github.com/joshdick/onedark.vim.git
