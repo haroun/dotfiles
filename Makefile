@@ -67,4 +67,5 @@ upgrade:
 zsh:
 	@echo '>> zsh'
 	@echo 'Link .zshrc'
+	ln -fs "$(CURDIR)/zsh/.zshenv" "$(TARGETDIR)/.zshenv"
 	ln -fs "$(CURDIR)/zsh/.zshrc" "$(TARGETDIR)/.zshrc"

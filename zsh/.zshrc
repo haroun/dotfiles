@@ -1,11 +1,3 @@
-export LANG=en
-export LC_CTYPE=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-export PATH="/usr/local/sbin:$PATH"
-# GPG, https://gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
-GPG_TTY=$(tty)
-export GPG_TTY
-
 # Save history
 HISTFILE="${ZDOTDIR:-$HOME}/.zhistory" # The path to the history file.
 HISTSIZE=10000 # The maximum number of events to save in the internal history.
