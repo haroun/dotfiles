@@ -1,143 +1,42 @@
-set nobackup
-set nowb
-set noswapfile
-set noerrorbells
+" Syntax highlighting
+syntax on
 
-set mouse=a
-" set ttymouse=xterm2
-set so=999
-" set clipboard=unnamedplus
-set wildmenu
+set number                            " show line numbers in gutter
+if exists('+relativenumber')
+  set relativenumber                  " show relative numbers in gutter
+endif
 
-" if has('mac')
-"   set clipboard=unnamed
-" endif
+set tabstop=2                         " spaces per tab
+set expandtab                         " always use spaces instead of tabs
+set smarttab                          " <tab>/<BS> indent/dedent in leading whitespace
+set shiftround                        " always indent by multiple of shiftwidth
+set shiftwidth=2                      " spaces per tab (when shifting)
 
-" Appearance "
+set splitbelow                        " open horizontal splits below current window
+set splitright                        " open vertical splits to the right of the current window
+set textwidth=120                     " automatically hard wrap at 120 columns
+set scrolloff=3                       " start scrolling 3 lines before edge of viewport
+set sidescrolloff=3                   " same as scolloff, but for columns
 
-syntax enable
-
-set number
-set relativenumber
-set linespace=12
-
-set title
-set titlestring=%F\ -\ vim
-set noshowmode
-set laststatus=2
-
+" Color scheme
+if !has('termguicolors')
+  let base16colorspace=256  " Access colors present in 256 colorspace
+endif
 set background=dark
+colorscheme base16-ocean
+if has('termguicolors')
+  " set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
+  " Don't need this in xterm-256color, but do need it inside tmux.
+  " (See `:h xterm-true-color`.)
+  if &term =~# 'tmux-256color'
+    let &t_8f="\e[38;2;%ld;%ld;%ldm"
+    let &t_8b="\e[48;2;%ld;%ld;%ldm"
+  endif
+endif
 
-" File behaviour "
 
-set expandtab
-set smarttab
-set linebreak
-set breakindent
-set nostartofline
-
-set shiftwidth=4
-set tabstop=4
-
-" Search "
-
-set smartcase
-set hlsearch
-set incsearch
-
-" Panes "
-
-set splitbelow
-set splitright
-
-" Filetype associations "
-
-au BufNewFile,BufRead *.fish set ft=fish
-
-" Bindings "
-
-set backspace=indent,eol,start
-
-map q <Nop>
-map ; :Files<CR>
-
-map <F6> :setlocal spell!<CR>
-map <F12> :Goyo<CR>
-map <C-o> :NERDTreeToggle<CR>
-
-map <Leader> <Plug>(easymotion-prefix)
-
-" Plugins "
-
-" Install and run vim-plug on first run
-" if empty(glob('~/.vim/autoload/plug.vim'))
-"     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-" endif
-
-" so ~/.vim/plugins.vim
-
-" let g:gruvbox_vert_split = 'bg1'
-" let g:gruvbox_sign_column = 'bg0'
-
-" colorscheme gruvbox
-colorscheme onedark
-hi Normal ctermbg=NONE
-hi CursorLineNr ctermfg=white
-hi SignColumn ctermbg=NONE
-
-highlight GitGutterAdd ctermfg=green ctermbg=NONE
-highlight GitGutterChange ctermfg=yellow ctermbg=NONE
-highlight GitGutterDelete ctermfg=red ctermbg=NONE
-highlight GitGutterChangeDelete ctermfg=yellow ctermbg=NONE
-
-let g:lightline = {
-  \     'active': {
-  \         'left': [['mode', 'paste' ], ['readonly', 'filename', 'modified']],
-  \         'right': [['lineinfo'], ['percent'], ['gitbranch', 'fileformat', 'fileencoding']]
-  \     },
-  \     'component_function': {
-  \         'gitbranch': 'gitbranch#name'
-  \     }
-  \ }
-
-let g:deoplete#enable_at_startup = 1
-let g:javascript_plugin_flow = 1
-let NERDTreeShowHidden = 1
-
-" set nocompatible
-" syntax enable
-" filetype plugin on
-" set path+=**
-" set wildmenu
-" command! MakeTags !ctags -R .
-" let g:netrw_banner=0        " disable annoying banner
-" let g:netrw_browse_split=4  " open in prior window
-" let g:netrw_altv=1          " open splits to the right
-" let g:netrw_liststyle=3     " tree view
-" let g:netrw_list_hide=netrw_gitignore#Hide()
-" let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-" nnoremap ,html :-1read $HOME/.vim/.skeleton.html<CR>3jwf>a
-" set makeprg=bundle\ exec\ rspec\ -f\ QuickfixFormatter
-
-" set shell=zsh
-" set backspace=2
-
-" syntax enable
-" let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-" set t_ut=                " fix 256 colors in tmux http://sunaku.github.io/vim-256color-bce.html
-" if has("termguicolors")  " set true colors
-"     let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-"     let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-"     set termguicolors
-"   endif
-" set background=dark
-" colorscheme nova
-
-" set number
-" set numberwidth=5
-
-let g:lightline = {
-  \ 'colorscheme': 'seoul256',
-  \ }
+" set guifont=SF\ Mono:h14
+" Lightline theme
+" let g:lightline = {
+"   \ 'colorscheme': 'seoul256',
+"   \ }
