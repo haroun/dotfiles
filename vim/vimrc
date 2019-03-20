@@ -56,3 +56,12 @@ hi ALEWarningSign guifg=#F2C38F guibg=#343D46
 " Use ALT-k and ALT-j to navigate errors
 nmap <silent> ˚ <Plug>(ale_previous_wrap)
 nmap <silent> ∆ <Plug>(ale_next_wrap)
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>         " open NERDTree with Ctrl+n
+
+" GitGutter
+nmap ]c <Plug>GitGutterNextHunk
+nmap [c <Plug>GitGutterPrevHunk
+nmap <Leader>ha <Plug>GitGutterStageHunk
+nmap <Leader>hr <Plug>GitGutterUndoHunk
