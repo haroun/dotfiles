@@ -1,4 +1,4 @@
-.PHONY: atom atom-save git gpg install php update zsh
+.PHONY: atom atom-save git gpg install php terminal update upgrade zsh
 # .SILENT:
 
 CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
@@ -47,6 +47,13 @@ php:
 	ln -fs "$(CURDIR)/php/composer.json" "$(TARGETDIR)/.composer/composer.json"
 	ln -fs "$(CURDIR)/php/composer.lock" "$(TARGETDIR)/.composer/composer.lock"
 	composer global update
+
+terminal:
+	@echo '>> terminal'
+	@echo 'Link alacritty'
+	ln -fs "$(CURDIR)/terminal/alacritty/.alacritty.yml" "$(TARGETDIR)/.alacritty.yml"
+	@echo 'Link tmux'
+	ln -fs "$(CURDIR)/terminal/tmux/tmux.conf" "$(TARGETDIR)/.tmux.conf"
 
 update:
 	@echo '>> update'

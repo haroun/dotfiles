@@ -1,7 +1,7 @@
 {
   "name": "haroun/default",
-	"eslintConfig": {
-		"extends": "xo/esnext",
+  "eslintConfig": {
+    "extends": "xo/esnext",
     "rules": {
       "semi": [
         "error",
@@ -29,5 +29,5 @@
         }
       ]
     }
-	}
+  }
 }
