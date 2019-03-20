@@ -43,3 +43,6 @@
 [submodule "vim/pack/joshdick/opt/onedark.vim"]
 	path = vim/pack/joshdick/opt/onedark.vim
 	url = https://github.com/joshdick/onedark.vim.git
+[submodule "vim/pack/chriskempson/opt/base16-vim"]
+	path = vim/pack/chriskempson/opt/base16-vim
+	url = https://github.com/chriskempson/base16-vim.git
