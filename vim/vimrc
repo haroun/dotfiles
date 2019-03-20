@@ -19,24 +19,40 @@ set scrolloff=3                       " start scrolling 3 lines before edge of v
 set sidescrolloff=3                   " same as scolloff, but for columns
 
 " Color scheme
-if !has('termguicolors')
-  let base16colorspace=256  " Access colors present in 256 colorspace
+" Use 24-bit (true-color) mode in Vim/Neovim.
+" If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+" (see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (has("nvim"))
+  " For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+if (has("termguicolors"))
+  set termguicolors                   " Use 24-bit colors
 endif
 set background=dark
 colorscheme base16-ocean
-if has('termguicolors')
-  " set termguicolors                   " use guifg/guibg instead of ctermfg/ctermbg in terminal
-  " Don't need this in xterm-256color, but do need it inside tmux.
-  " (See `:h xterm-true-color`.)
-  if &term =~# 'tmux-256color'
-    let &t_8f="\e[38;2;%ld;%ld;%ldm"
-    let &t_8b="\e[48;2;%ld;%ld;%ldm"
-  endif
-endif
-
 
 " set guifont=SF\ Mono:h14
+
 " Lightline theme
-" let g:lightline = {
-"   \ 'colorscheme': 'seoul256',
-"   \ }
+let g:lightline = {
+  \ 'colorscheme': 'one',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+  \ },
+  \ 'component_function': {
+  \   'gitbranch': 'gitbranch#name'
+  \ },
+  \ }
+
+" ALE
+" see https://github.com/alexlafroscia/dotfiles/blob/master/nvim/plugin/ale.vim
+" Use a slightly slimmer error pointer
+let g:ale_sign_error = '✖'
+hi ALEErrorSign guifg=#DF8C8C guibg=#343D46
+let g:ale_sign_warning = '⚠'
+hi ALEWarningSign guifg=#F2C38F guibg=#343D46
+" Use ALT-k and ALT-j to navigate errors
+nmap <silent> ˚ <Plug>(ale_previous_wrap)
+nmap <silent> ∆ <Plug>(ale_next_wrap)
