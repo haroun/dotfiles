@@ -58,10 +58,13 @@ nmap <silent> ˚ <Plug>(ale_previous_wrap)
 nmap <silent> ∆ <Plug>(ale_next_wrap)
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>         " open NERDTree with Ctrl+n
+map <C-o> :NERDTreeToggle<CR>         " open NERDTree with Ctrl+n
 
 " GitGutter
 nmap ]c <Plug>GitGutterNextHunk
 nmap [c <Plug>GitGutterPrevHunk
 nmap <Leader>ha <Plug>GitGutterStageHunk
 nmap <Leader>hr <Plug>GitGutterUndoHunk
+
+" fzf
+map ; :Files<CR>
