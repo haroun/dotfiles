@@ -1,4 +1,4 @@
-.PHONY: atom atom-save git gpg install php terminal update upgrade zsh
+.PHONY: atom atom-save git gpg install javascript php terminal update upgrade vim zsh
 # .SILENT:
 
 CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
@@ -41,6 +41,11 @@ install:
 	@echo 'Link .inputrc'
 	ln -fs "$(CURDIR)/.inputrc" "$(TARGETDIR)/.inputrc"
 
+javascript:
+	@echo '>> javascript'
+	@echo 'Link eslintrc configuration'
+	ln -fs "$(CURDIR)/javascript/.eslintrc.json" "$(TARGETDIR)/.eslintrc.json"
+
 php:
 	@echo '> php'
 	@echo 'Link composer.json/composer.lock & update dependencies'
@@ -70,6 +75,12 @@ upgrade:
 	brew upgrade
 	@echo 'npm'
 	npm i -g npm
+
+vim:
+	@echo '>> vim'
+	@echo 'Link vim & nvim'
+	ln -fs "$(CURDIR)/vim" "$(TARGETDIR)/.vim"
+	ln -fs "$(CURDIR)/vim/init.vim" "$(TARGETDIR)/.config/nvim/init.vim"
 
 zsh:
 	@echo '>> zsh'
