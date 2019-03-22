@@ -55,3 +55,9 @@
 [submodule "vim/pack/ternjs/opt/tern_for_vim"]
 	path = vim/pack/ternjs/opt/tern_for_vim
 	url = https://github.com/ternjs/tern_for_vim.git
+[submodule "vim/pack/ternjs/start/tern_for_vim"]
+	path = vim/pack/ternjs/start/tern_for_vim
+	url = https://github.com/ternjs/tern_for_vim.git
+[submodule "vim/pack/Shougo/start/deoplete.nvim"]
+	path = vim/pack/Shougo/start/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim.git

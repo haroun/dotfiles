@@ -68,3 +68,14 @@ nmap <Leader>hr <Plug>GitGutterUndoHunk
 
 " fzf
 map ; :Files<CR>
+
+" deoplete
+if has('nvim')
+  if exists(':UpdateRemotePlugins') == 2
+    UpdateRemotePlugins
+  endif
+  let g:deoplete#enable_at_startup = 1
+endif
+
+" tern
+let g:tern_map_keys = 1               " enable tern default key mappings https://github.com/ternjs/tern_for_vim/blob/master/doc/tern.txt
