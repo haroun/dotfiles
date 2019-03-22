@@ -25,6 +25,14 @@ brew install zsh-autosuggestions
 # install gpg
 brew install gpg
 
+# neovim
+brew install neovim
+pip install --user --upgrade pynvim
+pip3 install --user --upgrade pynvim
+
+# alacritty
+brew cask install alacritty
+
 # setup script
 make install
 ```
@@ -45,3 +53,5 @@ make update
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 * [git & gpg](https://help.github.com/categories/gpg/)
 * [san francisco mono font](https://developer.apple.com/fonts/)
+* [neovim](https://github.com/neovim/neovim)
+* [alacritty](https://github.com/jwilm/alacritty)

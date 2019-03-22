@@ -38,6 +38,7 @@ install:
 	make git
 	make gpg
 	make zsh
+	git submodule init && git submodule update
 	@echo 'Link .inputrc'
 	ln -fs "$(CURDIR)/.inputrc" "$(TARGETDIR)/.inputrc"
 
@@ -45,6 +46,8 @@ javascript:
 	@echo '>> javascript'
 	@echo 'Link eslintrc configuration'
 	ln -fs "$(CURDIR)/javascript/.eslintrc.json" "$(TARGETDIR)/.eslintrc.json"
+	@echo 'Link tern configuration'
+	ln -fs "$(CURDIR)/javascript/.tern-config" "$(TARGETDIR)/.tern-config"
 
 php:
 	@echo '> php'
@@ -67,6 +70,7 @@ update:
 	brew update
 	@echo 'npm'
 	npm -g update
+	git submodule update
 
 upgrade:
 	@echo '>> upgrade'
@@ -75,12 +79,15 @@ upgrade:
 	brew upgrade
 	@echo 'npm'
 	npm i -g npm
+	git submodule foreach git pull
 
 vim:
 	@echo '>> vim'
 	@echo 'Link vim & nvim'
 	ln -fs "$(CURDIR)/vim" "$(TARGETDIR)/.vim"
 	ln -fs "$(CURDIR)/vim/init.vim" "$(TARGETDIR)/.config/nvim/init.vim"
+	pip3 install --user --upgrade pynvim
+	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
 
 zsh:
 	@echo '>> zsh'
