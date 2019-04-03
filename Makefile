@@ -46,6 +46,8 @@ javascript:
 	@echo '>> javascript'
 	@echo 'Link eslintrc configuration'
 	ln -fs "$(CURDIR)/javascript/.eslintrc.json" "$(TARGETDIR)/.eslintrc.json"
+	@echo 'Install tern'
+	npm install -g tern
 	@echo 'Link tern configuration'
 	ln -fs "$(CURDIR)/javascript/.tern-config" "$(TARGETDIR)/.tern-config"
 
