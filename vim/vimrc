@@ -58,7 +58,7 @@ nmap <silent> ˚ <Plug>(ale_previous_wrap)
 nmap <silent> ∆ <Plug>(ale_next_wrap)
 
 " NERDTree
-map <C-o> :NERDTreeToggle<CR>         " open NERDTree with Ctrl+n
+map <C-o> :NERDTreeToggle<CR>         " open NERDTree with Ctrl+o
 
 " GitGutter
 nmap ]c <Plug>GitGutterNextHunk
