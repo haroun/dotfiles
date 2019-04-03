@@ -72,7 +72,7 @@ update:
 	brew update
 	@echo 'npm'
 	npm -g update
-	git submodule update
+	git submodule update --init
 
 upgrade:
 	@echo '>> upgrade'
