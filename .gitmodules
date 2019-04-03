@@ -61,3 +61,6 @@
 [submodule "vim/pack/Shougo/start/deoplete.nvim"]
 	path = vim/pack/Shougo/start/deoplete.nvim
 	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "vim/pack/carlitux/start/deoplete-ternjs"]
+	path = vim/pack/carlitux/start/deoplete-ternjs
+	url = https://github.com/carlitux/deoplete-ternjs
