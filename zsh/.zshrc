@@ -8,30 +8,62 @@ bindkey -v
 export KEYTIMEOUT=1 # kill lag for mode change
 
 # Prompt
+# https://github.com/Parth/dotfiles/blob/master/zsh/prompt.sh
 autoload -U promptinit; promptinit
-prompt pure
-
-# Vim prompt
-VIM_PROMPT="❯"
-PROMPT='%(?.%F{magenta}.%F{red})${VIM_PROMPT}%f '
-prompt_pure_update_vim_prompt() {
-  zle || {
-    print "error: pure_update_vim_prompt must be called when zle is active"
-    return 1
-  }
+set-prompt() {
+  # Vim prompt
   VIM_PROMPT=${${KEYMAP/vicmd/❮}/(main|viins)/❯}
-  # [[ ! -o zle ]] && print 'zle\n'
-  # setopt NO_SINGLE_LINE_ZLE
-  [[ ! -z $BUFFER ]] && zle .reset-prompt
+  # arrow
+  PROMPT="%(?.%F{magenta}.%F{red})${VIM_PROMPT}%f "
+  # [
+  PROMPT+="%F{white}[%f"
+  # path
+  PROMPT+="%F{cyan}%B${PWD/#$HOME/~}%b%f"
+  # status code
+  PROMPT+="%(?.., %F{red}%?%f)"
+  # git
+  if git rev-parse --is-inside-work-tree 2> /dev/null | grep -q 'true' ; then
+    PROMPT+=', '
+    PROMPT+="%F{blue}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)%f"
+    if [ $(git status --short | wc -l) -gt 0 ]; then
+      PROMPT+="%F{red}+$(git status --short | wc -l | awk '{$1=$1};1')%f"
+    fi
+  fi
+  # timer
+  if [[ $_elapsed[-1] -ne 0 ]]; then
+    PROMPT+=', '
+    PROMPT+="%F{magenta}$_elapsed[-1]s%f"
+  fi
+  # PID
+  if [[ $! -ne 0 ]]; then
+    PROMPT+=', '
+    PROMPT+="%F{yellow}PID:$!%f"
+  fi
+  # sudo
+  CAN_I_RUN_SUDO=$(sudo -n uptime 2>&1 | grep 'load' | wc -l)
+  if [ ${CAN_I_RUN_SUDO} -gt 0 ]
+  then
+    PROMPT+=', '
+    PROMPT+="%F{red}%Bsudo%b%f"
+  fi
+  # ]
+  PROMPT+="%F{white}]:%f "
+}
+preexec () {
+  (( ${#_elapsed[@]} > 1000 )) && _elapsed=(${_elapsed[@]: -1000})
+    _start=$SECONDS
+}
+precmd () {
+  (( _start >= 0 )) && _elapsed+=($(( SECONDS-_start )))
+    _start=-1
+  set-prompt
 }
 function zle-line-init zle-keymap-select {
-  prompt_pure_update_vim_prompt
-}
-prompt_pure_post_vim_prompt() {
-  echo ''
+  set-prompt
+  zle reset-prompt
 }
 function zle-line-finish {
-  prompt_pure_post_vim_prompt
+  echo ''
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
