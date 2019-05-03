@@ -3,10 +3,9 @@
 ## Install
 
 * set zsh as default shell
-* install [homebrew]https://brew.sh)
+* install [homebrew](https://brew.sh)
 * install [atom](https://atom.io/beta)
-* install [hyper-snazzy theme for terminal](https://github.com/sindresorhus/terminal-snazzy)
-* install [solarized theme for terminal](https://github.com/tomislav/osx-terminal.app-colors-solarized)
+* install [docker](https://www.docker.com/get-started)
 * copy `git/.gitconfig.user.example` to `git/.gitconfig.user`
 
 ```sh
@@ -25,8 +24,13 @@ brew install zsh-autosuggestions
 # install gpg
 brew install gpg
 
+# install tmux
+brew install tmux
+
 # neovim
 brew install neovim
+brew install python
+brew install python@2
 pip install --user --upgrade pynvim
 pip3 install --user --upgrade pynvim
 
@@ -46,7 +50,6 @@ make update
 
 ## Links
 
-* [pure theme](https://github.com/sindresorhus/pure)
 * [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 * [zsh-completions](https://github.com/zsh-users/zsh-completions)
 * [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)
@@ -55,3 +58,6 @@ make update
 * [san francisco mono font](https://developer.apple.com/fonts/)
 * [neovim](https://github.com/neovim/neovim)
 * [alacritty](https://github.com/jwilm/alacritty)
+* optional [pure theme](https://github.com/sindresorhus/pure)
+* optional [hyper-snazzy theme for terminal](https://github.com/sindresorhus/terminal-snazzy)
+* optional [solarized theme for terminal](https://github.com/tomislav/osx-terminal.app-colors-solarized)
