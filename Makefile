@@ -61,7 +61,8 @@ php:
 terminal:
 	@echo '>> terminal'
 	@echo 'Link alacritty'
-	ln -fs "$(CURDIR)/terminal/alacritty/.alacritty.yml" "$(TARGETDIR)/.alacritty.yml"
+	mkdir -p "$(TARGETDIR)/.config/alacritty"
+	ln -fs "$(CURDIR)/terminal/alacritty/.alacritty.yml" "$(TARGETDIR)/.config/alacritty/alacritty.yml"
 	@echo 'Link tmux'
 	ln -fs "$(CURDIR)/terminal/tmux/tmux.conf" "$(TARGETDIR)/.tmux.conf"
 
@@ -87,6 +88,7 @@ vim:
 	@echo '>> vim'
 	@echo 'Link vim & nvim'
 	ln -fs "$(CURDIR)/vim" "$(TARGETDIR)/.vim"
+	mkdir -p "$(TARGETDIR)/.config/nvim"
 	ln -fs "$(CURDIR)/vim/init.vim" "$(TARGETDIR)/.config/nvim/init.vim"
 	pip3 install --user --upgrade pynvim
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
