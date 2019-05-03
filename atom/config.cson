@@ -38,6 +38,7 @@
   "linter-eslint": {}
   "linter-ui-default":
     gutterPosition: "Left"
+    panelHeight: 69
     showProviderName: true
   "markdown-preview":
     useGitHubStyle: true
