@@ -5,3 +5,4 @@ export PATH="/usr/local/sbin:$PATH"
 # GPG, https://gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 GPG_TTY=$(tty)
 export GPG_TTY
+export TERM=xterm-256color
