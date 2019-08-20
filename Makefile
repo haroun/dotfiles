@@ -82,7 +82,7 @@ upgrade:
 	brew upgrade
 	@echo 'npm'
 	npm i -g npm
-	git submodule foreach git pull
+	git submodule foreach 'git checkout master && git pull'
 
 vim:
 	@echo '>> vim'
