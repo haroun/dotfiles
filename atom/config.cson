@@ -15,6 +15,7 @@
       "language-sass"
       "language-source"
       "language-xml"
+      "atom-vue"
     ]
     projectHome: "/Users/harouna/repositories"
     telemetryConsent: "limited"
@@ -35,10 +36,12 @@
   "git-diff":
     showIconsInEditorGutter: true
   linter: {}
+  "linter-docker": {}
   "linter-eslint": {}
   "linter-ui-default":
     gutterPosition: "Left"
     panelHeight: 69
+    showPanel: true
     showProviderName: true
   "markdown-preview":
     useGitHubStyle: true
