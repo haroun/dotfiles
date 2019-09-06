@@ -70,20 +70,20 @@ zle -N zle-keymap-select
 zle -N zle-line-finish
 
 # Completions
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(${PWD}/zsh/modules/zsh-users/zsh-completions $fpath)
 autoload -Uz compinit; compinit
 
 # Syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${PWD}/zsh/modules/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # History substring search (require to be set after syntax highlighting according to documentation)
-source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ${PWD}/zsh/modules/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^[f' vi-forward-word
 
 # Autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${PWD}/zsh/modules/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
 alias ls='ls -F -G' # Color output for ls
@@ -96,3 +96,6 @@ alias POST='lwp-request -m "POST"' # Send a POST request
 alias PUT='lwp-request -m "PUT"' # Send a PUT request
 alias PATCH='lwp-request -m "PATCH"' # Send a PATCH request
 alias HEAD='lwp-request -m "HEAD"' # Send a HEAD request
+
+# nvm
+export NVM_DIR="$HOME/.nvm"

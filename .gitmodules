@@ -64,3 +64,15 @@
 [submodule "vim/pack/carlitux/start/deoplete-ternjs"]
 	path = vim/pack/carlitux/start/deoplete-ternjs
 	url = https://github.com/carlitux/deoplete-ternjs
+[submodule "zsh/modules/zsh-users/zsh-completions"]
+	path = zsh/modules/zsh-users/zsh-completions
+	url = https://github.com/zsh-users/zsh-completions.git
+[submodule "zsh/modules/zsh-users/zsh-syntax-highlighting"]
+	path = zsh/modules/zsh-users/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "zsh/modules/zsh-users/zsh-history-substring-search"]
+	path = zsh/modules/zsh-users/zsh-history-substring-search
+	url = https://github.com/zsh-users/zsh-history-substring-search.git
+[submodule "zsh/modules/zsh-users/zsh-autosuggestions"]
+	path = zsh/modules/zsh-users/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git
