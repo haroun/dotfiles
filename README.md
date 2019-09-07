@@ -2,24 +2,30 @@
 
 ## Install
 
-* set zsh as default shell
+* set [zsh][zsh] as default shell
+* install [neovim][neovim] + [pynvim][pynvim]
+* install [tmux][tmux]
+* install [gpg][gpg]
+* install [nvm][nvm], [node][node] and [npm][npm]
+
 * install [homebrew](https://brew.sh)
 * install [atom](https://atom.io/beta)
+* install [vscode](https://code.visualstudio.com)
 * install [docker](https://www.docker.com/get-started)
 * copy `git/.gitconfig.user.example` to `git/.gitconfig.user`
 
 ```sh
+# setup script
+make install
+```
+
+```sh
+# additional: mac only
 # install node
 brew install node
 
 # install pure
 npm install --global pure-prompt
-
-# install zsh components
-brew install zsh-completions
-brew install zsh-syntax-highlighting
-brew install zsh-history-substring-search
-brew install zsh-autosuggestions
 
 # install gpg
 brew install gpg
@@ -31,20 +37,17 @@ brew install tmux
 brew install neovim
 brew install python
 brew install python@2
-pip install --user --upgrade pynvim
+pip2 install --user --upgrade pynvim
 pip3 install --user --upgrade pynvim
 
 # alacritty
 brew cask install alacritty
-
-# setup script
-make install
 ```
 
 ## Update
 
 ```sh
-# update repository, homebrew & npm
+# update repository & dependencies
 make update
 ```
 
@@ -57,7 +60,19 @@ make update
 * [git & gpg](https://help.github.com/categories/gpg/)
 * [san francisco mono font](https://developer.apple.com/fonts/)
 * [neovim](https://github.com/neovim/neovim)
+* [tmux][tmux]
+* [nodejs][node]
+* [npm][npm]
 * [alacritty](https://github.com/jwilm/alacritty)
 * optional [pure theme](https://github.com/sindresorhus/pure)
 * optional [hyper-snazzy theme for terminal](https://github.com/sindresorhus/terminal-snazzy)
 * optional [solarized theme for terminal](https://github.com/tomislav/osx-terminal.app-colors-solarized)
+
+[zsh]: https://www.zsh.org
+[neovim]: https://neovim.io
+[pynvim]: https://github.com/neovim/pynvim
+[tmux]: https://github.com/tmux/tmux
+[gpg]: https://gnupg.org
+[nvm]: https://github.com/nvm-sh/nvm
+[node]: https://nodejs.org/en/
+[npm]: https://www.npmjs.com
