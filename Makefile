@@ -1,11 +1,10 @@
-.PHONY: default additional-atom additional-atom-save additional-php additional-vscode git gpg install javascript terminal update upgrade vim zsh
+.PHONY: default additional-atom additional-atom-save additional-php additional-vscode additional-vscode-save git gpg install javascript terminal update upgrade vim zsh
 # .SILENT:
 
 CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 TARGETDIR := $$HOME
 
 # TODO: homebrew references
-# TODO: install vscode packages from package.list
 
 default: install
 
@@ -37,7 +36,12 @@ additional-vscode:
 	@echo . 'Link settings.json & snippets'
 	ln -fs "$(CURDIR)/additional/vscode/settings.json" "$(TARGETDIR)/.vscode/settings.json"
 	ln -fs "$(CURDIR)/additional/vscode/snippets" "$(TARGETDIR)/.vscode/snippets"
-	@echo . 'Save vscode installed packages in packages.list'
+	@echo . 'Install vscode packages from packages.list'
+	@while IFS= read -r package; do code-insiders --install-extension "$$package" ; done < "$(CURDIR)/additional/vscode/packages.list"
+
+additional-vscode-save:
+	@echo '>> additional: vscode-save'
+	@echo 'Save vscode installed packages in packages.list'
 	code-insiders --list-extensions > "$(CURDIR)/additional/vscode/packages.list"
 
 git:
