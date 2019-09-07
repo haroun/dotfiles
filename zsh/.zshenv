@@ -6,3 +6,6 @@ export PATH="/usr/local/sbin:$PATH"
 GPG_TTY=$(tty)
 export GPG_TTY
 export TERM=xterm-256color
+export ZMODULES_DIR="$HOME/repositories/dotfiles/zsh/modules"
+# nvm
+export NVM_DIR="$HOME/.nvm"
