@@ -1,12 +1,14 @@
-.PHONY: default additional-atom additional-atom-save additional-php additional-vscode additional-vscode-save git gpg install javascript terminal update upgrade vim zsh
+.PHONY: default additional-apt additional-atom additional-atom-save additional-brew additional-php additional-vscode additional-vscode-save git gpg install javascript terminal update upgrade vim zsh
 # .SILENT:
 
 CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 TARGETDIR := $$HOME
 
-# TODO: homebrew references
-
 default: install
+
+additional-apt:
+	@echo '>> apt'
+	apt-get update && apt-get upgrade
 
 additional-atom:
 	@echo '>> additional: atom'
@@ -23,6 +25,10 @@ additional-atom-save:
 	@echo '>> additional: atom-save'
 	@echo 'Save atom installed packages in packages.list'
 	apm-beta list --installed --bare > "$(CURDIR)/additional/atom/packages.list"
+
+additional-brew:
+	@echo '>> homebrew'
+	brew update && brew upgrade
 
 additional-php:
 	@echo '>> additional: php'
@@ -89,8 +95,6 @@ terminal:
 update:
 	@echo '>> update'
 	git pull
-	@echo 'homebrew'
-	brew update
 	@echo 'npm'
 	npm -g update
 	git submodule update --init
@@ -98,8 +102,6 @@ update:
 upgrade:
 	@echo '>> upgrade'
 	git pull
-	@echo 'homebrew'
-	brew upgrade
 	@echo 'npm'
 	npm i -g npm
 	@echo 'vim'
