@@ -5,7 +5,6 @@ SAVEHIST=10000 # The maximum number of events to save in the history file.
 
 # Vi mode
 bindkey -v
-export KEYTIMEOUT=1 # kill lag for mode change
 
 # Prompt
 # https://github.com/Parth/dotfiles/blob/master/zsh/prompt.sh
@@ -70,20 +69,20 @@ zle -N zle-keymap-select
 zle -N zle-line-finish
 
 # Completions
-fpath=(${PWD}/zsh/modules/zsh-users/zsh-completions $fpath)
+fpath=(${HOME}/.zshmodules/zsh-users/zsh-completions $fpath)
 autoload -Uz compinit; compinit
 
 # Syntax-highlighting
-source ${ZMODULES_DIR}/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${HOME}/.zshmodules/zsh-users/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # History substring search (require to be set after syntax highlighting according to documentation)
-source ${ZMODULES_DIR}/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ${HOME}/.zshmodules/zsh-users/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey '^[f' vi-forward-word
 
 # Autosuggestions
-source ${ZMODULES_DIR}/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${HOME}/.zshmodules/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
 alias ls='ls -F -G' # Color output for ls
