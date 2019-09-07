@@ -38,7 +38,7 @@ make upgrade
 ## Other commands
 
 ```sh
-# type make + [tab],
+# type make + [tab]
 make
 ```
 
