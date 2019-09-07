@@ -1,4 +1,4 @@
-.PHONY: additional-atom additional-atom-save additional-php additional-vscode git gpg install javascript terminal update upgrade vim zsh
+.PHONY: default additional-atom additional-atom-save additional-php additional-vscode git gpg install javascript terminal update upgrade vim zsh
 # .SILENT:
 
 CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
@@ -6,6 +6,8 @@ TARGETDIR := $$HOME
 
 # TODO: homebrew references
 # TODO: install vscode packages from package.list
+
+default: install
 
 additional-atom:
 	@echo '>> additional: atom'
