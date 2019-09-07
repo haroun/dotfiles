@@ -5,7 +5,6 @@ CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 TARGETDIR := $$HOME
 
 # TODO: homebrew references
-# TODO: vscode target path
 # TODO: install vscode packages from package.list
 
 additional-atom:
@@ -34,8 +33,8 @@ additional-php:
 additional-vscode:
 	@echo '>> additional: vscode'
 	@echo . 'Link settings.json & snippets'
-	ln -fs "$(CURDIR)/additional/vscode/settings.json" "$(TARGETDIR)/Library/Application Support/Code - Insiders/User/settings.json"
-	ln -fs "$(CURDIR)/additional/vscode/snippets" "$(TARGETDIR)/Library/Application Support/Code - Insiders/User/snippets"
+	ln -fs "$(CURDIR)/additional/vscode/settings.json" "$(TARGETDIR)/.vscode/settings.json"
+	ln -fs "$(CURDIR)/additional/vscode/snippets" "$(TARGETDIR)/.vscode/snippets"
 	@echo . 'Save vscode installed packages in packages.list'
 	code-insiders --list-extensions > "$(CURDIR)/additional/vscode/packages.list"
 
@@ -97,6 +96,8 @@ upgrade:
 	brew upgrade
 	@echo 'npm'
 	npm i -g npm
+	@echo 'vim'
+	make vim
 	git submodule foreach 'git checkout master && git pull'
 
 vim:
