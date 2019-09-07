@@ -97,6 +97,7 @@ update:
 	git pull
 	@echo 'npm'
 	npm -g update
+	@echo 'dependencies'
 	git submodule update --init
 
 upgrade:
@@ -105,7 +106,10 @@ upgrade:
 	@echo 'npm'
 	npm i -g npm
 	@echo 'vim'
-	make vim
+	pip2 install --user --upgrade pynvim
+	pip3 install --user --upgrade pynvim
+	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
+	@echo 'dependencies'
 	git submodule foreach 'git checkout master && git pull'
 
 vim:
