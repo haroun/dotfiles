@@ -20,5 +20,13 @@
     "terminal.integrated.fontSize": 14,
     "editor.lineNumbers": "relative",
     "files.eol": "\n",
-    "workbench.activityBar.visible": false
+    "workbench.activityBar.visible": false,
+    "vim.enableNeovim": true,
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-c>": true,
+        "<D-d>": true,
+        "<D-c>": false
+    },
+    "vim.useCtrlKeys": false
 }
