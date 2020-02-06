@@ -1,4 +1,4 @@
-.PHONY: default additional-apt additional-atom additional-atom-save additional-brew additional-php additional-vscode additional-vscode-save git gpg install javascript terminal update upgrade vim zsh
+.PHONY: default additional-apt additional-brew additional-vscode additional-vscode-save git gpg install javascript terminal update upgrade vim zsh
 # .SILENT:
 
 CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
@@ -10,32 +10,9 @@ additional-apt:
 	@echo '>> apt'
 	apt-get update && apt-get upgrade
 
-additional-atom:
-	@echo '>> additional: atom'
-	@echo 'Link config.cson, init.coffee, keymap.cson, snippets.cson & styles.less'
-	ln -fs "$(CURDIR)/additional/atom/config.cson" "$(TARGETDIR)/.atom/config.cson"
-	ln -fs "$(CURDIR)/additional/atom/init.coffee" "$(TARGETDIR)/.atom/init.coffee"
-	ln -fs "$(CURDIR)/additional/atom/keymap.cson" "$(TARGETDIR)/.atom/keymap.cson"
-	ln -fs "$(CURDIR)/additional/atom/snippets.cson" "$(TARGETDIR)/.atom/snippets.cson"
-	ln -fs "$(CURDIR)/additional/atom/styles.less" "$(TARGETDIR)/.atom/styles.less"
-	@echo 'Install atom packages from packages.list'
-	apm-beta install --packages-file "$(CURDIR)/additional/atom/packages.list"
-
-additional-atom-save:
-	@echo '>> additional: atom-save'
-	@echo 'Save atom installed packages in packages.list'
-	apm-beta list --installed --bare > "$(CURDIR)/additional/atom/packages.list"
-
 additional-brew:
 	@echo '>> homebrew'
 	brew update && brew upgrade
-
-additional-php:
-	@echo '>> additional: php'
-	@echo 'Link composer.json/composer.lock & update dependencies'
-	ln -fs "$(CURDIR)/additional/php/composer.json" "$(TARGETDIR)/.composer/composer.json"
-	ln -fs "$(CURDIR)/additional/php/composer.lock" "$(TARGETDIR)/.composer/composer.lock"
-	composer global update
 
 additional-vscode:
 	@echo '>> additional: vscode'
