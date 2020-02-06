@@ -12,7 +12,6 @@
 
 ## With GUI
 
-* install [atom][atom]
 * install [vscode][vscode]
 * install [alacritty][alacritty]
 
@@ -76,6 +75,5 @@ make
 [github-gpg]: https://help.github.com/categories/gpg/
 [sf-mono-font]: https://developer.apple.com/fonts/
 [vscode]: https://code.visualstudio.com/insiders/
-[atom]: https://atom.io/beta
 [docker]: https://www.docker.com/get-started
 [alacritty]: https://github.com/jwilm/alacritty
