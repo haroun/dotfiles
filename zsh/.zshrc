@@ -96,6 +96,6 @@ alias PUT='lwp-request -m "PUT"' # Send a PUT request
 alias PATCH='lwp-request -m "PATCH"' # Send a PATCH request
 alias HEAD='lwp-request -m "HEAD"' # Send a HEAD request
 
-# NVM
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# nvm
+[ -s "${NVM_DIR}/nvm.sh" ] && \. "${NVM_DIR}/nvm.sh"  # This loads nvm
+[ -s "${NVM_DIR}/bash_completion" ] && \. "${NVM_DIR}/bash_completion"  # This loads nvm bash_completion
