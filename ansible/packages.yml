@@ -1,0 +1,73 @@
+- hosts: all
+  vars:
+    the_user: "{{ ansible_user_id }}"
+
+  tasks:
+    - name: install zsh
+      become: yes
+      package:
+        name: zsh
+        state: present
+    - name: install nvm
+      shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+      args:
+        warn: false
+        creates: "{{ ansible_env.HOME }}/.nvm/nvm.sh"
+    - name: install node & latest npm from nvm
+      shell: source ~/.nvm/nvm.sh && nvm install node && nvm install-latest-npm
+      args:
+        warn: false
+        executable: /bin/zsh
+    - name: install neovim from package
+      become: yes
+      package:
+        name: neovim
+        state: present
+    - name: install gpg
+      become: yes
+      package:
+        name: gpg
+        state: present
+    - name: install python3
+      become: yes
+      package:
+        name: python3
+        state: present
+    - name: install python3-pip
+      become: yes
+      package:
+        name: python3-pip
+        state: present
+    - name: install tmux
+      become: yes
+      package:
+        name: tmux
+        state: present
+    - name: install mosh
+      become: yes
+      package:
+        name: mosh
+        state: present
+    - name: set default shell to zsh for root
+      become: yes
+      command: chsh -s /bin/zsh
+    - name: set default shell to zsh
+      become: yes
+      user:
+        name: "{{ the_user }}"
+        shell: /bin/zsh
+    - name: clone dotfiles
+      git: repo=https://github.com/haroun/dotfiles.git
+        dest={{ ansible_user_dir }}/repositories/dotfiles
+        update=yes
+    - name: test
+      command: env
+    - name: install dotfiles zsh
+      make:
+        chdir: "{{ ansible_user_dir }}/repositories/dotfiles"
+        target: zsh
+    - name: install dotfiles
+      shell:
+        chdir: "{{ ansible_user_dir }}/repositories/dotfiles"
+        cmd: source ~/.zshrc && make update
+        executable: /bin/zsh
