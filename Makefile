@@ -37,16 +37,17 @@ git:
 gpg:
 	@echo '>> gpg'
 	@echo 'Link gpg-agent.conf'
+	mkdir -p "$(TARGETDIR)/.gnupg"
 	ln -fs "$(CURDIR)/gpg/gpg-agent.conf" "$(TARGETDIR)/.gnupg/gpg-agent.conf"
 
 install:
 	@echo '> install'
 	make git
 	make gpg
+	make zsh
 	make javascript
 	make terminal
 	make vim
-	make zsh
 	git submodule init && git submodule update
 	@echo 'Link .inputrc'
 	ln -fs "$(CURDIR)/.inputrc" "$(TARGETDIR)/.inputrc"
@@ -83,7 +84,6 @@ upgrade:
 	@echo 'npm'
 	npm i -g npm
 	@echo 'vim'
-	pip2 install --user --upgrade pynvim
 	pip3 install --user --upgrade pynvim
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
 	@echo 'dependencies'
@@ -95,7 +95,6 @@ vim:
 	ln -fs "$(CURDIR)/vim" "$(TARGETDIR)/.vim"
 	mkdir -p "$(TARGETDIR)/.config/nvim"
 	ln -fs "$(CURDIR)/vim/init.vim" "$(TARGETDIR)/.config/nvim/init.vim"
-	pip2 install --user --upgrade pynvim
 	pip3 install --user --upgrade pynvim
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
 
