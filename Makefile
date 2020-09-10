@@ -12,7 +12,7 @@ additional-apt:
 
 additional-brew:
 	@echo '>> homebrew'
-	brew update && brew upgrade && brew cask upgrade
+	brew update && brew upgrade && brew upgrade --cask
 
 additional-vscode:
 	@echo '>> additional: vscode'
