@@ -1,4 +1,5 @@
 {
+  "root": true,
   "extends": "xo/esnext",
   "rules": {
     "semi": [
