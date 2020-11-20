@@ -75,6 +75,7 @@ if has('nvim')
   if exists(':UpdateRemotePlugins') == 2
     UpdateRemotePlugins
   endif
+  autocmd VimEnter * call deoplete#custom#option('num_processes', 4)
 endif
 
 " tern
