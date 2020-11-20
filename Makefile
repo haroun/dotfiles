@@ -58,6 +58,8 @@ javascript:
 	ln -fs "$(CURDIR)/javascript/.eslintrc.json" "$(TARGETDIR)/.eslintrc.json"
 	@echo 'Install tern'
 	npm install -g tern
+	@echo 'Install npm-merge-driver'
+	npm install -g npm-merge-driver
 	@echo 'Link tern configuration'
 	ln -fs "$(CURDIR)/javascript/.tern-config" "$(TARGETDIR)/.tern-config"
 	@echo 'Please open neovim and run :checkhealth & :UpdateRemotePlugins'
