@@ -76,3 +76,6 @@
 [submodule "zsh/modules/zsh-users/zsh-autosuggestions"]
 	path = zsh/modules/zsh-users/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
+[submodule "vim/pack/elixir-editors/start/vim-elixir"]
+	path = vim/pack/elixir-editors/start/vim-elixir
+	url = https://github.com/elixir-editors/vim-elixir.git
