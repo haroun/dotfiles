@@ -47,6 +47,7 @@ make
 * [san francisco mono font][sf-mono-font]
 * [neovim][neovim]
 * [tmux][tmux]
+* [nvm][nvm]
 * [nodejs][node]
 * [npm][npm]
 * [alacritty][alacritty]
@@ -54,6 +55,8 @@ make
 * [zsh-completions][zsh-completions]
 * [zsh-history-substring-search][zsh-history-substring-search]
 * [zsh-syntax-highlighting][zsh-syntax-highlighting]
+* [ripgrep][ripgrep]
+* [fzf][fzf]
 * optional [homebrew](https://brew.sh)
 * optional [pure theme](https://github.com/sindresorhus/pure)
 * optional [hyper-snazzy theme for terminal](https://github.com/sindresorhus/terminal-snazzy)
@@ -72,6 +75,8 @@ make
 [zsh-completions]: https://github.com/zsh-users/zsh-completions
 [zsh-history-substring-search]: https://github.com/zsh-users/zsh-history-substring-search
 [zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting
+[ripgrep]: https://github.com/BurntSushi/ripgrep
+[fzf]: https://github.com/junegunn/fzf
 [github-gpg]: https://help.github.com/categories/gpg/
 [sf-mono-font]: https://developer.apple.com/fonts/
 [vscode]: https://code.visualstudio.com/insiders/
