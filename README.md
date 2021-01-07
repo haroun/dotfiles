@@ -9,11 +9,13 @@
 * install [nvm][nvm], [node][node] and [npm][npm]
 * copy `git/.gitconfig.user.example` to `git/.gitconfig.user`
 * install [docker][docker]
+* install [ripgrep][ripgrep]
+* install [fzf][fzf]
 
 ## With GUI
 
-* install [vscode][vscode]
 * install [alacritty][alacritty]
+* install [vscode][vscode]
 
 ```sh
 # setup script

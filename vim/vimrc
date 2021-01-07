@@ -57,9 +57,6 @@ hi ALEWarningSign guifg=#F2C38F guibg=#343D46
 nmap <silent> ˚ <Plug>(ale_previous_wrap)
 nmap <silent> ∆ <Plug>(ale_next_wrap)
 
-" NERDTree
-map <C-o> :NERDTreeToggle<CR>         " open NERDTree with Ctrl+o
-
 " GitGutter
 nmap ]c <Plug>GitGutterNextHunk
 nmap [c <Plug>GitGutterPrevHunk
@@ -67,7 +64,12 @@ nmap <Leader>ha <Plug>GitGutterStageHunk
 nmap <Leader>hr <Plug>GitGutterUndoHunk
 
 " fzf
+set rtp+=/usr/local/opt/fzf
 map ; :Files<CR>
+map <C-p> :Files<CR>
+map <C-g> :GFiles<CR>
+map <C-o> :Buffers<CR>
+map <C-f> :Rg!
 
 " deoplete
 if has('nvim')
