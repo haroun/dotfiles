@@ -11,6 +11,9 @@ export KEYTIMEOUT=1 # kill lag for mode change
 # nvm
 export NVM_DIR="$HOME/.nvm"
 # Ripgrep + FZF
-export INITIAL_QUERY=""
-export RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
-export FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY' fzf --bind 'change:reload:$RG_PREFIX {q} || true' --ansi --phony --query '$INITIAL_QUERY' --height=50% --layout=reverse"
+#RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
+#INITIAL_QUERY=""
+#FZF_DEFAULT_COMMAND="$RG_PREFIX '$INITIAL_QUERY'" \
+#  fzf --bind "change:reload:$RG_PREFIX {q} || true" \
+#      --ansi --phony --query "$INITIAL_QUERY"
+#FZF_DEFAULT_COMMAND="rg --column --line-number --no-heading --color=always --smart-case "
