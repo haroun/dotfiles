@@ -64,6 +64,7 @@ nmap <Leader>ha <Plug>GitGutterStageHunk
 nmap <Leader>hr <Plug>GitGutterUndoHunk
 
 " fzf
+set rtp+=~/.fzf
 set rtp+=/usr/local/opt/fzf
 map ; :Files<CR>
 map <C-p> :Files<CR>
