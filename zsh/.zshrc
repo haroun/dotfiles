@@ -102,3 +102,7 @@ alias HEAD='lwp-request -m "HEAD"' # Send a HEAD request
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# tern
+# Also if you are using add loadEagerly - * many files * - this to your .bashrc or .zshrc, this will allow you load all files you need when ternjs is started.
+ulimit -n 2048

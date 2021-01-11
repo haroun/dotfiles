@@ -119,12 +119,25 @@ function! s:defx_my_settings() abort
 endfunction
 
 " tern
-let g:tern_map_keys = 1               " enable tern default key mappings https://github.com/ternjs/tern_for_vim/blob/master/doc/tern.txt
-
-" deoplete-ternjs
 " Use tern_for_vim.
 let g:tern#command = ["tern"]
-let g:tern#arguments = ["--persistent"]
+let g:tern#arguments = ["--persistent", "--no-port-file"]
+" enable tern default key mappings https://github.com/ternjs/tern_for_vim/blob/master/doc/tern.txt
+" execute 'nnoremap <buffer> '.prefix.'tD' ':TernDoc<CR>'
+" execute 'nnoremap <buffer> '.prefix.'tb' ':TernDocBrowse<CR>'
+" execute 'nnoremap <buffer> '.prefix.'tt' ':TernType<CR>'
+" execute 'nnoremap <buffer> '.prefix.'td' ':TernDef<CR>'
+" execute 'nnoremap <buffer> '.prefix.'tpd' ':TernDefPreview<CR>'
+" execute 'nnoremap <buffer> '.prefix.'tsd' ':TernDefSplit<CR>'
+" execute 'nnoremap <buffer> '.prefix.'ttd' ':TernDefTab<CR>'
+" execute 'nnoremap <buffer> '.prefix.'tr' ':TernRefs<CR>'
+" execute 'nnoremap <buffer> '.prefix.'tR' ':TernRename<CR>'
+let g:tern_map_keys = 1
+
+" deoplete-ternjs
+" Set bin if you have many instalations
+let g:deoplete#sources#ternjs#tern_bin = 'tern'
+let g:deoplete#sources#ternjs#timeout = 1
 " Whether to include the types of the completions in the result data. Default: 0
 let g:deoplete#sources#ternjs#types = 1
 " Whether to include the distance (in scopes for variables, in prototypes for
