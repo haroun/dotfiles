@@ -73,3 +73,9 @@
 [submodule "vim/pack/roxma/start/vim-hug-neovim-rpc"]
 	path = vim/pack/roxma/start/vim-hug-neovim-rpc
 	url = https://github.com/roxma/vim-hug-neovim-rpc.git
+[submodule "vim/pack/neovim/start/nvim-lspconfig"]
+	path = vim/pack/neovim/start/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig.git
+[submodule "vim/pack/Shougo/start/deoplete-lsp"]
+	path = vim/pack/Shougo/start/deoplete-lsp
+	url = https://github.com/Shougo/deoplete-lsp.git
