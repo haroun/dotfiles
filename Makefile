@@ -88,6 +88,7 @@ upgrade:
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
 	@echo 'dependencies'
 	git submodule foreach 'git checkout master && git pull'
+	npm outdated -g
 
 vim:
 	@echo '>> vim'
@@ -97,6 +98,10 @@ vim:
 	ln -fs "$(CURDIR)/vim/init.vim" "$(TARGETDIR)/.config/nvim/init.vim"
 	pip3 install --user --upgrade pynvim
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
+	@echo 'Install vim language server'
+	npm install -g dockerfile-language-server-nodejs typescript typescript-language-server vscode-json-languageserver
+	@echo 'Install node.js provider'
+	npm install -g neovim
 
 zsh:
 	@echo '>> zsh'
