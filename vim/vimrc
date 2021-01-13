@@ -66,10 +66,10 @@ nmap <Leader>hr <Plug>GitGutterUndoHunk
 " fzf
 set rtp+=~/.fzf
 set rtp+=/usr/local/opt/fzf
-map <C-S-p> :Files<CR>
+map <C-i> :Files<CR>
 map <C-p> :GFiles<CR>
 map <C-o> :Buffers<CR>
-map <C-S-f> :Rg!
+map ; :Rg!
 
 " deoplete
 if has('nvim')
