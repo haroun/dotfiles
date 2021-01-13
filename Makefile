@@ -92,7 +92,7 @@ upgrade:
 vim:
 	@echo '>> vim'
 	@echo 'Link vim & nvim'
-	ln -fs "$(CURDIR)/vim" "$(TARGETDIR)/.vim"
+	ln -nfs "$(CURDIR)/vim" "$(TARGETDIR)/.vim"
 	mkdir -p "$(TARGETDIR)/.config/nvim"
 	ln -fs "$(CURDIR)/vim/init.vim" "$(TARGETDIR)/.config/nvim/init.vim"
 	pip3 install --user --upgrade pynvim
