@@ -7,7 +7,7 @@
 [submodule "vim/pack/airblade/start/vim-gitgutter"]
 	path = vim/pack/airblade/start/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "vim/pack/sheerun/opt/vim-polyglot"]
+[submodule "vim/pack/sheerun/start/vim-polyglot"]
 	path = vim/pack/sheerun/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
 [submodule "vim/pack/trevordmiller/opt/nova-vim"]
