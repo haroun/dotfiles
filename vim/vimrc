@@ -134,12 +134,8 @@ local servers = { "dockerls", "jsonls", "tsserver" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
+nvim_lsp.elixirls.setup { on_attach = on_attach, cmd = { os.getenv("HOME") .. "/.vim/pack/elixir-lsp/opt/elixir-ls/apps/elixir_ls_utils/priv/language_server.sh" } }
 EOF
-
-" -- elixir
-" -- require'lspconfig'.elixirls.setup{
-" --   cmd = { "/path/to/elixir-ls/language_server.sh" };
-" -- }
 
 " defx
 map <C-space> :Defx -resume -search=`expand('%:p')` `getcwd()` -toggle<CR>

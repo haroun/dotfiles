@@ -79,3 +79,6 @@
 [submodule "vim/pack/Shougo/start/deoplete-lsp"]
 	path = vim/pack/Shougo/start/deoplete-lsp
 	url = https://github.com/Shougo/deoplete-lsp.git
+[submodule "vim/pack/elixir-lsp/opt/elixir-ls"]
+	path = vim/pack/elixir-lsp/opt/elixir-ls
+	url = https://github.com/elixir-lsp/elixir-ls.git

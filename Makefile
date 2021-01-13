@@ -60,7 +60,6 @@ javascript:
 	npm install -g npm-merge-driver
 	@echo 'Link tern configuration'
 	ln -fs "$(CURDIR)/javascript/.tern-config" "$(TARGETDIR)/.tern-config"
-	@echo 'Please open neovim and run :checkhealth & :UpdateRemotePlugins'
 
 terminal:
 	@echo '>> terminal'
@@ -98,10 +97,11 @@ vim:
 	ln -fs "$(CURDIR)/vim/init.vim" "$(TARGETDIR)/.config/nvim/init.vim"
 	pip3 install --user --upgrade pynvim
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
-	@echo 'Install vim language server'
+	@echo 'Install vim language server protocol'
 	npm install -g dockerfile-language-server-nodejs typescript typescript-language-server vscode-json-languageserver
 	@echo 'Install node.js provider'
 	npm install -g neovim
+	@echo 'Please open neovim and run :checkhealth & :UpdateRemotePlugins'
 
 zsh:
 	@echo '>> zsh'
