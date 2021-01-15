@@ -66,10 +66,10 @@ nmap <Leader>hr <Plug>GitGutterUndoHunk
 " fzf
 set rtp+=~/.fzf
 set rtp+=/usr/local/opt/fzf
-map <C-i> :Files<CR>
-map <C-p> :GFiles<CR>
-map <C-o> :Buffers<CR>
-map ; :Rg!
+map <Leader><S-P> :Files<CR>
+map <Leader>p :GFiles<CR>
+map <Leader>b :Buffers<CR>
+map <Leader>f :Rg!
 
 " deoplete
 if has('nvim')
@@ -138,7 +138,7 @@ nvim_lsp.elixirls.setup { on_attach = on_attach, cmd = { os.getenv("HOME") .. "/
 EOF
 
 " defx
-map <C-space> :Defx -resume -search=`expand('%:p')` `getcwd()` -toggle<CR>
+map <leader><space> :Defx -resume -search=`expand('%:p')` `getcwd()` -toggle<CR>
 autocmd BufWritePost * call defx#redraw()
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
