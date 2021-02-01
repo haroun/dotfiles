@@ -42,9 +42,18 @@ let g:lightline = {
   \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
   \ },
   \ 'component_function': {
-  \   'gitbranch': 'gitbranch#name'
+  \   'gitbranch': 'gitbranch#name',
+  \   'filename': 'LightlineTruncatedFileName'
   \ },
   \ }
+function! LightlineTruncatedFileName()
+  let l:filePath = expand('%')
+  if winwidth(0) > 100
+    return l:filePath
+  else
+    return pathshorten(l:filePath)
+  endif
+endfunction
 
 " ALE
 " see https://github.com/alexlafroscia/dotfiles/blob/master/nvim/plugin/ale.vim
@@ -88,6 +97,8 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
+  buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
+
   -- Mappings.
   local opts = { noremap=true, silent=true }
   buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
@@ -115,16 +126,16 @@ local on_attach = function(client, bufnr)
 
   -- Set autocommands conditional on server_capabilities
   if client.resolved_capabilities.document_highlight then
-    require('lspconfig').util.nvim_multiline_command [[
-      :hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
-      :hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
-      :hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
+    vim.api.nvim_exec([[
+      hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
+      hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
+      hi LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
       augroup lsp_document_highlight
         autocmd!
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
-    ]]
+    ]], false)
   end
 end
 
@@ -138,7 +149,7 @@ nvim_lsp.elixirls.setup { on_attach = on_attach, cmd = { os.getenv("HOME") .. "/
 EOF
 
 " defx
-map <leader><space> :Defx -resume -search=`expand('%:p')` `getcwd()` -toggle<CR>
+map <Leader><space> :Defx -resume -search=`expand('%:p')` `getcwd()` -toggle<CR>
 autocmd BufWritePost * call defx#redraw()
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
