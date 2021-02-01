@@ -98,6 +98,8 @@
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
 
+	editor = nvim
+
 [color]
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
@@ -142,6 +144,11 @@
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
   tool = vimdiff
+
+[mergetool "vimdiff"]
+	# wincmd W move cursor to window below/right of the current one
+	# wincmd J move the window below the current one
+	cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c 'wincmd W' -c 'wincmd J'
 
 [push]
 	# Use the Git 1.x.x default to avoid errors on machines with old Git
