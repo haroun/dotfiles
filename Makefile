@@ -108,4 +108,4 @@ zsh:
 	@echo 'Link .zshrc'
 	ln -fs "$(CURDIR)/zsh/.zshenv" "$(TARGETDIR)/.zshenv"
 	ln -fs "$(CURDIR)/zsh/.zshrc" "$(TARGETDIR)/.zshrc"
-	ln -fs "$(CURDIR)/zsh/modules" "$(TARGETDIR)/.zshmodules"
+	ln -nfs "$(CURDIR)/zsh/modules" "$(TARGETDIR)/.zshmodules"
