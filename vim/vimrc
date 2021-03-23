@@ -97,6 +97,10 @@ if has('nvim')
   runtime lsp.vim
 endif
 
+" vim-polyglot
+let g:svelte_indent_script = 0
+let g:svelte_indent_style = 0
+
 " defx
 map <Leader><space> :Defx -resume -search=`expand('%:p')` `getcwd()` -toggle<CR>
 autocmd BufWritePost * call defx#redraw()
