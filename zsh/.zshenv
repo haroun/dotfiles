@@ -2,7 +2,7 @@ export LANGUAGE=en_US.UTF-8
 export LANG=en_US.UTF-8
 export LC_CTYPE=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-export PATH="/usr/local/sbin:$NVM_BIN:$PATH"
+# export PATH="/usr/local/sbin:$NVM_BIN:$PATH"
 # GPG, https://gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 GPG_TTY=$(tty)
 export GPG_TTY
@@ -18,3 +18,5 @@ export NVM_DIR="$HOME/.nvm"
 #  fzf --bind "change:reload:$RG_PREFIX {q} || true" \
 #      --ansi --phony --query "$INITIAL_QUERY"
 #FZF_DEFAULT_COMMAND="rg --column --line-number --no-heading --color=always --smart-case "
+# deno
+source "$HOME/.cargo/env"
