@@ -82,3 +82,9 @@
 [submodule "vim/pack/elixir-lsp/opt/elixir-ls"]
 	path = vim/pack/elixir-lsp/opt/elixir-ls
 	url = https://github.com/elixir-lsp/elixir-ls.git
+[submodule "vim/pack/mfussenegger/opt/nvim-dap"]
+	path = vim/pack/mfussenegger/opt/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap.git
+[submodule "javascript/modules/microsoft/vscode-node-debug2"]
+	path = javascript/modules/microsoft/vscode-node-debug2
+	url = https://github.com/microsoft/vscode-node-debug2

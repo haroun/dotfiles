@@ -99,6 +99,8 @@ vim:
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
 	@echo 'Install vim language server protocol'
 	npm install -g dockerfile-language-server-nodejs typescript typescript-language-server vscode-json-languageserver
+	@echo 'Install vim debug adapter protocol'
+	cd $(CURDIR)/javascript/modules/microsoft/vscode-node-debug2 && npm install && npx gulp build cd $(CURDIR)
 	@echo 'Install node.js provider'
 	npm install -g neovim
 	@echo 'Please open neovim and run :checkhealth & :UpdateRemotePlugins'

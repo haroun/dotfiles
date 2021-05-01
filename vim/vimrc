@@ -97,6 +97,12 @@ if has('nvim')
   runtime lsp.vim
 endif
 
+" dap
+if has('nvim')
+  packadd nvim-dap
+  runtime dap.vim
+endif
+
 " vim-polyglot
 let g:svelte_indent_script = 0
 let g:svelte_indent_style = 0

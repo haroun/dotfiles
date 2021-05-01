@@ -19,4 +19,6 @@ export NVM_DIR="$HOME/.nvm"
 #      --ansi --phony --query "$INITIAL_QUERY"
 #FZF_DEFAULT_COMMAND="rg --column --line-number --no-heading --color=always --smart-case "
 # deno
-source "$HOME/.cargo/env"
+if [[ -a "$HOME/.cargo/env" ]]; then
+  source "$HOME/.cargo/env"
+fi
