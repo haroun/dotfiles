@@ -86,7 +86,7 @@ upgrade:
 	pip3 install --user --upgrade pynvim
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
 	@echo 'dependencies'
-	git submodule foreach 'git checkout master && git pull'
+	git submodule foreach 'git checkout $$(git symbolic-ref --short HEAD) && git pull'
 	npm outdated -g
 
 vim:
