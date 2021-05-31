@@ -158,6 +158,13 @@
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
 
+[pull]
+  # Pulling without specifying how to reconcile divergent branches is
+  # discouraged. You can squelch this message by running one of the following
+  # commands sometime before your next pull:
+  #   git config pull.rebase false  # merge (the default strategy)
+  rebase = false
+
 [merge "npm-merge-driver"]
 	name = automatically merge npm lockfiles
 	driver = npx npm-merge-driver merge %A %O %B %P
