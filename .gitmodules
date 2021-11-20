@@ -37,21 +37,12 @@
 [submodule "vim/pack/itchyny/start/vim-gitbranch"]
 	path = vim/pack/itchyny/start/vim-gitbranch
 	url = https://github.com/itchyny/vim-gitbranch.git
-[submodule "vim/pack/Shougo/opt/deoplete.nvim"]
-	path = vim/pack/Shougo/opt/deoplete.nvim
-	url = https://github.com/Shougo/deoplete.nvim.git
 [submodule "vim/pack/ternjs/opt/tern_for_vim"]
 	path = vim/pack/ternjs/opt/tern_for_vim
 	url = https://github.com/ternjs/tern_for_vim.git
 [submodule "vim/pack/ternjs/start/tern_for_vim"]
 	path = vim/pack/ternjs/start/tern_for_vim
 	url = https://github.com/ternjs/tern_for_vim.git
-[submodule "vim/pack/Shougo/start/deoplete.nvim"]
-	path = vim/pack/Shougo/start/deoplete.nvim
-	url = https://github.com/Shougo/deoplete.nvim.git
-[submodule "vim/pack/carlitux/start/deoplete-ternjs"]
-	path = vim/pack/carlitux/start/deoplete-ternjs
-	url = https://github.com/carlitux/deoplete-ternjs
 [submodule "zsh/modules/zsh-users/zsh-completions"]
 	path = zsh/modules/zsh-users/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions.git
@@ -76,9 +67,6 @@
 [submodule "vim/pack/neovim/opt/nvim-lspconfig"]
 	path = vim/pack/neovim/opt/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig.git
-[submodule "vim/pack/Shougo/opt/deoplete-lsp"]
-	path = vim/pack/Shougo/opt/deoplete-lsp
-	url = https://github.com/Shougo/deoplete-lsp.git
 [submodule "vim/pack/elixir-lsp/opt/elixir-ls"]
 	path = vim/pack/elixir-lsp/opt/elixir-ls
 	url = https://github.com/elixir-lsp/elixir-ls.git
@@ -88,3 +76,12 @@
 [submodule "javascript/modules/microsoft/vscode-node-debug2"]
 	path = javascript/modules/microsoft/vscode-node-debug2
 	url = https://github.com/microsoft/vscode-node-debug2
+[submodule "vim/pack/Shougo/opt/ddc.vim"]
+	path = vim/pack/Shougo/opt/ddc.vim
+	url = https://github.com/Shougo/ddc.vim.git
+[submodule "vim/pack/vim-denops/opt/denops.vim"]
+	path = vim/pack/vim-denops/opt/denops.vim
+	url = https://github.com/vim-denops/denops.vim.git
+[submodule "vim/pack/Shougo/opt/ddc-nvim-lsp"]
+	path = vim/pack/Shougo/opt/ddc-nvim-lsp
+	url = https://github.com/Shougo/ddc-nvim-lsp.git
