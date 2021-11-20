@@ -85,3 +85,12 @@
 [submodule "vim/pack/Shougo/opt/ddc-nvim-lsp"]
 	path = vim/pack/Shougo/opt/ddc-nvim-lsp
 	url = https://github.com/Shougo/ddc-nvim-lsp.git
+[submodule "vim/pack/Shougo/opt/ddc-around"]
+	path = vim/pack/Shougo/opt/ddc-around
+	url = https://github.com/Shougo/ddc-around.git
+[submodule "vim/pack/Shougo/opt/ddc-matcher_head"]
+	path = vim/pack/Shougo/opt/ddc-matcher_head
+	url = https://github.com/Shougo/ddc-matcher_head.git
+[submodule "vim/pack/Shougo/opt/ddc-sorter_rank"]
+	path = vim/pack/Shougo/opt/ddc-sorter_rank
+	url = https://github.com/Shougo/ddc-sorter_rank.git
