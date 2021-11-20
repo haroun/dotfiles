@@ -39,6 +39,8 @@ gpg:
 	@echo 'Link gpg-agent.conf'
 	mkdir -p "$(TARGETDIR)/.gnupg"
 	ln -fs "$(CURDIR)/gpg/gpg-agent.conf" "$(TARGETDIR)/.gnupg/gpg-agent.conf"
+	find "$(TARGETDIR)/.gnupg" -type f -exec chmod 600 {} \;
+	find "$(TARGETDIR)/.gnupg" -type d -exec chmod 700 {} \;
 
 install:
 	@echo '> install'
@@ -48,7 +50,7 @@ install:
 	make javascript
 	make terminal
 	make vim
-	git submodule init && git submodule update
+	git submodule init && git submodule update && git submodule foreach "git checkout main || git checkout master"
 	@echo 'Link .inputrc'
 	ln -fs "$(CURDIR)/.inputrc" "$(TARGETDIR)/.inputrc"
 
@@ -98,7 +100,7 @@ vim:
 	pip3 install --user --upgrade pynvim
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
 	@echo 'Install vim language server protocol'
-	npm install -g dockerfile-language-server-nodejs typescript typescript-language-server vscode-json-languageserver
+	npm install -g dockerfile-language-server-nodejs typescript typescript-language-server vscode-langservers-extracted
 	@echo 'Install vim debug adapter protocol'
 	cd $(CURDIR)/javascript/modules/microsoft/vscode-node-debug2 && npm ci && npx gulp build && cd $(CURDIR)
 	@echo 'Install node.js provider'
