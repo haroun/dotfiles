@@ -55,8 +55,8 @@
 [submodule "zsh/modules/zsh-users/zsh-autosuggestions"]
 	path = zsh/modules/zsh-users/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions.git
-[submodule "vim/pack/Shougo/start/defx.nvim"]
-	path = vim/pack/Shougo/start/defx.nvim
+[submodule "vim/pack/Shougo/opt/defx.nvim"]
+	path = vim/pack/Shougo/opt/defx.nvim
 	url = https://github.com/Shougo/defx.nvim.git
 [submodule "vim/pack/roxma/start/nvim-yarp"]
 	path = vim/pack/roxma/start/nvim-yarp
