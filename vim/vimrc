@@ -77,7 +77,7 @@ set rtp+=~/.fzf
 set rtp+=/usr/local/opt/fzf
 map <Leader><S-P> :Files<CR>
 map <Leader>p :GFiles<CR>
-map <Leader>b :Buffers<CR>
+map <Leader>o :Buffers<CR>
 map <Leader>f :Rg!
 
 " lsp
