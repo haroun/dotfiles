@@ -1,4 +1,4 @@
-map <Leader><space> :Defx -resume -search=`expand('%:p')` `getcwd()` -toggle<CR>
+map <Leader><space> :Defx -resume -search-recursive=`expand('%:p')` `getcwd()` -toggle<CR>
 autocmd BufWritePost * call defx#redraw()
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
