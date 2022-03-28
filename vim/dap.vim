@@ -35,23 +35,82 @@ vim.fn.sign_define('DapBreakpoint', {text='■', texthl='DAPBreakpointSign', lin
 vim.fn.sign_define('DapLogPoint', {text='◆', texthl='DAPLogPointSign', linehl='', numhl='DAPLogPointSign'})
 vim.fn.sign_define('DapStopped', {text='→', texthl='', linehl='debugPC', numhl=''})
 
+-- logs
+dap.set_log_level('TRACE')
+
 -- Adapters
 dap.adapters.node2 = {
-  type = 'executable',
-  command = 'node',
-  args = {os.getenv('HOME') .. '/repositories/dotfiles/javascript/modules/microsoft/vscode-node-debug2/out/src/nodeDebug.js'},
+  type = 'executable';
+  command = 'node';
+  args = {os.getenv('HOME') .. '/repositories/dotfiles/javascript/modules/microsoft/vscode-node-debug2/out/src/nodeDebug.js'};
 }
 
 -- Configuration
 dap.configurations.javascript = {
   {
-    type = 'node2',
-    request = 'launch',
-    program = '${workspaceFolder}/${file}',
-    cwd = vim.fn.getcwd(),
-    sourceMaps = true,
-    protocol = 'inspector',
-    console = 'integratedTerminal',
+    name = 'Launch';
+    type = 'node2';
+    request = 'launch';
+    program = '${file}';
+    cwd = vim.fn.getcwd();
+    sourceMaps = true;
+    protocol = 'inspector';
+    console = 'integratedTerminal';
+  },
+  {
+    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+    name = 'Attach to process';
+    type = 'node2';
+    request = 'attach';
+    processId = require'dap.utils'.pick_process;
+  },
+  {
+    -- For this to work you need to make sure the node process is started with the `--inspect` flag.
+    name = 'Remote Attached Debugger';
+    type = 'node2';
+    request = 'attach';
+    mode = 'remote';
+    cwd = vim.fn.getcwd();
+    port = 9229;
+    -- internalConsoleOptions = 'openOnSessionStart',
+    -- host = '127.0.0.1',
+    -- pathMappings = {
+    --   {
+    --     localRoot = vim.fn.getcwd(); -- Wherever your JavaScript code lives locally.
+    --     remoteRoot = '/app'; -- Wherever your JavaScript code lives in the container.
+    --   };
+    -- },
+    -- connect = {
+    --   port = 9229,
+    --   host = '127.0.0.1',
+    -- },
   },
 }
+
+-- adapter configuration
+-- function(done, config)
+  -- if config.request == 'attach' then
+  --   done({
+  --     type = 'node2';
+  --     request = 'attach';
+  --     port = config.port or 9229;
+  --     host = config.host or '127.0.0.1';
+  --     program = '${workspaceFolder}/${file}';
+  --     cwd = vim.fn.getcwd();
+  --     sourceMaps = true;
+  --     protocol = 'inspector';
+  --     console = 'integratedTerminal';
+  --   })
+  -- else
+  --   done({
+  --     type = 'node2';
+  --     request = 'launch';
+  --     program = '${workspaceFolder}/${file}';
+  --     cwd = vim.fn.getcwd();
+  --     sourceMaps = true;
+  --     protocol = 'inspector';
+  --     console = 'integratedTerminal';
+  --   })
+  -- end
+-- end
 EOF
