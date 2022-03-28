@@ -1,0 +1,4 @@
+## surrounds with quotes
+
+%s/treadDepth\\":{\\"value\\":\([0-9]*\)/treadDepth\\":{\\"value\\":\\"\1\\"/g
+
