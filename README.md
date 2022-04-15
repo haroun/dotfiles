@@ -9,7 +9,7 @@
 * install [nvm][nvm], [node][node] and [npm][npm]
 * install [deno][deno]
 * copy `git/.gitconfig.user.example` to `git/.gitconfig.user`
-* install [docker][docker] + docker compose
+* install [docker][docker] + [docker compose][docker compose]
 * install [ripgrep][ripgrep]
 * install [fzf][fzf]
 
@@ -86,3 +86,4 @@ make
 [sf-mono-font]: https://developer.apple.com/fonts/
 [vscode]: https://code.visualstudio.com/insiders/
 [docker]: https://www.docker.com/get-started
+[docker compose]: https://docs.docker.com/compose/cli-command/
