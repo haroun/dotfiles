@@ -2,13 +2,14 @@
 
 ## Install
 
-* set [zsh][zsh] as default shell
+* set [zsh][zsh] as default shell (i.e. `chsh -s $(which zsh)`)
 * install [neovim][neovim] + python (2 & 3) + [pynvim][pynvim]
 * install [tmux][tmux]
 * install [gpg][gpg]
 * install [nvm][nvm], [node][node] and [npm][npm]
+* install [deno][deno]
 * copy `git/.gitconfig.user.example` to `git/.gitconfig.user`
-* install [docker][docker]
+* install [docker][docker] + docker compose
 * install [ripgrep][ripgrep]
 * install [fzf][fzf]
 
@@ -46,12 +47,13 @@ make
 ## Links
 
 * [git & gpg][github-gpg]
-* [san francisco mono font][sf-mono-font]
+* [san francisco mono font][sf-mono-font] (if not available, please change the font in `terminal/alacritty/.alacritty.yml`)
 * [neovim][neovim]
 * [tmux][tmux]
 * [nvm][nvm]
 * [nodejs][node]
 * [npm][npm]
+* [deno][deno]
 * [alacritty][alacritty]
 * [zsh-autosuggestions][zsh-autosuggestions]
 * [zsh-completions][zsh-completions]
@@ -72,6 +74,7 @@ make
 [nvm]: https://github.com/nvm-sh/nvm
 [node]: https://nodejs.org/en/
 [npm]: https://www.npmjs.com
+[deno]: https://deno.land
 [alacritty]: https://github.com/jwilm/alacritty
 [zsh-autosuggestions]: https://github.com/zsh-users/zsh-autosuggestions
 [zsh-completions]: https://github.com/zsh-users/zsh-completions
@@ -83,4 +86,3 @@ make
 [sf-mono-font]: https://developer.apple.com/fonts/
 [vscode]: https://code.visualstudio.com/insiders/
 [docker]: https://www.docker.com/get-started
-[alacritty]: https://github.com/jwilm/alacritty

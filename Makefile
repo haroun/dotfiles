@@ -44,13 +44,13 @@ gpg:
 
 install:
 	@echo '> install'
+	git submodule init && git submodule update && git submodule foreach "git checkout main || git checkout master"
 	make git
 	make gpg
 	make zsh
 	make javascript
 	make terminal
 	make vim
-	git submodule init && git submodule update && git submodule foreach "git checkout main || git checkout master"
 	@echo 'Link .inputrc'
 	ln -fs "$(CURDIR)/.inputrc" "$(TARGETDIR)/.inputrc"
 
