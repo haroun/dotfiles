@@ -94,3 +94,9 @@
 [submodule "vim/pack/Shougo/opt/ddc-sorter_rank"]
 	path = vim/pack/Shougo/opt/ddc-sorter_rank
 	url = https://github.com/Shougo/ddc-sorter_rank.git
+[submodule "vim/pack/arcticicestudio/opt/nord-vim"]
+	path = vim/pack/arcticicestudio/opt/nord-vim
+	url = https://github.com/arcticicestudio/nord-vim.git
+[submodule "terminal/dircolors/arcticicestudio/nord-dircolors"]
+	path = terminal/dircolors/arcticicestudio/nord-dircolors
+	url = https://github.com/arcticicestudio/nord-dircolors.git

@@ -67,9 +67,11 @@ terminal:
 	@echo '>> terminal'
 	@echo 'Link alacritty'
 	mkdir -p "$(TARGETDIR)/.config/alacritty"
-	ln -fs "$(CURDIR)/terminal/alacritty/.alacritty.yml" "$(TARGETDIR)/.config/alacritty/alacritty.yml"
+	ln -fs "$(CURDIR)/terminal/alacritty/alacritty.yml" "$(TARGETDIR)/.config/alacritty/alacritty.yml"
+	ln -fs "$(CURDIR)/terminal/alacritty/color-nord.yml" "$(TARGETDIR)/.config/alacritty/color-nord.yml"
+	ln -fs "$(CURDIR)/terminal/alacrittycolor-base16-ocean.yml" "$(TARGETDIR)/.config/alacritty/color-base16-ocean.yml"
 	@echo 'Link tmux'
-	ln -fs "$(CURDIR)/terminal/tmux/tmux.conf" "$(TARGETDIR)/.tmux.conf"
+	ln -fs "$(CURDIR)/terminal/tmux/.tmux.conf" "$(TARGETDIR)/.tmux.conf"
 
 update:
 	@echo '>> update'
