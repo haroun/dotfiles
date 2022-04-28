@@ -72,6 +72,8 @@ terminal:
 	ln -fs "$(CURDIR)/terminal/alacrittycolor-base16-ocean.yml" "$(TARGETDIR)/.config/alacritty/color-base16-ocean.yml"
 	@echo 'Link tmux'
 	ln -fs "$(CURDIR)/terminal/tmux/.tmux.conf" "$(TARGETDIR)/.tmux.conf"
+	@echo 'Link dircolors'
+	ln -fsr "$(CURDIR)/terminal/dircolors/arcticicestudio/nord-dircolors/src/dir_colors" "$(TARGETDIR)/.dir_colors"
 
 update:
 	@echo '>> update'

@@ -872,7 +872,7 @@ font:
     # family: SF Mono
     style: Light
 
-  size: 14.0
+  size: 9.0
 
 import:
   # - ~/.config/alacritty/color-base16-ocean.yml
