@@ -30,7 +30,7 @@ if (has("termguicolors"))
   set termguicolors                   " Use 24-bit colors
 endif
 set background=dark
-colorscheme base16-ocean
+colorscheme nord
 
 " set guifont=SF\ Mono:h14
 
