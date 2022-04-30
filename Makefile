@@ -1,4 +1,4 @@
-.PHONY: default additional-apt additional-brew additional-vscode additional-vscode-save git gpg install javascript terminal update upgrade vim zsh
+.PHONY: default additional-apt additional-arch-linux additional-brew additional-vscode additional-vscode-save git gpg install javascript terminal update upgrade vim zsh
 # .SILENT:
 
 CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
@@ -9,6 +9,13 @@ default: install
 additional-apt:
 	@echo '>> apt'
 	apt-get update && apt-get upgrade
+
+additional-arch-linux:
+	@echo '>> arch-linux'
+	ln -nfs "$(CURDIR)/additional/arch-linux/sway" "$(TARGETDIR)/.config/sway"
+	ln -nfs "$(CURDIR)/additional/arch-linux/sswaylock" "$(TARGETDIR)/.config/swaylock"
+	ln -nfs "$(CURDIR)/additional/arch-linux/wofi" "$(TARGETDIR)/.config/wofi"
+	ln -nfs "$(CURDIR)/additional/arch-linux/waybar" "$(TARGETDIR)/.config/waybar"
 
 additional-brew:
 	@echo '>> homebrew'
