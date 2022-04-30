@@ -85,7 +85,7 @@ bindkey '^[f' vi-forward-word
 source ${HOME}/.zshmodules/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
-alias ls='ls -F -G' # Color output for ls
+alias ls='ls -F -G --color=auto' # Color output for ls
 alias ll='ls -lah' # Lists human readable sizes, hidden files.
 alias grep='grep --color=auto' # Mark up the matching text with color
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # ip address
