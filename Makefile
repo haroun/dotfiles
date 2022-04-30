@@ -13,7 +13,7 @@ additional-apt:
 additional-arch-linux:
 	@echo '>> arch-linux'
 	ln -nfs "$(CURDIR)/additional/arch-linux/sway" "$(TARGETDIR)/.config/sway"
-	ln -nfs "$(CURDIR)/additional/arch-linux/sswaylock" "$(TARGETDIR)/.config/swaylock"
+	ln -nfs "$(CURDIR)/additional/arch-linux/swaylock" "$(TARGETDIR)/.config/swaylock"
 	ln -nfs "$(CURDIR)/additional/arch-linux/wofi" "$(TARGETDIR)/.config/wofi"
 	ln -nfs "$(CURDIR)/additional/arch-linux/waybar" "$(TARGETDIR)/.config/waybar"
 
