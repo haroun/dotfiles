@@ -219,11 +219,12 @@ bindsym $mod+r mode "resize"
     exec                     wl-paste    -t text --watch clipman store
     exec                     wl-paste -p -t text --watch clipman store
     # The keybind to select a clipping
-    bindsym $mod+y           exec clipman --primary pick --tool rofi
+    bindsym $mod+y           exec clipman --primary pick --tool wofi
     # Clear all clippings
     bindsym $mod+Shift+y     exec clipman clear -a
     # Remove a selected clipping
-    bindsym $mod+Mod1+y      exec clipman clear --tool rofi
+    bindsym $mod+Mod1+y      exec clipman clear --tool wofi
     # Empty the current clipping
     bindsym $mod+Ctrl+y      exec : | wl-copy -p
+    bindsym $mod+Ctrl+v      exec : | wl-copy
 
