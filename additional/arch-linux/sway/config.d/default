@@ -211,3 +211,19 @@ bindsym $mod+r mode "resize"
 # Keybindings List
 #
     bindsym $mod+t exec xed ~/.config/sway/cheatsheet
+
+#
+# Custom keybindings
+#
+    # There are two wl-paste processes running, one for the primary and one for the normal clipboard
+    exec                     wl-paste    -t text --watch clipman store
+    exec                     wl-paste -p -t text --watch clipman store
+    # The keybind to select a clipping
+    bindsym $mod+y           exec clipman --primary pick --tool rofi
+    # Clear all clippings
+    bindsym $mod+Shift+y     exec clipman clear -a
+    # Remove a selected clipping
+    bindsym $mod+Mod1+y      exec clipman clear --tool rofi
+    # Empty the current clipping
+    bindsym $mod+Ctrl+y      exec : | wl-copy -p
+
