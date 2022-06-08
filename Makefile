@@ -1,4 +1,4 @@
-.PHONY: default additional-apt additional-arch-linux additional-brew additional-vscode additional-vscode-save git gpg install javascript terminal update upgrade vim zsh
+.PHONY: default additional-apt additional-arch-linux additional-brew additional-pacman additional-vscode additional-vscode-save git gpg install javascript terminal update upgrade vim zsh
 # .SILENT:
 
 CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
@@ -20,6 +20,11 @@ additional-arch-linux:
 additional-brew:
 	@echo '>> homebrew'
 	brew update && brew upgrade && brew upgrade --cask
+
+additional-pacman:
+	@echo '>> pacman'
+	sudo pacman -Syu
+	yay -Sua
 
 additional-vscode:
 	@echo '>> additional: vscode'
@@ -64,7 +69,7 @@ install:
 javascript:
 	@echo '>> javascript'
 	@echo 'Install tern'
-	npm install -location=global tern
+	npm install --location=global tern
 	@echo 'Install npm-merge-driver'
 	npm install --location=global npm-merge-driver
 	@echo 'Link tern configuration'
