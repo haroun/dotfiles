@@ -226,5 +226,5 @@ bindsym $mod+r mode "resize"
     bindsym $mod+Mod1+y      exec clipman clear --tool wofi
     # Empty the current clipping
     bindsym $mod+Ctrl+y      exec : | wl-copy -p
-    bindsym $mod+Ctrl+v      exec : | wl-copy
+    bindsym $mod+Ctrl+v      wl-paste -p -t text --watch clipman store
 

@@ -58,6 +58,8 @@ Arc-Dark Color Scheme
     background-color: @base1;
     font-family: UbuntuMono;
     font-size: 14px;
+    width: 1920px;
+    height: 30px;
 }
 
 /* Every modules */

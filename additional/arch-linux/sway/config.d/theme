@@ -15,7 +15,7 @@ font pango:Noto Sans Regular 10
 smart_borders on
 
 # Set wallpaper:
-exec swaybg -i ~/repository/dotfiles-private/wallpaper/12-Dark.jpg
+exec swaybg -i ~/repositories/dotfiles-private/wallpaper/12-Dark.jpg
 
 # Title format for windows
 for_window [shell="xdg_shell"] title_format "%title (%app_id)"
