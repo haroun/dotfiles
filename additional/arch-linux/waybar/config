@@ -26,8 +26,9 @@
         "custom/keyboard-layout",
         //"battery",
         //"custom/PBPbattery",
-        "backlight#icon",
-        "backlight#value",
+        // "backlight#icon",
+        // "backlight#value",
+        "bluetooth",
         "tray",
         //"custom/weather",
         "clock",
@@ -99,6 +100,14 @@
             "warning": 70,
             "critical": 90
         }
+    },
+
+    "bluetooth": {
+        "format-alt": "bluetooth: {status}",
+        "format-on": "",
+        "format-off": "!",
+        "on-click": "foot bluetoothctl",
+        "tooltip-format": "{status}"
     },
 
     "network": {
