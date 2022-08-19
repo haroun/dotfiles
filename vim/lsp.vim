@@ -25,14 +25,14 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
 
   -- Set some keybinds conditional on server capabilities
-  if client.resolved_capabilities.document_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-  elseif client.resolved_capabilities.document_range_formatting then
-    buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  if client.server_capabilities.documentFormattingProvider then
+    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+  elseif client.server_capabilities.documentRangeFormattingProvider then
+    buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
   end
 
   -- Set autocommands conditional on server_capabilities
-  if client.resolved_capabilities.document_highlight then
+  if client.server_capabilities.documentHighlightProvider then
     vim.api.nvim_exec([[
       hi LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
       hi LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
@@ -48,9 +48,11 @@ end
 
 -- Use a loop to conveniently both setup defined servers
 -- and map buffer local keybindings when the language server attaches
-local servers = { "denols", "dockerls", "jsonls", "tsserver" }
+local servers = { 'dockerls', 'jsonls' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
 end
-nvim_lsp.elixirls.setup { on_attach = on_attach, cmd = { os.getenv("HOME") .. "/.vim/pack/elixir-lsp/opt/elixir-ls/apps/elixir_ls_utils/priv/language_server.sh" } }
+nvim_lsp.elixirls.setup { on_attach = on_attach, cmd = { os.getenv('HOME') .. '/.vim/pack/elixir-lsp/opt/elixir-ls/apps/elixir_ls_utils/priv/language_server.sh' } }
+nvim_lsp.tsserver.setup { root_dir = nvim_lsp.util.root_pattern('package.json', 'tsconfig.json'), on_attach = on_attach }
+nvim_lsp.denols.setup { root_dir = nvim_lsp.util.root_pattern('deno.json', 'deps.ts'), on_attach = on_attach }
 EOF

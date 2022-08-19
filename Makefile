@@ -1,4 +1,4 @@
-.PHONY: default additional-apt additional-brew additional-vscode additional-vscode-save git gpg install javascript terminal update upgrade vim zsh
+.PHONY: default additional-apt additional-arch-linux additional-brew additional-pacman additional-vscode additional-vscode-save git gpg install javascript terminal update upgrade vim zsh
 # .SILENT:
 
 CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
@@ -10,9 +10,21 @@ additional-apt:
 	@echo '>> apt'
 	apt-get update && apt-get upgrade
 
+additional-arch-linux:
+	@echo '>> arch-linux'
+	ln -nfs "$(CURDIR)/additional/arch-linux/sway" "$(TARGETDIR)/.config/sway"
+	ln -nfs "$(CURDIR)/additional/arch-linux/swaylock" "$(TARGETDIR)/.config/swaylock"
+	ln -nfs "$(CURDIR)/additional/arch-linux/wofi" "$(TARGETDIR)/.config/wofi"
+	ln -nfs "$(CURDIR)/additional/arch-linux/waybar" "$(TARGETDIR)/.config/waybar"
+
 additional-brew:
 	@echo '>> homebrew'
 	brew update && brew upgrade && brew upgrade --cask
+
+additional-pacman:
+	@echo '>> pacman'
+	sudo pacman -Syu
+	yay -Sua
 
 additional-vscode:
 	@echo '>> additional: vscode'
@@ -44,7 +56,7 @@ gpg:
 
 install:
 	@echo '> install'
-	git submodule init && git submodule update && git submodule foreach "git checkout main || git checkout master"
+	git submodule init && git submodule update && git submodule foreach "git checkout main || git checkout master || git checkout develop"
 	make git
 	make gpg
 	make zsh
@@ -57,9 +69,9 @@ install:
 javascript:
 	@echo '>> javascript'
 	@echo 'Install tern'
-	npm install -g tern
+	npm install --location=global tern
 	@echo 'Install npm-merge-driver'
-	npm install -g npm-merge-driver
+	npm install --location=global npm-merge-driver
 	@echo 'Link tern configuration'
 	ln -fs "$(CURDIR)/javascript/.tern-config" "$(TARGETDIR)/.tern-config"
 
@@ -67,15 +79,19 @@ terminal:
 	@echo '>> terminal'
 	@echo 'Link alacritty'
 	mkdir -p "$(TARGETDIR)/.config/alacritty"
-	ln -fs "$(CURDIR)/terminal/alacritty/.alacritty.yml" "$(TARGETDIR)/.config/alacritty/alacritty.yml"
+	ln -fs "$(CURDIR)/terminal/alacritty/alacritty.yml" "$(TARGETDIR)/.config/alacritty/alacritty.yml"
+	ln -fs "$(CURDIR)/terminal/alacritty/color-nord.yml" "$(TARGETDIR)/.config/alacritty/color-nord.yml"
+	ln -fs "$(CURDIR)/terminal/alacritty/color-base16-ocean.yml" "$(TARGETDIR)/.config/alacritty/color-base16-ocean.yml"
 	@echo 'Link tmux'
-	ln -fs "$(CURDIR)/terminal/tmux/tmux.conf" "$(TARGETDIR)/.tmux.conf"
+	ln -fs "$(CURDIR)/terminal/tmux/.tmux.conf" "$(TARGETDIR)/.tmux.conf"
+	@echo 'Link dircolors'
+	ln -fsr "$(CURDIR)/terminal/dircolors/arcticicestudio/nord-dircolors/src/dir_colors" "$(TARGETDIR)/.dir_colors"
 
 update:
 	@echo '>> update'
 	git pull
 	@echo 'npm'
-	npm -g update
+	npm update --location=global
 	@echo 'dependencies'
 	git submodule update --init
 
@@ -83,13 +99,13 @@ upgrade:
 	@echo '>> upgrade'
 	git pull
 	@echo 'npm'
-	npm i -g npm
+	npm install --location=global npm
 	@echo 'vim'
 	pip3 install --user --upgrade pynvim
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
 	@echo 'dependencies'
 	git submodule foreach 'git checkout $$(git symbolic-ref --short HEAD) && git pull'
-	npm outdated -g
+	npm outdated --location=global
 
 vim:
 	@echo '>> vim'
@@ -100,11 +116,11 @@ vim:
 	pip3 install --user --upgrade pynvim
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
 	@echo 'Install vim language server protocol'
-	npm install -g dockerfile-language-server-nodejs typescript typescript-language-server vscode-langservers-extracted
+	npm install --location=global dockerfile-language-server-nodejs typescript typescript-language-server vscode-langservers-extracted
 	@echo 'Install vim debug adapter protocol'
 	cd $(CURDIR)/javascript/modules/microsoft/vscode-node-debug2 && npm ci && npx gulp build && cd $(CURDIR)
 	@echo 'Install node.js provider'
-	npm install -g neovim
+	npm install --location=global neovim
 	@echo 'Please open neovim and run :checkhealth & :UpdateRemotePlugins'
 
 zsh:

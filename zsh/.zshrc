@@ -85,7 +85,7 @@ bindkey '^[f' vi-forward-word
 source ${HOME}/.zshmodules/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Aliases
-alias ls='ls -F -G' # Color output for ls
+alias ls='ls -F -G --color=auto' # Color output for ls
 alias ll='ls -lah' # Lists human readable sizes, hidden files.
 alias grep='grep --color=auto' # Mark up the matching text with color
 alias ip='dig +short myip.opendns.com @resolver1.opendns.com' # ip address
@@ -106,3 +106,6 @@ alias HEAD='lwp-request -m "HEAD"' # Send a HEAD request
 # tern
 # Also if you are using add loadEagerly - * many files * - this to your .bashrc or .zshrc, this will allow you load all files you need when ternjs is started.
 ulimit -n 2048
+
+# dircolors
+test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)

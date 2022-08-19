@@ -30,7 +30,7 @@ if (has("termguicolors"))
   set termguicolors                   " Use 24-bit colors
 endif
 set background=dark
-colorscheme base16-ocean
+colorscheme nord
 
 " set guifont=SF\ Mono:h14
 
@@ -59,9 +59,9 @@ endfunction
 " see https://github.com/alexlafroscia/dotfiles/blob/master/nvim/plugin/ale.vim
 " Use a slightly slimmer error pointer
 let g:ale_sign_error = '✖'
-hi ALEErrorSign guifg=#DF8C8C guibg=#343D46
-let g:ale_sign_warning = '⚠'
-hi ALEWarningSign guifg=#F2C38F guibg=#343D46
+hi ALEErrorSign guifg=#DF8C8C guibg=NONE
+let g:ale_sign_warning = '>'
+hi ALEWarningSign guifg=#F2C38F guibg=NONE
 " Use ALT-k and ALT-j to navigate errors
 nmap <silent> ˚ <Plug>(ale_previous_wrap)
 nmap <silent> ∆ <Plug>(ale_next_wrap)
