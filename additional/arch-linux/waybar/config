@@ -103,6 +103,7 @@
     },
 
     "bluetooth": {
+        "format": "",
         "format-alt": "bluetooth: {status}",
         "format-on": "",
         "format-off": "!",
