@@ -51,6 +51,7 @@ gpg:
 	@echo 'Link gpg-agent.conf'
 	mkdir -p "$(TARGETDIR)/.gnupg"
 	ln -fs "$(CURDIR)/gpg/gpg-agent.conf" "$(TARGETDIR)/.gnupg/gpg-agent.conf"
+	ln -fs "$(CURDIR)/gpg/gpg.conf" "$(TARGETDIR)/.gnupg/gpg.conf"
 	find "$(TARGETDIR)/.gnupg" -type f -exec chmod 600 {} \;
 	find "$(TARGETDIR)/.gnupg" -type d -exec chmod 700 {} \;
 
