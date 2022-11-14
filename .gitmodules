@@ -82,9 +82,9 @@
 [submodule "vim/pack/vim-denops/opt/denops.vim"]
 	path = vim/pack/vim-denops/opt/denops.vim
 	url = https://github.com/vim-denops/denops.vim.git
-[submodule "vim/pack/Shougo/opt/ddc-nvim-lsp"]
-	path = vim/pack/Shougo/opt/ddc-nvim-lsp
-	url = https://github.com/Shougo/ddc-nvim-lsp.git
+[submodule "vim/pack/Shougo/opt/ddc-source-nvim-lsp"]
+	path = vim/pack/Shougo/opt/ddc-source-nvim-lsp
+	url = https://github.com/Shougo/ddc-source-nvim-lsp.git
 [submodule "vim/pack/Shougo/opt/ddc-source-around"]
 	path = vim/pack/Shougo/opt/ddc-source-around
 	url = https://github.com/Shougo/ddc-source-around.git
