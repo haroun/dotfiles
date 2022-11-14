@@ -90,8 +90,9 @@ endif
 if has('nvim')
   packadd ddc.vim
   packadd denops.vim
-  packadd ddc-nvim-lsp
-  packadd ddc-around
+  packadd ddc-ui-native
+  packadd ddc-source-around
+  packadd ddc-source-nvim-lsp
   packadd ddc-matcher_head
   packadd ddc-sorter_rank
   runtime ddc.vim
