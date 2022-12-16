@@ -18,6 +18,8 @@ set textwidth=120                     " automatically hard wrap at 120 columns
 set scrolloff=3                       " start scrolling 3 lines before edge of viewport
 set sidescrolloff=3                   " same as scolloff, but for columns
 
+set foldmethod=indent
+
 " Color scheme
 " Use 24-bit (true-color) mode in Vim/Neovim.
 " If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
