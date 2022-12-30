@@ -1,5 +1,6 @@
 " Syntax highlighting
 syntax on
+filetype plugin indent on
 
 set number                            " show line numbers in gutter
 if exists('+relativenumber')
@@ -82,22 +83,94 @@ map <Leader>p :GFiles<CR>
 map <Leader>o :Buffers<CR>
 map <Leader>f :Rg!
 
+" treesitter
+if has('nvim')
+  packadd nvim-treesitter
+  runtime nvim-treesitter.lua
+endif
+
 " lsp
 if has('nvim')
   packadd nvim-lspconfig
   runtime lsp.vim
 endif
 
-" ddc
+" Set augroup.
+" augroup MyAutoCmd
+"   autocmd!
+"   autocmd BufReadPre *?
+"     \ call vimrc#check_syntax()
+"   autocmd FileType,Syntax,BufNewFile,BufNew,BufRead *?
+"     \ call vimrc#on_filetype()
+" augroup END
+
+" ddc + ddu
 if has('nvim')
-  packadd ddc.vim
   packadd denops.vim
+  packadd deol.nvim
+  packadd pum.vim
+
+  " ddc
+  packadd ddc.vim
+  " Install your UIs
+  packadd ddc-ui-inline
   packadd ddc-ui-native
+  packadd ddc-ui-none
+  packadd ddc-ui-pum
+  " Install your sources
+  packadd ddc-buffer
   packadd ddc-source-around
+  packadd ddc-source-cmdline
+  packadd ddc-source-cmdline-history
+  packadd ddc-source-file
+  packadd ddc-source-input
+  packadd ddc-source-line
   packadd ddc-source-nvim-lsp
+  packadd ddc-source-omni
+  packadd ddc-source-rg
+  packadd ddc-source-zsh
+  packadd neco-vim
+  " Install your filters
+  packadd ddc-converter_remove_overlap
+  packadd ddc-converter_truncate_abbr
   packadd ddc-matcher_head
+  packadd ddc-matcher_length
   packadd ddc-sorter_rank
+
+  " ddu
+  packadd ddu.vim
+  " Install your UIs
+  packadd ddu-ui-ff
+  packadd ddu-ui-filer
+  " Install your sources
+  packadd ddu-source-action
+  packadd ddu-source-buffer
+  packadd ddu-source-command_history
+  packadd ddu-source-file
+  packadd ddu-source-file_external
+  packadd ddu-source-file_old
+  packadd ddu-source-file_point
+  packadd ddu-source-file_rec
+  packadd ddu-source-line
+  packadd ddu-source-markdown
+  packadd ddu-source-register
+  packadd ddu-source-rg
+  " Install your filters
+  packadd ddu-filter-converter_display_word
+  packadd ddu-filter-matcher_hidden
+  packadd ddu-filter-matcher_relative
+  packadd ddu-filter-matcher_substring
+  packadd ddu-filter-sorter_alpha
+  " Install your kinds
+  packadd ddu-kind-file
+  packadd ddu-kind-word
+  " Install your columns
+  packadd ddu-column-filename
+  " Misc
+  packadd ddu-commands.vim
+
   runtime ddc.vim
+  runtime ddu.vim
 endif
 
 " dap
@@ -106,15 +179,10 @@ if has('nvim')
   runtime dap.vim
 endif
 
+
 " vim-polyglot
 let g:svelte_indent_script = 0
 let g:svelte_indent_style = 0
-
-" defx
-if has('nvim')
-  packadd defx.nvim
-  runtime defx.vim
-endif
 
 " tern
 " Use tern_for_vim.
