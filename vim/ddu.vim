@@ -2,7 +2,7 @@
 "
 nnoremap s<Space> <Cmd>Ddu
     \ -name=files file
-    \ -source-option-path='`fnamemodify(dein#util#_get_myvimrc(), ':p:h').'/rc'`'
+    \ -source-option-path='`fnamemodify($MYVIMRC, ':p:h').'/rc'`'
     \ <CR>
 nnoremap ss
     \ <Cmd>Ddu -name=files file_point file_old
@@ -48,8 +48,6 @@ xnoremap <expr> ;r (mode() ==# 'V' ? '"_R<Esc>' : '"_d') .
     \ '<Cmd>Ddu -name=register register
     \ -source-option-defaultAction=insert
     \ -ui-param-autoResize<CR>'
-nnoremap sg <Cmd>Ddu
-    \ dein<CR>
 nnoremap [Space]<Space> <Cmd>Ddu
     \ -name=search line -resume=v:false
     \ -source-param-range=window
@@ -126,9 +124,6 @@ call ddu#custom#patch_global(#{
     \         'matcher_substring', 'matcher_hidden',
     \       ],
     \       sorters: ['sorter_alpha'],
-    \     },
-    \     dein: #{
-    \       defaultAction: 'cd',
     \     },
     \     markdown: #{
     \       sorters: [],
