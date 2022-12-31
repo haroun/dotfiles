@@ -22,3 +22,7 @@ export NVM_DIR="$HOME/.nvm"
 if [[ -a "$HOME/.cargo/env" ]]; then
   source "$HOME/.cargo/env"
 fi
+# opt-tools
+if [[ -d "/opt/opt-tools/bin" ]]; then
+  export PATH="/opt/ops-tools/bin:$PATH"
+fi
