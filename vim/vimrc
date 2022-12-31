@@ -1,6 +1,6 @@
 " Syntax highlighting
-syntax on
 filetype plugin indent on
+syntax on
 
 set number                            " show line numbers in gutter
 if exists('+relativenumber')
@@ -58,6 +58,15 @@ function! LightlineTruncatedFileName()
   endif
 endfunction
 
+" Set augroup.
+augroup MyAutoCmd
+  autocmd!
+  autocmd BufReadPre *?
+    \ call vimrc#check_syntax()
+  autocmd FileType,Syntax,BufNewFile,BufNew,BufRead *?
+    \ call vimrc#on_filetype()
+augroup END
+
 " ALE
 " see https://github.com/alexlafroscia/dotfiles/blob/master/nvim/plugin/ale.vim
 " Use a slightly slimmer error pointer
@@ -94,15 +103,6 @@ if has('nvim')
   packadd nvim-lspconfig
   runtime lsp.vim
 endif
-
-" Set augroup.
-" augroup MyAutoCmd
-"   autocmd!
-"   autocmd BufReadPre *?
-"     \ call vimrc#check_syntax()
-"   autocmd FileType,Syntax,BufNewFile,BufNew,BufRead *?
-"     \ call vimrc#on_filetype()
-" augroup END
 
 " ddc + ddu
 if has('nvim')

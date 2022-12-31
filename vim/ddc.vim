@@ -178,8 +178,8 @@ function! CommandlinePre(mode) abort
             call ddc#custom#patch_buffer('keywordPattern', '[0-9a-zA-Z_:#-]*')
       endif
       " TODO uncomment
-      " autocmd MyAutoCmd User DDCCmdlineLeave ++once call CommandlinePost()
-      " autocmd MyAutoCmd InsertEnter <buffer> ++once call CommandlinePost()
+      autocmd MyAutoCmd User DDCCmdlineLeave ++once call CommandlinePost()
+      autocmd MyAutoCmd InsertEnter <buffer> ++once call CommandlinePost()
       call ddc#enable_cmdline_completion()
 endfunction
 function! CommandlinePost() abort

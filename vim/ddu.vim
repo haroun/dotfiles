@@ -236,5 +236,5 @@ nnoremap <Space>f <Cmd>Ddu
     \ -source-option-columns=filename<CR>
 
 " TODO uncomment
-" autocmd MyAutoCmd TabEnter,WinEnter,CursorHold,FocusGained *
-"     \ call ddu#ui#filer#do_action('checkItems')
+autocmd MyAutoCmd TabEnter,WinEnter,CursorHold,FocusGained *
+    \ call ddu#ui#filer#do_action('checkItems')
