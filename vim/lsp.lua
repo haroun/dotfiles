@@ -53,13 +53,13 @@ nvim_lsp.elixirls.setup {
   flags = lsp_flags,
   cmd = { os.getenv('HOME') .. '/.vim/pack/elixir-lsp/opt/elixir-ls/apps/elixir_ls_utils/priv/language_server.sh' }
 }
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  flags = lsp_flags,
-  root_dir = nvim_lsp.util.root_pattern('package.json')
-}
 nvim_lsp.denols.setup {
   on_attach = on_attach,
   flags = lsp_flags,
   root_dir = nvim_lsp.util.root_pattern('deno.json', 'deno.jsonc')
+}
+nvim_lsp.tsserver.setup {
+  on_attach = on_attach,
+  flags = lsp_flags,
+  root_dir = nvim_lsp.util.root_pattern('package.json')
 }
