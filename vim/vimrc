@@ -101,7 +101,8 @@ endif
 " lsp
 if has('nvim')
   packadd nvim-lspconfig
-  runtime lsp.vim
+  " runtime lsp.vim TODO remove
+  runtime lsp.lua
 endif
 
 " ddc + ddu

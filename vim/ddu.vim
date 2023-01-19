@@ -229,8 +229,32 @@ function! GrepAction(args)
         \ })
 endfunction
 
+" ddu-ff
+autocmd FileType ddu-ff call s:ddu_my_settings()
+function! s:ddu_my_settings() abort
+  nnoremap <buffer><silent> <CR>
+        \ <Cmd>call ddu#ui#ff#do_action('itemAction')<CR>
+  nnoremap <buffer><silent> <Space>
+        \ <Cmd>call ddu#ui#ff#do_action('toggleSelectItem')<CR>
+  nnoremap <buffer><silent> i
+        \ <Cmd>call ddu#ui#ff#do_action('openFilterWindow')<CR>
+  nnoremap <buffer><silent> q
+        \ <Cmd>call ddu#ui#ff#do_action('quit')<CR>
+endfunction
+
+" ddu-ff-filter
+autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
+function! s:ddu_filter_my_settings() abort
+  inoremap <buffer><silent> <CR>
+  \ <Esc><Cmd>call ddu#ui#ff#close()<CR>
+  nnoremap <buffer><silent> <CR>
+  \ <Esc><Cmd>call ddu#ui#ff#close()<CR>
+  nnoremap <buffer><silent> q
+  \ <Esc><Cmd>call ddu#ui#ff#close()<CR>
+endfunction
+
 " ddu-ui-filer
-nnoremap <Space>f <Cmd>Ddu
+nnoremap <C-p> <Cmd>Ddu
     \ -name=filer-`win_getid()` -ui=filer -resume -sync file
     \ -source-option-path=`getcwd()`
     \ -source-option-columns=filename<CR>
