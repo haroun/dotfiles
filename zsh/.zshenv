@@ -26,3 +26,7 @@ fi
 if [[ -d "/opt/opt-tools/bin" ]]; then
   export PATH="/opt/ops-tools/bin:$PATH"
 fi
+# stagecoach
+if [[ -d "/opt/stagecoach/bin" ]]; then
+  export PATH="/opt/stagecoach/bin:$PATH"
+fi
