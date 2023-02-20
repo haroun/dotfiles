@@ -5,6 +5,9 @@ SAVEHIST=10000 # The maximum number of events to save in the history file.
 
 # Vi mode
 bindkey -v
+# Ctrl+Space to accept suggestion, Ctrl+H to Backspace
+bindkey '^ ' autosuggest-accept
+bindkey '^H' backward-delete-char
 
 # Prompt
 # https://github.com/Parth/dotfiles/blob/master/zsh/prompt.sh
