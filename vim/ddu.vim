@@ -187,15 +187,15 @@ call ddu#custom#patch_local('files', #{
 
 call ddu#custom#patch_global(#{
     \   sourceParams: #{
-    \     file_rg: #{
-    \       cmd: ['rg', '--files', '--glob', '!.git',
-    \               '--color', 'never', '--no-messages'],
-    \       updateItems: 50000,
-    \     },
     \     rg: #{
     \       args: [
     \         '--ignore-case', '--column', '--no-heading', '--color', 'never',
     \       ],
+    \     },
+    \     file_rg: #{
+    \       cmd: ['rg', '--files', '--glob', '!.git',
+    \               '--color', 'never', '--no-messages'],
+    \       updateItems: 50000,
     \     },
     \   }
     \ })
@@ -218,15 +218,25 @@ function! GrepAction(args)
         \   name: a:args.options.name,
         \   push: v:true,
         \   sources: [
-        \     {
+        \     #{
         \       name: 'rg',
-        \       params: {
+        \       params: #{
         \         path: path,
         \         input: input('Pattern: '),
         \       },
         \     },
         \   ],
         \ })
+endfunction
+
+" Define cd action for "ddu-ui-filer"
+call ddu#custom#action('kind', 'file', 'uiCd',
+    \ { args -> UiCdAction(args) })
+function! UiCdAction(args)
+    const path = a:args.items[0].action.path
+    const directory = path->isdirectory() ? path : path->fnamemodify(':h')
+    call ddu#ui#do_action('itemAction',
+        \ #{ name: 'narrow', params: #{ path: directory } })
 endfunction
 
 " ddu-ff
@@ -246,17 +256,18 @@ endfunction
 autocmd FileType ddu-ff-filter call s:ddu_filter_my_settings()
 function! s:ddu_filter_my_settings() abort
   inoremap <buffer><silent> <CR>
-  \ <Esc><Cmd>call ddu#ui#ff#close()<CR>
+  \ <Esc><Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>
   nnoremap <buffer><silent> <CR>
-  \ <Esc><Cmd>call ddu#ui#ff#close()<CR>
+  \ <Esc><Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>
   nnoremap <buffer><silent> q
-  \ <Esc><Cmd>call ddu#ui#ff#close()<CR>
+  \ <Esc><Cmd>call ddu#ui#do_action('closeFilterWindow')<CR>
 endfunction
 
 " ddu-ui-filer
 nnoremap <C-p> <Cmd>Ddu
     \ -name=filer-`win_getid()` -ui=filer -resume -sync file
-    \ -source-option-path=`getcwd()`
+    \ -source-option-path=`t:->get('ddu_ui_filer_path', '')`
+    \ -source-option-searchPath=`t:->get('ddu_ui_filer_path', '')`
     \ -source-option-columns=filename<CR>
 
 " TODO uncomment

@@ -61,5 +61,6 @@ nvim_lsp.denols.setup {
 nvim_lsp.tsserver.setup {
   on_attach = on_attach,
   flags = lsp_flags,
-  root_dir = nvim_lsp.util.root_pattern('package.json')
+  root_dir = nvim_lsp.util.root_pattern('package.json'),
+  single_file_support = false
 }

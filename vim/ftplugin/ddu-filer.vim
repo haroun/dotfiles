@@ -70,11 +70,11 @@ nnoremap <buffer> >
 nnoremap <buffer> <C-l>
     \ <Cmd>call ddu#ui#filer#do_action('checkItems')<CR>
 nnoremap <buffer><expr> <CR>
-    \ ddu#ui#filer#is_tree() ?
+    \ ddu#ui#get_item()->get('isTree', v:false) ?
     \ "<Cmd>call ddu#ui#filer#do_action('itemAction', #{ name: 'narrow' })<CR>" :
     \ "<Cmd>call ddu#ui#filer#do_action('itemAction', #{ name: 'open' })<CR>"
 nnoremap <buffer><expr> l
-    \ ddu#ui#filer#is_tree() ?
+    \ ddu#ui#get_item()->get('isTree', v:false) ?
     \ "<Cmd>call ddu#ui#filer#do_action('itemAction', #{ name: 'narrow' })<CR>" :
     \ "<Cmd>call ddu#ui#filer#do_action('itemAction', #{ name: 'open' })<CR>"
 nnoremap <buffer> gr
