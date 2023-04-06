@@ -56,6 +56,8 @@
 	# Remove branches that have already been merged with main
 	# a.k.a. ‘delete merged’
 	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+	# handle merged branches with squash commits
+	# dms = "git branch -r | awk '{print $1}' | grep -E -v -f /dev/fd/0 <(git branch -vv | grep origin) | awk '{print $1}' | xargs git branch -d"
 
 	# List contributors with number of commits
 	contributors = shortlog --summary --numbered
@@ -168,5 +170,9 @@
 [merge "npm-merge-driver"]
 	name = automatically merge npm lockfiles
 	driver = npx npm-merge-driver merge %A %O %B %P
+
 [init]
 	defaultBranch = main
+
+[fetch]
+	prune = true
