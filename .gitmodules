@@ -232,3 +232,6 @@
 [submodule "vim/pack/Shougo/opt/deol.nvim"]
 	path = vim/pack/Shougo/opt/deol.nvim
 	url = https://github.com/Shougo/deol.nvim.git
+[submodule "vim/pack/toppair/opt/peek.nvim"]
+	path = vim/pack/toppair/opt/peek.nvim
+	url = https://github.com/toppair/peek.nvim.git

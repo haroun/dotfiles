@@ -180,6 +180,11 @@ if has('nvim')
   runtime dap.vim
 endif
 
+" markdown
+if has('nvim')
+  packadd peek.nvim
+  runtime markdown.lua
+endif
 
 " vim-polyglot
 let g:svelte_indent_script = 0
