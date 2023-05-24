@@ -98,6 +98,7 @@ alias POST='lwp-request -m "POST"' # Send a POST request
 alias PUT='lwp-request -m "PUT"' # Send a PUT request
 alias PATCH='lwp-request -m "PATCH"' # Send a PATCH request
 alias HEAD='lwp-request -m "HEAD"' # Send a HEAD request
+alias rm='rm -i'
 
 # nvm
 [ -s "${NVM_DIR}/nvm.sh" ] && . "${NVM_DIR}/nvm.sh"  # This loads nvm
