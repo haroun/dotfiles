@@ -102,7 +102,8 @@ upgrade:
 	@echo 'npm'
 	npm install --location=global npm
 	@echo 'vim'
-	pip3 install --user --upgrade pynvim
+	# disabled due to externally-managed-environment
+	# pip3 install --user --upgrade pynvim
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
 	@echo 'dependencies'
 	git submodule foreach 'git checkout $$(git symbolic-ref --short HEAD) && git pull'
@@ -114,7 +115,8 @@ vim:
 	ln -nfs "$(CURDIR)/vim" "$(TARGETDIR)/.vim"
 	mkdir -p "$(TARGETDIR)/.config/nvim"
 	ln -fs "$(CURDIR)/vim/init.vim" "$(TARGETDIR)/.config/nvim/init.vim"
-	pip3 install --user --upgrade pynvim
+	# disabled due to externally-managed-environment
+	# pip3 install --user --upgrade pynvim
 	cd $(CURDIR)/vim/pack/ternjs/start/tern_for_vim && npm install && cd $(CURDIR)
 	@echo 'Install vim language server protocol'
 	npm install --location=global dockerfile-language-server-nodejs typescript typescript-language-server vscode-langservers-extracted
