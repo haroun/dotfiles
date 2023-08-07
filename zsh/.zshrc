@@ -113,3 +113,11 @@ ulimit -n 2048
 
 # dircolors
 test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
+
+# pnpm
+export PNPM_HOME="/home/harouna/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

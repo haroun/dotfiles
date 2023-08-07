@@ -2,9 +2,9 @@
 # https://help.github.com/articles/changing-author-info/
 
 git filter-branch --env-filter '
-OLD_EMAIL="harouna@pc23.home"
-CORRECT_NAME="Harouna Traoré"
-CORRECT_EMAIL="h.traore@me.com"
+OLD_EMAIL="old@email.com"
+CORRECT_NAME="Correct Name"
+CORRECT_EMAIL="correct@email.com"
 if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
 then
     export GIT_COMMITTER_NAME="$CORRECT_NAME"
