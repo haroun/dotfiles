@@ -9,55 +9,55 @@ nnoremap ss
     \ `finddir('.git', ';') != '' ? 'file_external' : 'file'`
     \ file -source-param-new
     \ -volatile -sync
-    \ -ui-param-displaySourceName=short
+    \ -ui-param-ff-displaySourceName=short
     \ <CR>
 nnoremap / <Cmd>Ddu
     \ -name=search line -resume=v:false
-    \ -ui-param-startFilter
+    \ -ui-param-ff-startFilter
     \ <CR>
 nnoremap * <Cmd>Ddu
     \ -name=search line -resume=v:false
     \ -input=`expand('<cword>')`
-    \ -ui-param-startFilter=v:false
+    \ -ui-param-ff-startFilter=v:false
     \ <CR>
 nnoremap ;g <Cmd>Ddu
     \ -name=search rg -resume=v:false
-    \ -ui-param-ignoreEmpty
+    \ -ui-param-ff-ignoreEmpty
     \ -source-param-input=`input('Pattern: ', expand('<cword>'))`
     \ <CR>
 nnoremap ;f <Cmd>Ddu
     \ -name=search rg -resume=v:false
-    \ -ui-param-ignoreEmpty
+    \ -ui-param-ff-ignoreEmpty
     \ -source-param-input=`input('Pattern: ', expand('<cword>'))`
     \ -source-param-path=`input('Directory: ', '', 'dir')`
     \ <CR>
 nnoremap n <Cmd>Ddu
     \ -name=search -resume
-    \ -ui-param-startFilter=v:false
+    \ -ui-param-ff--ff-startFilter=v:false
     \ <CR>
 nnoremap ;r <Cmd>Ddu
     \ -name=register register
     \ -source-option-defaultAction=`col('.') == 1 ? 'insert' : 'append'`
-    \ -ui-param-autoResize
+    \ -ui-param-ff-autoResize
     \ <CR>
 nnoremap ;d <Cmd>Ddu
     \ -name=outline markdown
-    \ -ui-param-ignoreEmpty -ui-param-displayTree
+    \ -ui-param-ff-ignoreEmpty -ui-param-ff-displayTree
     \ <CR>
 xnoremap <expr> ;r (mode() ==# 'V' ? '"_R<Esc>' : '"_d') .
     \ '<Cmd>Ddu -name=register register
     \ -source-option-defaultAction=insert
-    \ -ui-param-autoResize<CR>'
+    \ -ui-param-ff-autoResize<CR>'
 nnoremap [Space]<Space> <Cmd>Ddu
     \ -name=search line -resume=v:false
     \ -source-param-range=window
-    \ -ui-param-startFilter
+    \ -ui-param-ff-startFilter
     \ <CR>
 " inoremap <C-q> <Cmd>Ddu
 "     \ -name=register register
 "     \ -source-option-defaultAction=append
 "     \ -source-param-range=window
-"     \ -ui-param-startFilter=v:false
+"     \ -ui-param-ff-startFilter=v:false
 "     \ <CR>
 inoremap <C-q> <Cmd>call ddu#start(#{
     \   name: 'file',
@@ -77,7 +77,7 @@ inoremap <C-q> <Cmd>call ddu#start(#{
 "     \ -name=register register
 "     \ -source-option-defaultAction=feedkeys
 "     \ -source-param-range=window
-"     \ -ui-param-startFilter=v:false
+"     \ -ui-param-ff-startFilter=v:false
 "     \ <CR><Cmd>call setcmdline('')<CR><CR>
 cnoremap <C-q> <Cmd>call ddu#start(#{
     \   name: 'file',
