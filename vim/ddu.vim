@@ -2,7 +2,7 @@
 "
 nnoremap s<Space> <Cmd>Ddu
     \ -name=files file
-    \ -source-option-path='`fnamemodify($MYVIMRC, ':p:h').'/rc'`'
+    \ -source-option-file-path='`fnamemodify($MYVIMRC, ':p:h').'/rc'`'
     \ <CR>
 nnoremap ss
     \ <Cmd>Ddu -name=files file_point file_old
@@ -37,7 +37,7 @@ nnoremap n <Cmd>Ddu
     \ <CR>
 nnoremap ;r <Cmd>Ddu
     \ -name=register register
-    \ -source-option-defaultAction=`col('.') == 1 ? 'insert' : 'append'`
+    \ -source-option-register-defaultAction=`col('.') == 1 ? 'insert' : 'append'`
     \ -ui-param-ff-autoResize
     \ <CR>
 nnoremap ;d <Cmd>Ddu
@@ -46,7 +46,7 @@ nnoremap ;d <Cmd>Ddu
     \ <CR>
 xnoremap <expr> ;r (mode() ==# 'V' ? '"_R<Esc>' : '"_d') .
     \ '<Cmd>Ddu -name=register register
-    \ -source-option-defaultAction=insert
+    \ -source-option-register-defaultAction=insert
     \ -ui-param-ff-autoResize<CR>'
 nnoremap [Space]<Space> <Cmd>Ddu
     \ -name=search line -resume=v:false
@@ -55,7 +55,7 @@ nnoremap [Space]<Space> <Cmd>Ddu
     \ <CR>
 " inoremap <C-q> <Cmd>Ddu
 "     \ -name=register register
-"     \ -source-option-defaultAction=append
+"     \ -source-option-register-defaultAction=append
 "     \ -source-param-range=window
 "     \ -ui-param-ff-startFilter=v:false
 "     \ <CR>
@@ -75,7 +75,7 @@ inoremap <C-q> <Cmd>call ddu#start(#{
     \ })<CR>
 " cnoremap <C-q> <Cmd>Ddu
 "     \ -name=register register
-"     \ -source-option-defaultAction=feedkeys
+"     \ -source-option-register-defaultAction=feedkeys
 "     \ -source-param-range=window
 "     \ -ui-param-ff-startFilter=v:false
 "     \ <CR><Cmd>call setcmdline('')<CR><CR>
@@ -266,9 +266,9 @@ endfunction
 " ddu-ui-filer
 nnoremap <C-p> <Cmd>Ddu
     \ -name=filer-`win_getid()` -ui=filer -resume -sync file
-    \ -source-option-path=`t:->get('ddu_ui_filer_path', '')`
-    \ -source-option-searchPath=`t:->get('ddu_ui_filer_path', '')`
-    \ -source-option-columns=filename<CR>
+    \ -source-option-file-path=`t:->get('ddu_ui_filer_path', '')`
+    \ -source-option-file-searchPath=`t:->get('ddu_ui_filer_path', '')`
+    \ -source-option-file-columns=filename<CR>
 
 " TODO uncomment
 autocmd MyAutoCmd TabEnter,WinEnter,CursorHold,FocusGained *
