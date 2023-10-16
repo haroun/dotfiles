@@ -1,0 +1,15 @@
+```sh
+grep -rlE '(\./)?(\.\./)*(apps|apps-shared|assets|components|config|data|directives|filters|mixins|router|scss|services|store|utilities|views|vue-extensions)/' shared/modules/renderer/src
+nvim `grep -rlE '(\./)?(\.\./)*(apps|apps-shared|assets|components|config|data|directives|filters|mixins|router|scss|services|store|utilities|views|vue-extensions)/' shared/modules/renderer/src {}`
+# set auto write when we switch buffer
+:set aw
+:bufdo %s/from '\(\.\/\)*\(\.\.\/\)*\(apps\|apps-shared\|assets\|components\|config\|data\|directives\|filters\|mixins\|router\|scss\|services\|store\|utilities\|views\|vue-extensions\)/from 'Renderer\/\3/ge | update
+```
+
+```sh
+nvim
+# set auto write when we switch buffer
+:set aw
+:arg shared/modules/renderer/src/**/*
+:argdo %s/from '\(\.\/\)*\(\.\.\/\)\(apps|apps-shared|assets|components|config|data|directives|filters|mixins|router|scss|services|store|utilities|views|vue-extensions\)*/from 'Renderer\/\3/ge | update
+```
