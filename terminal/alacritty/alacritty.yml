@@ -870,9 +870,10 @@
 font:
   normal:
     # family: SF Mono
+    family: M+1Code Nerd Font Mono
     style: Light
 
-  size: 15.0
+  size: 20.0
 
 import:
   # - ~/.config/alacritty/color-base16-ocean.yml

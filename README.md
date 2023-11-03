@@ -12,6 +12,7 @@
 * install [docker][docker] + [docker compose][docker compose]
 * install [ripgrep][ripgrep]
 * install [fzf][fzf]
+* install [mosh][mosh]
 
 ## With GUI
 
@@ -44,6 +45,14 @@ make upgrade
 make
 ```
 
+## Known issues
+
+### dircolors command not found on MacOS
+
+Install coreutils using `brew install coreutils`
+
+Be sure to read the command output for post install instructions.
+
 ## Links
 
 * [git & gpg][github-gpg]
@@ -61,6 +70,7 @@ make
 * [zsh-syntax-highlighting][zsh-syntax-highlighting]
 * [ripgrep][ripgrep]
 * [fzf][fzf]
+* [mosh][mosh]
 * optional [homebrew](https://brew.sh)
 * optional [pure theme](https://github.com/sindresorhus/pure)
 * optional [hyper-snazzy theme for terminal](https://github.com/sindresorhus/terminal-snazzy)
@@ -82,6 +92,7 @@ make
 [zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [fzf]: https://github.com/junegunn/fzf
+[mosh]: https://github.com/mobile-shell/mosh
 [github-gpg]: https://help.github.com/categories/gpg/
 [sf-mono-font]: https://developer.apple.com/fonts/
 [vscode]: https://code.visualstudio.com/insiders/

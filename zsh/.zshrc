@@ -5,9 +5,6 @@ SAVEHIST=10000 # The maximum number of events to save in the history file.
 
 # Vi mode
 bindkey -v
-# Ctrl+Space to accept suggestion, Ctrl+H to Backspace
-bindkey '^ ' autosuggest-accept
-bindkey '^H' backward-delete-char
 
 # Prompt
 # https://github.com/Parth/dotfiles/blob/master/zsh/prompt.sh
@@ -17,7 +14,7 @@ set-prompt() {
   VIM_PROMPT=${${KEYMAP/vicmd/❮}/(main|viins)/❯}
   # arrow
   PROMPT="%(?.%F{magenta}.%F{red})${VIM_PROMPT}%f "
-  # [
+  # # [
   PROMPT+="%F{white}[%f"
   # path
   PROMPT+="%F{cyan}%B${PWD/#$HOME/~}%b%f"
@@ -27,8 +24,10 @@ set-prompt() {
   if git rev-parse --is-inside-work-tree 2> /dev/null | grep -q 'true' ; then
     PROMPT+=', '
     PROMPT+="%F{blue}$(git rev-parse --abbrev-ref HEAD 2> /dev/null)%f"
-    if [ $(git status --short | wc -l) -gt 0 ]; then
-      PROMPT+="%F{red}+$(git status --short | wc -l | awk '{$1=$1};1')%f"
+    # Submodules can be slow, `git status --short --ignore-submodules all`
+    GIT_STATUS=$(git status --short | wc -l | bc)
+    if [ ${GIT_STATUS} -gt 0 ]; then
+      PROMPT+="%F{red}+${GIT_STATUS}%f"
     fi
   fi
   # timer
@@ -121,3 +120,8 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Key bindings
+# Ctrl+Space to accept suggestion, Ctrl+H to Backspace
+bindkey '^ ' autosuggest-accept
+bindkey '^H' backward-delete-char

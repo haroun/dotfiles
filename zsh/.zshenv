@@ -22,6 +22,13 @@ export NVM_DIR="$HOME/.nvm"
 if [[ -a "$HOME/.cargo/env" ]]; then
   source "$HOME/.cargo/env"
 fi
+# brew
+if [[ -d "/opt/homebrew/bin" ]]; then
+  export PATH=$PATH:/opt/homebrew/bin:/opt/homebrew/sbin
+fi
+if [[ -d "/opt/homebrew/opt/coreutils/libexec/gnubin" ]]; then
+  PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+fi
 # opt-tools
 if [[ -d "/opt/opt-tools/bin" ]]; then
   export PATH="/opt/ops-tools/bin:$PATH"
