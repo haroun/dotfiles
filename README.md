@@ -13,6 +13,7 @@
 * install [ripgrep][ripgrep]
 * install [fzf][fzf]
 * install [mosh][mosh]
+* install [bc][bc]
 
 ## With GUI
 
@@ -98,3 +99,4 @@ Be sure to read the command output for post install instructions.
 [vscode]: https://code.visualstudio.com/insiders/
 [docker]: https://www.docker.com/get-started
 [docker compose]: https://docs.docker.com/compose/cli-command/
+[bc]: https://www.gnu.org/software/bc/
