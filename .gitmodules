@@ -10,9 +10,6 @@
 [submodule "vim/pack/sheerun/start/vim-polyglot"]
 	path = vim/pack/sheerun/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
-[submodule "vim/pack/trevordmiller/opt/nova-vim"]
-	path = vim/pack/trevordmiller/opt/nova-vim
-	url = https://github.com/trevordmiller/nova-vim.git
 [submodule "vim/pack/matthn/start/emmet-vim"]
 	path = vim/pack/matthn/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
