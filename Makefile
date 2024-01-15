@@ -80,9 +80,9 @@ terminal:
 	@echo '>> terminal'
 	@echo 'Link alacritty'
 	mkdir -p "$(TARGETDIR)/.config/alacritty"
-	ln -fs "$(CURDIR)/terminal/alacritty/alacritty.yml" "$(TARGETDIR)/.config/alacritty/alacritty.yml"
-	ln -fs "$(CURDIR)/terminal/alacritty/color-nord.yml" "$(TARGETDIR)/.config/alacritty/color-nord.yml"
-	ln -fs "$(CURDIR)/terminal/alacritty/color-base16-ocean.yml" "$(TARGETDIR)/.config/alacritty/color-base16-ocean.yml"
+	ln -fs "$(CURDIR)/terminal/alacritty/alacritty.toml" "$(TARGETDIR)/.config/alacritty/alacritty.toml"
+	ln -fs "$(CURDIR)/terminal/alacritty/color-nord.toml" "$(TARGETDIR)/.config/alacritty/color-nord.toml"
+	ln -fs "$(CURDIR)/terminal/alacritty/color-base16-ocean.toml" "$(TARGETDIR)/.config/alacritty/color-base16-ocean.toml"
 	@echo 'Link tmux'
 	ln -fs "$(CURDIR)/terminal/tmux/.tmux.conf" "$(TARGETDIR)/.tmux.conf"
 	@echo 'Link dircolors'
