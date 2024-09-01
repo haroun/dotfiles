@@ -14,11 +14,11 @@
 * install [fzf][fzf]
 * install [mosh][mosh]
 * install [bc][bc]
+* install nerd fonts
 
 ## With GUI
 
 * install [alacritty][alacritty]
-* install [vscode][vscode]
 
 ```sh
 # setup script
@@ -73,9 +73,6 @@ Be sure to read the command output for post install instructions.
 * [fzf][fzf]
 * [mosh][mosh]
 * optional [homebrew](https://brew.sh)
-* optional [pure theme](https://github.com/sindresorhus/pure)
-* optional [hyper-snazzy theme for terminal](https://github.com/sindresorhus/terminal-snazzy)
-* optional [solarized theme for terminal](https://github.com/tomislav/osx-terminal.app-colors-solarized)
 
 [zsh]: https://www.zsh.org
 [neovim]: https://github.com/neovim/neovim

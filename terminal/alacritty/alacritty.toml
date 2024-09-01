@@ -1,4 +1,4 @@
-import = ["/home/harouna/.config/alacritty/color-nord.toml"]
+import = ["~/.config/alacritty/color-nord.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
