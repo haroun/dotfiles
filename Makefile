@@ -46,8 +46,6 @@ install:
 	make zsh
 	make terminal
 	make vim
-	@echo 'Link .inputrc'
-	ln -fs "$(CURDIR)/.inputrc" "$(TARGETDIR)/.inputrc"
 
 terminal:
 	@echo '>> terminal'
