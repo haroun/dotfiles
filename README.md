@@ -12,6 +12,7 @@
 * install [docker][docker] + [docker compose][docker compose]
 * install [ripgrep][ripgrep]
 * install [fzf][fzf]
+* install [bat][bat]
 * install [mosh][mosh]
 * install [bc][bc]
 * install nerd fonts
@@ -71,6 +72,7 @@ Be sure to read the command output for post install instructions.
 * [zsh-syntax-highlighting][zsh-syntax-highlighting]
 * [ripgrep][ripgrep]
 * [fzf][fzf]
+* [bat][bat]
 * [mosh][mosh]
 * optional [homebrew](https://brew.sh)
 
@@ -90,6 +92,7 @@ Be sure to read the command output for post install instructions.
 [zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [fzf]: https://github.com/junegunn/fzf
+[bat]: https://github.com/sharkdp/bat?tab=readme-ov-file#installation
 [mosh]: https://github.com/mobile-shell/mosh
 [github-gpg]: https://help.github.com/categories/gpg/
 [sf-mono-font]: https://developer.apple.com/fonts/
