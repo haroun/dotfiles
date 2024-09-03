@@ -18,9 +18,11 @@ bindkey -v
 autoload -Uz vcs_info
 precmd () { vcs_info }
 autoload -Uz promptinit && promptinit
+# https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
+# https://timothybasanov.com/2016/04/23/zsh-prompt-and-vcs_info.html
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats '%b %u%c '
-zstyle ':vcs_info:git:*' actionformats '%b [%a|%m] '
+zstyle ':vcs_info:git:*' formats '%b%u%c'
+zstyle ':vcs_info:git:*' actionformats '%b [%a|%m]'
 zstyle ':vcs_info:git:*' check-for-changes true
 # zstyle ':vcs_info:git:*' check-for-staged-changes true # faster than check-for-changes
 zstyle ':vcs_info:git:*' stagedstr '%F{green}·%f'
@@ -38,6 +40,7 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 zle -N zle-line-finish
 # TODO: elapsed time, sudo, pid, status code
+# check with prompt_basic_setup & https://gist.github.com/knadh/123bca5cfdae8645db750bfb49cb44b0
 PS1='%F{cyan}%B${PWD/#$HOME/~}%b%f %F{gray}${vcs_info_msg_0_}%f%(?.%F{magenta}.%F{red})${VIM_PROMPT}%f '
 
 # Autosuggestions
@@ -79,6 +82,9 @@ source <(fzf --zsh)
 # dircolors
 test -r ~/.dir_colors && eval $(dircolors ~/.dir_colors)
 
+# zoxide
+eval "$(zoxide init zsh)"
+
 # Key bindings
 bindkey '^y' autosuggest-accept # Ctrl+y to accept suggestion
 bindkey '^ ' autosuggest-accept # Ctrl+Space to accept suggestion
@@ -118,3 +124,39 @@ rfn() (
 fl() (
   fzf --tail 100000 --tac --no-sort --exact --wrap
 )
+
+# tmux sessionizer
+# https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
+# ts() (
+#   PROJECTS=(~/repositories/apostrophecms ~/repositories/aws ~/repositories/dotfiles ~/repositories/docker-library ~/repositories/experiments ~/repositories/kickstart.nvim ~/repositories/portfolio ~/repositories/template-api ~/repositories/learn ~/repositories/snippets)
+#   RELOAD='reload:find "${PROJECTS[@]}" -mindepth 1 -maxdepth 1 -type d || :'
+#   OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+#             nvim {1} +{2}     # No selection. Open the current line in Vim.
+#           else
+#             nvim +cw -q {+f}  # Build quickfix list for the selected items.
+#           fi'
+#   # SELECTED=$(find $PROJECTS -mindepth 1 -maxdepth 1 -type d | fzf)
+#   # TMUX_SELECTED_NAME=$(basename "$SELECTED" | tr . _)
+#   # IS_TMUX_RUNNING=$(pgrep tmux)
+#   #
+#   # if [[ -z $TMUX ]] && [[ -z $IS_TMUX_RUNNING ]]; then
+#   #     tmux new-session -s $TMUX_SELECTED_NAME -c $SELECTED
+#   #     exit 0
+#   # fi
+#   #
+#   # if ! tmux has-session -t=$TMUX_SELECTED_NAME 2> /dev/null; then
+#   #     tmux new-session -ds $TMUX_SELECTED_NAME -c $SELECTED
+#   # fi
+#   # tmux switch-client -t $TMUX_SELECTED_NAME
+#
+#   fzf --disabled --ansi --multi \
+#       --bind "start:$RELOAD" --bind "change:$RELOAD" \
+#       --bind "enter:become:$OPENER" \
+#       --bind "ctrl-o:execute:$OPENER" \
+#       --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+#       --walker dir \
+#       --delimiter : \
+#       --preview 'ls --color=always {2} {1}' \
+#       --preview-window '~4,+{2}+4/3,<80(up)' \
+#       --query "$PROJECTS"
+# )

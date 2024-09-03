@@ -9,6 +9,7 @@ GPG_TTY=$(tty)
 export GPG_TTY
 export TERM=xterm-256color
 # vi
+# The time the shell waits, in hundredths of seconds, for another key to be pressed when reading bound multi-character sequences.
 export KEYTIMEOUT=1 # kill lag for mode change
 # nvm
 export NVM_DIR="$HOME/.nvm"

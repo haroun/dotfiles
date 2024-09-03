@@ -13,6 +13,7 @@
 * install [ripgrep][ripgrep]
 * install [fzf][fzf]
 * install [bat][bat]
+* install [zoxide][zoxide]
 * install [mosh][mosh]
 * install [bc][bc]
 * install nerd fonts
@@ -74,6 +75,7 @@ Be sure to read the command output for post install instructions.
 * [fzf][fzf]
 * [bat][bat]
 * [mosh][mosh]
+* [zoxide][zoxide]
 * optional [homebrew](https://brew.sh)
 
 [zsh]: https://www.zsh.org
@@ -93,6 +95,7 @@ Be sure to read the command output for post install instructions.
 [ripgrep]: https://github.com/BurntSushi/ripgrep
 [fzf]: https://github.com/junegunn/fzf
 [bat]: https://github.com/sharkdp/bat?tab=readme-ov-file#installation
+[zoxide]: https://github.com/ajeetdsouza/zoxide
 [mosh]: https://github.com/mobile-shell/mosh
 [github-gpg]: https://help.github.com/categories/gpg/
 [sf-mono-font]: https://developer.apple.com/fonts/
