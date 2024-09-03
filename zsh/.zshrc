@@ -21,8 +21,8 @@ autoload -Uz promptinit && promptinit
 # https://zsh.sourceforge.io/Doc/Release/User-Contributions.html#Version-Control-Information
 # https://timothybasanov.com/2016/04/23/zsh-prompt-and-vcs_info.html
 zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git:*' formats '%b%u%c'
-zstyle ':vcs_info:git:*' actionformats '%b [%a|%m]'
+zstyle ':vcs_info:git:*' formats ' %b%u%c'
+zstyle ':vcs_info:git:*' actionformats ' %b [%a|%m]'
 zstyle ':vcs_info:git:*' check-for-changes true
 # zstyle ':vcs_info:git:*' check-for-staged-changes true # faster than check-for-changes
 zstyle ':vcs_info:git:*' stagedstr '%F{green}·%f'
@@ -41,7 +41,7 @@ zle -N zle-keymap-select
 zle -N zle-line-finish
 # TODO: elapsed time, sudo, pid, status code
 # check with prompt_basic_setup & https://gist.github.com/knadh/123bca5cfdae8645db750bfb49cb44b0
-PS1='%F{cyan}%B${PWD/#$HOME/~}%b%f %F{gray}${vcs_info_msg_0_}%f %(?.%F{magenta}.%F{red})${VIM_PROMPT}%f '
+PS1='%F{cyan}%B${PWD/#$HOME/~}%b%f%F{gray}${vcs_info_msg_0_}%f %(?.%F{magenta}.%F{red})${VIM_PROMPT}%f '
 
 # Autosuggestions
 source ${HOME}/.zshmodules/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
