@@ -41,7 +41,7 @@ zle -N zle-keymap-select
 zle -N zle-line-finish
 # TODO: elapsed time, sudo, pid, status code
 # check with prompt_basic_setup & https://gist.github.com/knadh/123bca5cfdae8645db750bfb49cb44b0
-PS1='%F{cyan}%B${PWD/#$HOME/~}%b%f %F{gray}${vcs_info_msg_0_}%f%(?.%F{magenta}.%F{red})${VIM_PROMPT}%f '
+PS1='%F{cyan}%B${PWD/#$HOME/~}%b%f %F{gray}${vcs_info_msg_0_}%f %(?.%F{magenta}.%F{red})${VIM_PROMPT}%f '
 
 # Autosuggestions
 source ${HOME}/.zshmodules/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
