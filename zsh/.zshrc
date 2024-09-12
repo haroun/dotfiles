@@ -22,12 +22,12 @@ autoload -Uz promptinit && promptinit
 # https://timothybasanov.com/2016/04/23/zsh-prompt-and-vcs_info.html
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git:*' formats ' %b%u%c'
-zstyle ':vcs_info:git:*' actionformats ' %b [%a|%m]'
+zstyle ':vcs_info:git:*' actionformats ' %b [%a:%m]'
 zstyle ':vcs_info:git:*' check-for-changes true
 # zstyle ':vcs_info:git:*' check-for-staged-changes true # faster than check-for-changes
 zstyle ':vcs_info:git:*' stagedstr '%F{green}·%f'
 zstyle ':vcs_info:git:*' unstagedstr '%F{red}˟%f'
-zstyle ':vcs_info:git:*' patch-format '%p (%n/%a)'
+zstyle ':vcs_info:git:*' patch-format '%n/%a'
 setopt PROMPT_SUBST
 function zle-line-init zle-keymap-select {
   VIM_PROMPT=${${KEYMAP/vicmd/❮}/(main|viins)/❯}
@@ -125,6 +125,12 @@ fl() (
   fzf --tail 100000 --tac --no-sort --exact --wrap
 )
 
+# open files with neovim
+# @ElijaManor
+ffn() (
+  fd --type f --hidden --exclude .git | fzf | xargs nvim
+)
+
 # tmux sessionizer
 # https://github.com/ThePrimeagen/.dotfiles/blob/master/bin/.local/scripts/tmux-sessionizer
 # ts() (
@@ -160,3 +166,5 @@ fl() (
 #       --preview-window '~4,+{2}+4/3,<80(up)' \
 #       --query "$PROJECTS"
 # )
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
