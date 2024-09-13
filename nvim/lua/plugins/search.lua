@@ -16,7 +16,7 @@ return {
     vim.keymap.set("n", "<leader>sc", "<cmd>Commands<CR>", opts("[S]earch [C]ommands"))
     vim.keymap.set("n", "<leader>sf", "<cmd>Files<CR>", opts("[S]earch [F]iles"))
     vim.keymap.set("n", "<leader>s<shift-f>", "<cmd>GFiles<CR>", opts("[S]earch Git [F]iles"))
-    vim.keymap.set("n", "<leader>sg", "<cmd>Rg<CR>", opts("[S]earch [G]rep"))
+    vim.keymap.set("n", "<leader>sg", "<cmd>Rg<CR>'", opts("[S]earch [G]rep"))
     vim.keymap.set("n", "<leader>sh", "<cmd>Helptags<CR>", opts("[S]earch [H]elp tags"))
     vim.keymap.set("n", "<leader>sm", "<cmd>Marks<CR>", opts("[S]earch [M]arks"))
     vim.keymap.set("n", "<leader>sn", "<cmd>Maps<CR>", opts("[S]earch [N]ormal mode mappings"))

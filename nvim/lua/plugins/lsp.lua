@@ -29,12 +29,7 @@ return {
         -- Mappings.
         local map = function(keys, func, desc, mode)
           mode = mode or "n"
-          vim.keymap.set(
-            mode,
-            keys,
-            func,
-            { buffer = bufnr, noremap = true, silent = true, desc = "LSP: " .. desc }
-          )
+          vim.keymap.set(mode, keys, func, { buffer = bufnr, noremap = true, silent = true, desc = "LSP: " .. desc })
         end
         map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
         map("n", "gd", vim.lsp.buf.definition, "Go to definition")
@@ -113,15 +108,16 @@ return {
         local ok, pkg = pcall(registry.get_package, pkg_name)
         if ok then
           if not pkg:is_installed() then
-             pkg:install()
+            pkg:install()
           end
         end
       end
 
       local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
+      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
       require("mason-lspconfig").setup({
+        ensure_installed = vim.tbl_keys(servers or {}),
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
