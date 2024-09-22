@@ -52,12 +52,17 @@ terminal:
 	@echo 'Link alacritty'
 	mkdir -p "$(TARGETDIR)/.config/alacritty"
 	ln -fs "$(CURDIR)/terminal/alacritty/alacritty.toml" "$(TARGETDIR)/.config/alacritty/alacritty.toml"
-	ln -fs "$(CURDIR)/terminal/alacritty/color-nord.toml" "$(TARGETDIR)/.config/alacritty/color-nord.toml"
 	ln -fs "$(CURDIR)/terminal/alacritty/color-base16-ocean.toml" "$(TARGETDIR)/.config/alacritty/color-base16-ocean.toml"
+	ln -fs "$(CURDIR)/terminal/alacritty/color-catpuccin-mocha.toml" "$(TARGETDIR)/.config/alacritty/color-catpuccin-mocha.toml"
+	ln -fs "$(CURDIR)/terminal/alacritty/color-nord.toml" "$(TARGETDIR)/.config/alacritty/color-nord.toml"
 	@echo 'Link tmux'
 	ln -fs "$(CURDIR)/terminal/tmux/.tmux.conf" "$(TARGETDIR)/.tmux.conf"
 	@echo 'Link dircolors'
 	ln -fsr "$(CURDIR)/terminal/dircolors/arcticicestudio/nord-dircolors/src/dir_colors" "$(TARGETDIR)/.dir_colors"
+	@echo 'Link bat'
+	mkdir -p "$(TARGETDIR)/.confg/bat/themes"
+	ln -fs "$(CURDIR)/terminal/bat/config" "$(TARGETDIR)/.config/bat/config"
+	@echo "Run 'bat cache --build' to rebuild cache"
 
 update:
 	@echo '>> update'

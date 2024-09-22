@@ -48,6 +48,13 @@ make upgrade
 make
 ```
 
+## Colorschemes
+
+We use catpuccin-mocha
+
+* [alacritty][catpuccin-alacritty]
+* [bat][catpuccin-bat]
+
 ## Known issues
 
 ### dircolors command not found on MacOS
@@ -103,3 +110,5 @@ Be sure to read the command output for post install instructions.
 [docker]: https://www.docker.com/get-started
 [docker compose]: https://docs.docker.com/compose/cli-command/
 [bc]: https://www.gnu.org/software/bc/
+[catpuccin-alacritty]: https://github.com/catppuccin/alacritty
+[catpuccin-bat]: https://github.com/catppuccin/bat
