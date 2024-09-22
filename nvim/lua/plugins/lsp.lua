@@ -19,46 +19,78 @@ return {
       "williamboman/mason-lspconfig.nvim",
     },
     config = function()
-      local on_attach = function(_, bufnr)
-        local function buf_set_option(...)
-          vim.api.nvim_buf_set_option(bufnr, ...)
-        end
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+        callback = function(event)
+          -- buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+          -- Mappings.
+          local map = function(keys, func, desc, mode)
+            mode = mode or 'n'
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+            -- vim.keymap.set(mode, keys, func, { buffer = event.buf, noremap = true, silent = true, desc = "LSP: " .. desc })
+          end
 
-        buf_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+          map("gD", vim.lsp.buf.declaration, "Go to declaration")
+          map("gd", vim.lsp.buf.definition, "Go to definition")
+          map("K", vim.lsp.buf.hover, "Hover")
+          map("gi", vim.lsp.buf.implementation, "Go to implementation")
+          map("<C-k>", vim.lsp.buf.signature_help, "Get signature help")
+          map("<space>wa", vim.lsp.buf.add_workspace_folder, "Add workspace folder")
+          map("<space>wr", vim.lsp.buf.remove_workspace_folder, "Remove workspace folder")
+          map("<space>wl", function()
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+          end, "List workspace folders")
+          map("<space>D", vim.lsp.buf.type_definition, "Type definition")
+          map("<space>rn", vim.lsp.buf.rename, "Rename")
+          map("gr", vim.lsp.buf.references, "References")
+          map("<space>e", vim.diagnostic.open_float, "Diagnostic Open Float")
+          map("[d", vim.diagnostic.goto_prev, "Diagnostic Go to previous")
+          map("]d", vim.diagnostic.goto_next, "Diagnostic Go to next")
+          map("<space>q", vim.diagnostic.setloclist, "Diagnostic Set loc list")
 
-        -- Mappings.
-        local map = function(keys, func, desc, mode)
-          mode = mode or "n"
-          vim.keymap.set(mode, keys, func, { buffer = bufnr, noremap = true, silent = true, desc = "LSP: " .. desc })
-        end
-        map("n", "gD", vim.lsp.buf.declaration, "Go to declaration")
-        map("n", "gd", vim.lsp.buf.definition, "Go to definition")
-        map("n", "K", vim.lsp.buf.hover, "Hover")
-        map("n", "gi", vim.lsp.buf.implementation, "Go to implementation")
-        map("n", "<C-k>", vim.lsp.buf.signature_help, "Get signature help")
-        map("n", "<space>wa", vim.lsp.buf.add_workspace_folder, "Add workspace folder")
-        map("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, "Remove workspace folder")
-        map("n", "<space>wl", function()
-          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, "List workspace folders")
-        map("n", "<space>D", vim.lsp.buf.type_definition, "Type definition")
-        map("n", "<space>rn", vim.lsp.buf.rename, "Rename")
-        map("n", "gr", vim.lsp.buf.references, "References")
-        map("n", "<space>e", vim.diagnostic.open_float, "Diagnostic Open Float")
-        map("n", "[d", vim.diagnostic.goto_prev, "Diagnostic Go to previous")
-        map("n", "]d", vim.diagnostic.goto_next, "Diagnostic Go to next")
-        map("n", "<space>q", vim.diagnostic.setloclist, "Diagnostic Set loc list")
-      end
+          -- The following two autocommands are used to highlight references of the
+          -- word under your cursor when your cursor rests there for a little while.
+          --    See `:help CursorHold` for information about when this is executed
+          --
+          -- When you move your cursor, the highlights will be cleared (the second autocommand).
+          local client = vim.lsp.get_client_by_id(event.data.client_id)
+          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+            local highlight_augroup = vim.api.nvim_create_augroup('kickstart-lsp-highlight', { clear = false })
+            vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+              buffer = event.buf,
+              group = highlight_augroup,
+              callback = vim.lsp.buf.document_highlight,
+            })
 
-      require("mason").setup({
-        ui = {
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-          },
-        },
+            vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+              buffer = event.buf,
+              group = highlight_augroup,
+              callback = vim.lsp.buf.clear_references,
+            })
+
+            vim.api.nvim_create_autocmd('LspDetach', {
+              group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+              callback = function(event2)
+                vim.lsp.buf.clear_references()
+                vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+              end,
+            })
+          end
+
+          -- The following code creates a keymap to toggle inlay hints in your
+          -- code, if the language server you are using supports them
+          --
+          -- This may be unwanted, since they displace some of your code
+          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+            map('<leader>th', function()
+              vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
+            end, '[T]oggle Inlay [H]ints')
+          end
+        end,
       })
+
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
       local servers = {
         css_variables = {},
@@ -113,8 +145,15 @@ return {
         end
       end
 
-      local capabilities = vim.lsp.protocol.make_client_capabilities()
-      capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
+      require("mason").setup({
+        ui = {
+          icons = {
+            package_installed = "v",
+            package_pending = ">",
+            package_uninstalled = "x",
+          },
+        },
+      })
 
       require("mason-lspconfig").setup({
         ensure_installed = vim.tbl_keys(servers or {}),
