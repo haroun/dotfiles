@@ -9,10 +9,15 @@ vim.g.maplocalleader = " " -- used for mappings as <localleader> which are local
 vim.opt.number = true -- print line number
 vim.opt.relativenumber = true -- print relative line number
 vim.opt.termguicolors = true -- enable 24-bit rgb color
+vim.opt.expandtab = true -- use spaces for to insert a <tab>
+vim.opt.tabstop = 2 -- number of spaces that a <tab> in the file counts for
+vim.opt.softtabstop = 2 -- number of spaces that a <tab> counts for while performing editing operations, like inserting a <tab> or using <bs>
+vim.opt.shiftwidth = 2 -- number of spaces to use for each step of (auto)indent
+vim.opt.autoindent = true -- copy indent from current line when starting a new line
 
 vim.wo.foldmethod = "expr" -- 'foldexpr' gives the fold level of a line
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- evaluated for each line to obtain its fold level
-vim.wo.foldenable = "off" -- all folds are open
+vim.wo.foldenable = false -- all folds are open
 
 -- NOTE: see `:help modeline`
 -- vim: tabstop=2 softtabstop=2 shiftwidth=2 expandtab
