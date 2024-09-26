@@ -7,6 +7,22 @@ return {
   },
   config = function()
     require("nvim-tree").setup({
+      renderer = {
+        icons = {
+          glyphs = {
+            git = {
+              unstaged = "x",
+              staged = "v",
+              unmerged = "",
+              renamed = ">",
+              untracked = ".",
+              deleted = "-",
+              ignored = "◌",
+            }
+          }
+        }
+      },
+
       on_attach = function(bufnr)
         local api = require("nvim-tree.api")
         local function opts(desc)
