@@ -22,6 +22,8 @@ return {
         css = { "prettierd", "prettier", stop_after_first = true },
         javascript = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
         scss = { "prettierd", "prettier", stop_after_first = true },
+        typescript = { "deno_fmt" },
+        typescriptreact = { "deno_fmt" },
         vue = { "eslint_d", "prettierd", "prettier", stop_after_first = true },
       },
       -- format_on_save = {

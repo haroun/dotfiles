@@ -28,3 +28,10 @@ fi
 if [[ -d "/opt/stagecoach/bin" ]]; then
   PATH="${PATH}:/opt/stagecoach/bin"
 fi
+# brew
+if [[ -d "/opt/homebrew/bin" ]]; then
+  export PATH="${PATH}:/opt/homebrew/bin:/opt/homebrew/sbin"
+fi
+if [[ -d "/opt/homebrew/opt/coreutils/libexec/gnubin" ]]; then
+  PATH="${PATH}:/opt/homebrew/opt/coreutils/libexec/gnubin"
+fi
