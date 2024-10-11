@@ -15,6 +15,14 @@ vim.opt.softtabstop = 2 -- number of spaces that a <tab> counts for while perfor
 vim.opt.shiftwidth = 2 -- number of spaces to use for each step of (auto)indent
 vim.opt.autoindent = true -- copy indent from current line when starting a new line
 
+-- Sync clipboard between OS and Neovim.
+--  Schedule the setting after `UiEnter` because it can increase startup-time.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+vim.schedule(function()
+  vim.opt.clipboard = 'unnamedplus'
+end)
+
 vim.wo.foldmethod = "expr" -- 'foldexpr' gives the fold level of a line
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- evaluated for each line to obtain its fold level
 vim.wo.foldenable = false -- all folds are open
