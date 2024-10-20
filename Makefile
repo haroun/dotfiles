@@ -8,10 +8,12 @@ default: install
 
 additional-arch:
 	@echo '>> arch'
+	ln -nfs "$(CURDIR)/additional/arch/fuzzel" "$(TARGETDIR)/.config/fuzzel"
+	ln -nfs "$(CURDIR)/additional/arch/mako" "$(TARGETDIR)/.config/mako"
 	ln -nfs "$(CURDIR)/additional/arch/sway" "$(TARGETDIR)/.config/sway"
 	ln -nfs "$(CURDIR)/additional/arch/swaylock" "$(TARGETDIR)/.config/swaylock"
-	ln -nfs "$(CURDIR)/additional/arch/wofi" "$(TARGETDIR)/.config/wofi"
 	ln -nfs "$(CURDIR)/additional/arch/waybar" "$(TARGETDIR)/.config/waybar"
+	ln -nfs "$(CURDIR)/additional/arch/wofi" "$(TARGETDIR)/.config/wofi"
 
 additional-brew:
 	@echo '>> homebrew'

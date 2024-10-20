@@ -2,7 +2,7 @@
 -- NOTE: see `:help vim.g`
 vim.g.mapleader = " " -- used for mappings as <leader>
 vim.g.maplocalleader = " " -- used for mappings as <localleader> which are local to a buffer
--- vim.g.have_nerd_font = true
+vim.g.have_nerd_font = false
 
 -- options
 -- NOTE: see `:help vim.opt`
@@ -20,7 +20,7 @@ vim.opt.autoindent = true -- copy indent from current line when starting a new l
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
+  vim.opt.clipboard = "unnamedplus"
 end)
 
 vim.wo.foldmethod = "expr" -- 'foldexpr' gives the fold level of a line

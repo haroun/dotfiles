@@ -1,41 +1,35 @@
 # Logo key. Use Mod1 for Alt.
 set $mod Mod4
 
-# Home row direction keys, like vim
+# Add Vim key support
 set $left h
 set $down j
 set $up k
 set $right l
 
-# Your preferred terminal emulators
-set $term-float alacritty
+# Set default terminal emulator
+set $term alacritty
 
-# Your preferred application launcher
-# Note: pass the final command to swaymsg so that the resulting window can be opened
-# on the original workspace that the command was run on.
-set $menu wofi -c ~/.config/wofi/config -I
+# Application launcher
+set $launcher fuzzel
 
-set $powermenu ~/.config/waybar/scripts/power-menu.sh
+# Application menu
+# set $menu nwg-drawer
+
+# Power Menu
+set $powermenu ~/.config/sway/scripts/power_menu.sh
 
 ### Idle configuration
-exec swayidle -w\
-    timeout 1070 'swaylock -f -C ~/.config/swaylock/config'\
-    timeout 770 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -C ~/.config/swaylock/config'
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
-
-## Lock Screen
-    bindsym $mod+f1 exec ~/.config/sway/scripts/lockman.sh
+exec swayidle idlehint 1
+exec_always swayidle -w before-sleep "$lock"
+set $lock swaylock -C ~/.config/swaylock/config
 
 ### Key bindings
 #
 # Basics:
 #
-    # Start a floating terminal
-    bindsym $mod+Return exec $term-float
+    # Launch the terminal
+    bindsym $mod+Return exec $term
 
     # Open the power menu
     bindsym $mod+Shift+e exec $powermenu
@@ -44,16 +38,20 @@ exec swayidle -w\
     bindsym $mod+q kill
 
     # Start your launcher
-    bindsym $mod+d exec $menu
+    bindsym $mod+d exec $launcher
+
+    # Menu
+    # bindsym $mod+Shift+d exec $menu
+
+    # Lock screen
+    bindsym $mod+f1 exec $lock
 
     # Activities
-    bindsym $mod+p exec ~/.config/wofi/windows.py
+    bindsym $mod+p exec ~/.config/sway/scripts/window_switcher.sh
 
-    # Drag floating windows by holding down $mod and left mouse button.
+    # Move windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
-    # Despite the name, also works for non-floating windows.
-    # Change normal to inverse to use left mouse button for resizing and right
-    # mouse button for dragging.
+    # Change "normal" to "inverse" to switch left and right
     floating_modifier $mod normal
 
     # Reload the configuration file
@@ -62,62 +60,73 @@ exec swayidle -w\
 #
 # Moving around:
 #
-    # Move your focus around
-    bindsym $mod+$left focus left
-    bindsym $mod+$down focus down
-    bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    bindsym {
+        # Change window focus
+        $mod+Left focus left
+        $mod+Down focus down
+        $mod+Up focus up
+        $mod+Right focus right
+        # Vim key support
+        $mod+$left focus left
+        $mod+$down focus down
+        $mod+$up focus up
+        $mod+$right focus right
 
-    # Move the focused window with the same, but add Shift
-    bindsym $mod+Shift+$left move left
-    bindsym $mod+Shift+$down move down
-    bindsym $mod+Shift+$up move up
-    bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
+        # Move the focused window
+        $mod+Shift+Left move left
+        $mod+Shift+Down move down
+        $mod+Shift+Up move up
+        $mod+Shift+Right move right
+        # Vim key support
+        $mod+Shift+$left move left
+        $mod+Shift+$down move down
+        $mod+Shift+$up move up
+        $mod+Shift+$right move right
+    }
+
 #
 # Workspaces:
 #
-    # Switch to workspace
-    bindsym $mod+1 workspace number 1
-    bindsym $mod+2 workspace number 2
-    bindsym $mod+3 workspace number 3
-    bindsym $mod+4 workspace number 4
-    bindsym $mod+5 workspace number 5
-    bindsym $mod+6 workspace number 6
-    bindsym $mod+7 workspace number 7
-    bindsym $mod+8 workspace number 8
-    bindsym $mod+9 workspace number 9
-    bindsym $mod+0 workspace number 10
-    # Move focused container to workspace
-    bindsym $mod+Shift+1 move container to workspace number 1
-    bindsym $mod+Shift+2 move container to workspace number 2
-    bindsym $mod+Shift+3 move container to workspace number 3
-    bindsym $mod+Shift+4 move container to workspace number 4
-    bindsym $mod+Shift+5 move container to workspace number 5
-    bindsym $mod+Shift+6 move container to workspace number 6
-    bindsym $mod+Shift+7 move container to workspace number 7
-    bindsym $mod+Shift+8 move container to workspace number 8
-    bindsym $mod+Shift+9 move container to workspace number 9
-    bindsym $mod+Shift+0 move container to workspace number 10
+    # Workspace bindings are using bindcode instead of bindsym for better Azerty compatibility.
+    # https://github.com/EndeavourOS-Community-Editions/sway/pull/81
+    # Use wev to find keycodes for setting up other bindings this way.
+
+    bindcode {
+        # Switch to workspace
+        $mod+10 workspace number 1
+        $mod+11 workspace number 2
+        $mod+12 workspace number 3
+        $mod+13 workspace number 4
+        $mod+14 workspace number 5
+        $mod+15 workspace number 6
+        $mod+16 workspace number 7
+        $mod+17 workspace number 8
+        $mod+18 workspace number 9
+        $mod+19 workspace number 10
+
+        # Move focused container to workspace
+        $mod+Shift+10 move container to workspace number 1
+        $mod+Shift+11 move container to workspace number 2
+        $mod+Shift+12 move container to workspace number 3
+        $mod+Shift+13 move container to workspace number 4
+        $mod+Shift+14 move container to workspace number 5
+        $mod+Shift+15 move container to workspace number 6
+        $mod+Shift+16 move container to workspace number 7
+        $mod+Shift+17 move container to workspace number 8
+        $mod+Shift+18 move container to workspace number 9
+        $mod+Shift+19 move container to workspace number 10
+    }
     # Note: workspaces can have any name you want, not just numbers.
     # We just use 1-10 as the default.
+
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    bindsym $mod+b splith
+    # Set how the current window will be split
+    # Split the window vertically
     bindsym $mod+v splitv
+    # Split the window horizontally
+    bindsym $mod+b splith
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -127,7 +136,7 @@ exec swayidle -w\
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
-    # Toggle the current focus between tiling and floating mode
+    # Toggle between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
 
     # Swap focus between the tiling area and the floating area
@@ -135,6 +144,7 @@ exec swayidle -w\
 
     # Move focus to the parent container
     bindsym $mod+a focus parent
+
 #
 # Scratchpad:
 #
@@ -147,86 +157,73 @@ exec swayidle -w\
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
 #
 # Resizing containers:
 #
-mode "resize" {
-    # left will shrink the containers width
-    # right will grow the containers width
-    # up will shrink the containers height
-    # down will grow the containers height
-    bindsym $left resize shrink width 10px
-    bindsym $right resize grow width 10px
-    bindsym $up resize shrink height 10px
-    bindsym $down resize grow height 10px
+    bindsym {
+        # Resize with arrow keys
+        $mod+ctrl+Right resize shrink width 10 px
+        $mod+ctrl+Up resize grow height 10 px
+        $mod+ctrl+Down resize shrink height 10 px
+        $mod+ctrl+Left resize grow width 10 px
+        # Resize with Vim keys
+        $mod+ctrl+l resize shrink width 10 px
+        $mod+ctrl+k resize grow height 10 px
+        $mod+ctrl+j resize shrink height 10 px
+        $mod+ctrl+h resize grow width 10 px
+    }
 
-    # Ditto, with arrow keys
-    bindsym Left resize shrink width 10px
-    bindsym Right resize grow width 10px
-    bindsym Up resize shrink height 10px
-    bindsym Down resize grow height 10px
-
-    # Return to default mode
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-bindsym $mod+r mode "resize"
-
-# Resize floating windows with mouse scroll:
-    bindsym --whole-window --border $mod+button4 resize shrink height 5 px or 5 ppt
-    bindsym --whole-window --border $mod+button5 resize grow height 5 px or 5 ppt
-    bindsym --whole-window --border $mod+Shift+button4 resize shrink width 5 px or 5 ppt
-    bindsym --whole-window --border $mod+Shift+button5 resize grow width 5 px or 5 ppt
+    # Resize floating windows with mouse scroll:
+    bindsym --whole-window --border {
+        # Resize vertically
+        $mod+button4 resize shrink height 5 px or 5 ppt
+        $mod+button5 resize grow height 5 px or 5 ppt
+        # Resize horizontally
+        $mod+Shift+button4 resize shrink width 5 px or 5 ppt
+        $mod+Shift+button5 resize grow width 5 px or 5 ppt
+    }
 
 #
-# Volume
+# Media Keys
 #
-    bindsym --locked XF86AudioRaiseVolume exec pamixer -ui 2
-    bindsym --locked XF86AudioLowerVolume exec pamixer -ud 2
-    bindsym --locked XF86AudioMute exec pamixer -t
-#
-# Player
-#
-    bindsym XF86AudioPlay exec playerctl play
-    bindsym XF86AudioPause exec playerctl pause
-    bindsym XF86AudioNext exec playerctl next
-    bindsym XF86AudioPrev exec playerctl previous
-#
-# Backlight
-#
-    bindsym XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
-    bindsym XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
+    bindsym {
+        # Volume
+        XF86AudioRaiseVolume exec pamixer -ui 2
+        XF86AudioLowerVolume exec pamixer -ud 2
+        XF86AudioMute exec pamixer --toggle-mute
+
+        # Player
+        XF86AudioPlay exec playerctl play-pause
+        XF86AudioNext exec playerctl next
+        XF86AudioPrev exec playerctl previous
+
+        # Backlight
+        XF86MonBrightnessUp exec brightnessctl -c backlight set +5%
+        XF86MonBrightnessDown exec brightnessctl -c backlight set 5%-
+    }
+
 #
 # App shortcuts
 #
+    # Launch the file explorer
     bindsym $mod+n exec thunar
+
+    # Launch the browser
     bindsym $mod+o exec firefox
+
+    # Launch the clipboard manager
+    bindsym $mod+Ctrl+v exec cliphist list | fuzzel -d -w 90 -l 30 -p "Select an entry to copy it to your clipboard buffer:"| cliphist decode | wl-copy
+    # Delete an entry from the clipboard manager
+    bindsym $mod+Ctrl+x exec cliphist list | fuzzel -d -w 90 -l 30 -t cc9393ff -S cc9393ff -p "Select an entry to delete it from cliphist:"| cliphist delete
+    # Note: you can clear all cliphist entries by running `cliphist wipe`
+
 #
 # Screenshots
 #
-    bindsym print exec /usr/share/sway/scripts/grimshot --notify save output
-    bindsym Shift+print exec ~/.config/sway/scripts/screenshot.sh
-    bindsym $mod+Mod1+p exec /usr/share/sway/scripts/grimshot --notify save output
-    bindsym $mod+Shift+p exec ~/.config/sway/scripts/screenshot.sh
-#
-# Keybindings List
-#
-    bindsym $mod+t exec xed ~/.config/sway/cheatsheet
-
-#
-# Custom keybindings
-#
-    # There are two wl-paste processes running, one for the primary and one for the normal clipboard
-    exec                     wl-paste    -t text --watch clipman store
-    exec                     wl-paste -p -t text --watch clipman store
-    # The keybind to select a clipping
-    bindsym $mod+y           exec clipman --primary pick --tool wofi
-    # Clear all clippings
-    bindsym $mod+Shift+y     exec clipman clear -a
-    # Remove a selected clipping
-    bindsym $mod+Mod1+y      exec clipman clear --tool wofi
-    # Empty the current clipping
-    bindsym $mod+Ctrl+y      exec : | wl-copy -p
-    bindsym $mod+Ctrl+v      wl-paste -p -t text --watch clipman store
-
+    # Snip a selection and pipe to swappy
+    bindsym print exec grim -g "$(slurp)" - | swappy -f -
+    # Screenshot a window and pipe to swappy
+    bindsym Ctrl+Print exec ~/.config/sway/scripts/screenshot_window.sh
+    # Screenshot the current display and pipe to swappy
+    bindsym Shift+Print exec ~/.config/sway/scripts/screenshot_display.sh
