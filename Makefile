@@ -13,7 +13,7 @@ additional-arch:
 	ln -nfs "$(CURDIR)/additional/arch/sway" "$(TARGETDIR)/.config/sway"
 	ln -nfs "$(CURDIR)/additional/arch/swaylock" "$(TARGETDIR)/.config/swaylock"
 	ln -nfs "$(CURDIR)/additional/arch/waybar" "$(TARGETDIR)/.config/waybar"
-	ln -nfs "$(CURDIR)/additional/arch/wofi" "$(TARGETDIR)/.config/wofi"
+	@echo 'Try running "pacman -Syu $(< ./additional/arch/packages-repository.txt)"'
 
 additional-brew:
 	@echo '>> homebrew'
