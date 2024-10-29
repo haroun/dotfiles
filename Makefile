@@ -16,7 +16,7 @@ additional-arch:
 	ln -nfs "$(CURDIR)/additional/arch/swaylock" "$(TARGETDIR)/.config/swaylock"
 	ln -nfs "$(CURDIR)/additional/arch/Thunar" "$(TARGETDIR)/.config/Thunar"
 	ln -nfs "$(CURDIR)/additional/arch/waybar" "$(TARGETDIR)/.config/waybar"
-	@echo 'Try running "pacman -Syu $(< ./additional/arch/packages-repository.txt)"'
+	@echo 'Try running "pacman -Syu $$(< ./additional/arch/packages-repository.txt)"'
 
 additional-arch-system:
 	@echo '>> arch (system)'
