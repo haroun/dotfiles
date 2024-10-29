@@ -1,4 +1,4 @@
-.PHONY: default additional-arch additional-brew additional-pacman git gpg install terminal update upgrade vim zsh
+.PHONY: default additional-arch additional-arch-system additional-brew additional-pacman git gpg install terminal update upgrade vim zsh
 # .SILENT:
 
 CURDIR := $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
@@ -12,8 +12,14 @@ additional-arch:
 	ln -nfs "$(CURDIR)/additional/arch/mako" "$(TARGETDIR)/.config/mako"
 	ln -nfs "$(CURDIR)/additional/arch/sway" "$(TARGETDIR)/.config/sway"
 	ln -nfs "$(CURDIR)/additional/arch/swaylock" "$(TARGETDIR)/.config/swaylock"
+	ln -nfs "$(CURDIR)/additional/arch/swappy" "$(TARGETDIR)/.config/swappy"
 	ln -nfs "$(CURDIR)/additional/arch/waybar" "$(TARGETDIR)/.config/waybar"
+	ln -nfs "$(CURDIR)/additional/arch/etc/systemd/logind.conf.d" "$(TARGETDIR)/.config/waybar"
 	@echo 'Try running "pacman -Syu $(< ./additional/arch/packages-repository.txt)"'
+
+additional-arch-system:
+	@echo '>> arch (system)'
+	sudo rsync -a --chown=root:root "$(CURDIR)/additional/arch/etc/systemd/" /etc/systemd/
 
 additional-brew:
 	@echo '>> homebrew'

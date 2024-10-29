@@ -23,6 +23,14 @@ set $powermenu ~/.config/sway/scripts/power_menu.sh
 exec swayidle idlehint 1
 exec_always swayidle -w before-sleep "$lock"
 set $lock swaylock -C ~/.config/swaylock/config
+# exec swayidle -w\
+#     timeout 1070 'swaylock -f -C ~/.config/swaylock/config'\
+#     timeout 770 'swaymsg "output * dpms off"' \
+#     resume 'swaymsg "output * dpms on"' \
+#     before-sleep 'swaylock -C ~/.config/swaylock/config'
+# # This will lock your screen after 300 seconds of inactivity, then turn off
+# # your displays after another 300 seconds, and turn your screens back on when
+# # resumed. It will also lock your screen before your computer goes to sleep.
 
 ### Key bindings
 #
@@ -225,5 +233,7 @@ set $lock swaylock -C ~/.config/swaylock/config
     bindsym print exec grim -g "$(slurp)" - | swappy -f -
     # Screenshot a window and pipe to swappy
     bindsym Ctrl+Print exec ~/.config/sway/scripts/screenshot_window.sh
+    bindsym $mod+Alt+4 exec ~/.config/sway/scripts/screenshot_window.sh
     # Screenshot the current display and pipe to swappy
     bindsym Shift+Print exec ~/.config/sway/scripts/screenshot_display.sh
+    bindsym $mod+Alt+3 exec ~/.config/sway/scripts/screenshot_display.sh
