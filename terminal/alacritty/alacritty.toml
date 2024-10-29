@@ -1,5 +1,3 @@
-import = ["~/.config/alacritty/color-catpuccin-mocha.toml"]
-
 [env]
 TERM = "xterm-256color"
 
@@ -12,3 +10,6 @@ size = 19.0
 [font.normal]
 family = "M+1Code Nerd Font Mono"
 style = "Regular"
+
+[general]
+import = ["~/.config/alacritty/color-catpuccin-mocha.toml"]
