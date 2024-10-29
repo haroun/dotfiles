@@ -9,12 +9,13 @@ default: install
 additional-arch:
 	@echo '>> arch'
 	ln -nfs "$(CURDIR)/additional/arch/fuzzel" "$(TARGETDIR)/.config/fuzzel"
+	ln -nfs "$(CURDIR)/additional/arch/gtk-3.0" "$(TARGETDIR)/.config/gtk-3.0"
 	ln -nfs "$(CURDIR)/additional/arch/mako" "$(TARGETDIR)/.config/mako"
+	ln -nfs "$(CURDIR)/additional/arch/swappy" "$(TARGETDIR)/.config/swappy"
 	ln -nfs "$(CURDIR)/additional/arch/sway" "$(TARGETDIR)/.config/sway"
 	ln -nfs "$(CURDIR)/additional/arch/swaylock" "$(TARGETDIR)/.config/swaylock"
-	ln -nfs "$(CURDIR)/additional/arch/swappy" "$(TARGETDIR)/.config/swappy"
+	ln -nfs "$(CURDIR)/additional/arch/Thunar" "$(TARGETDIR)/.config/Thunar"
 	ln -nfs "$(CURDIR)/additional/arch/waybar" "$(TARGETDIR)/.config/waybar"
-	ln -nfs "$(CURDIR)/additional/arch/etc/systemd/logind.conf.d" "$(TARGETDIR)/.config/waybar"
 	@echo 'Try running "pacman -Syu $(< ./additional/arch/packages-repository.txt)"'
 
 additional-arch-system:
