@@ -17,6 +17,7 @@
 * install [mosh][mosh]
 * install [bc][bc]
 * install nerd fonts
+* install [luarocks][luarocks]
 
 ## With GUI
 
@@ -106,9 +107,9 @@ Be sure to read the command output for post install instructions.
 [mosh]: https://github.com/mobile-shell/mosh
 [github-gpg]: https://help.github.com/categories/gpg/
 [sf-mono-font]: https://developer.apple.com/fonts/
-[vscode]: https://code.visualstudio.com/insiders/
 [docker]: https://www.docker.com/get-started
 [docker compose]: https://docs.docker.com/compose/cli-command/
 [bc]: https://www.gnu.org/software/bc/
 [catpuccin-alacritty]: https://github.com/catppuccin/alacritty
 [catpuccin-bat]: https://github.com/catppuccin/bat
+[luarocks]: https://github.com/luarocks/luarocks

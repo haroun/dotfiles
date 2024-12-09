@@ -23,6 +23,7 @@ vim.schedule(function()
   vim.opt.clipboard = "unnamedplus"
 end)
 
+vim.opt.foldlevelstart = 99 -- start folding will no folds closed
 vim.wo.foldmethod = "expr" -- 'foldexpr' gives the fold level of a line
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- evaluated for each line to obtain its fold level
 vim.wo.foldenable = false -- all folds are open

@@ -21,13 +21,13 @@ export NVM_DIR="$HOME/.nvm"
 #      --ansi --phony --query "$INITIAL_QUERY"
 #FZF_DEFAULT_COMMAND="rg --column --line-number --no-heading --color=always --smart-case "
 # opt-tools
-if [[ -d "/opt/opt-tools/bin" ]]; then
-  PATH="${PATH}:/opt/ops-tools/bin"
-fi
+# if [[ -d "/opt/opt-tools/bin" ]]; then
+#   PATH="${PATH}:/opt/ops-tools/bin"
+# fi
 # stagecoach
-if [[ -d "/opt/stagecoach/bin" ]]; then
-  PATH="${PATH}:/opt/stagecoach/bin"
-fi
+# if [[ -d "/opt/stagecoach/bin" ]]; then
+#   PATH="${PATH}:/opt/stagecoach/bin"
+# fi
 # brew
 if [[ -d "/opt/homebrew/bin" ]]; then
   export PATH="${PATH}:/opt/homebrew/bin:/opt/homebrew/sbin"

@@ -74,6 +74,9 @@ alias PATCH='lwp-request -m "PATCH"' # Send a PATCH request
 alias HEAD='lwp-request -m "HEAD"' # Send a HEAD request
 alias rm='rm -i'
 alias c='clear'
+function lnn() {
+  rm -rf node_modules/${2} && ln -sfn ../../${1} node_modules/${2}
+}
 
 # fzf
 # Set up fzf key bindings and fuzzy completion
