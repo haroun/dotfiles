@@ -132,7 +132,7 @@ return {
           --
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
+          if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_documentHighlight) then
             local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
             vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
               buffer = event.buf,
@@ -159,7 +159,7 @@ return {
           -- code, if the language server you are using supports them
           --
           -- This may be unwanted, since they displace some of your code
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+          if client and client:supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             map("<leader>th", function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
             end, "[T]oggle Inlay [H]ints")
@@ -232,6 +232,19 @@ return {
         ts_ls = {
           root_dir = require("lspconfig").util.root_pattern("package.json"),
           single_file_support = false,
+
+          -- https://github.com/vuejs/language-tools?tab=readme-ov-file#hybrid-mode-configuration-requires-vuelanguage-server-version-200
+          init_options = {
+            plugins = {
+              {
+                name = "@vue/typescript-plugin",
+                location = require("mason-registry").get_package("vue-language-server"):get_install_path()
+                  .. "/node_modules/@vue/language-server",
+                languages = { "vue" },
+              },
+            },
+          },
+          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         },
         vimls = {},
         volar = {},
@@ -287,6 +300,7 @@ return {
 
       require("mason-lspconfig").setup({
         ensure_installed = vim.tbl_keys(servers or {}),
+        automatic_installation = false,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
