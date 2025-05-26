@@ -246,7 +246,7 @@ return {
           filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
         },
         vimls = {},
-        volar = {},
+        vue_ls = {},
         yamlls = {},
       }
 
