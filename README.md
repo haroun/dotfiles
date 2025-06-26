@@ -56,6 +56,10 @@ We use catpuccin-mocha
 * [alacritty][catpuccin-alacritty]
 * [bat][catpuccin-bat]
 
+## Keyboard layout
+
+`localectl --no-convert set-x11-keymap us pc104 altgr-intl`
+
 ## Known issues
 
 ### dircolors command not found on MacOS
