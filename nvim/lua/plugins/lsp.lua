@@ -21,7 +21,7 @@ return {
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
       { "mason-org/mason.nvim", opts = {} },
       "mason-org/mason-lspconfig.nvim",
-      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      -- "WhoIsSethDaniel/mason-tool-installer.nvim",
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
@@ -227,6 +227,19 @@ return {
       --  So, we create new capabilities with blink.cmp, and then broadcast that to the servers.
       local capabilities = require("blink.cmp").get_lsp_capabilities()
 
+      -- Vue setup
+      -- https://github.com/vuejs/language-tools/wiki/Neovim
+      local vue_language_server_path = vim.fn.expand("$MASON/packages")
+        .. "/vue-language-server"
+        .. "/node_modules/@vue/language-server"
+      local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
+      local vue_plugin = {
+        name = "@vue/typescript-plugin",
+        location = vue_language_server_path,
+        languages = { "vue" },
+        configNamespace = "typescript",
+      }
+
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -254,7 +267,13 @@ return {
         cssls = {},
         cssmodules_ls = {},
         cucumber_language_server = {},
-        denols = {},
+        denols = {
+          settings = {
+            -- https://docs.deno.com/runtime/getting_started/setup_your_environment/#neovim-0.6%2B-using-the-built-in-language-server
+            -- on_attach = on_attach,
+            root_markers = { "deno.json", "deno.jsonc" },
+          },
+        },
         diagnosticls = {},
         docker_compose_language_service = {},
         dockerls = {},
@@ -280,9 +299,32 @@ return {
         },
         markdown_oxide = {},
         tailwindcss = {},
-        ts_ls = {},
+        ts_ls = {
+          settings = {
+            -- on_attach = on_attach,
+            root_markers = { "package.json" },
+            single_file_support = false,
+            init_options = {
+              plugins = {
+                vue_plugin,
+              },
+            },
+            filetypes = tsserver_filetypes,
+          },
+        },
         vimls = {},
-        vtsls = {},
+        vtsls = {
+          settings = {
+            vtsls = {
+              tsserver = {
+                globalPlugins = {
+                  vue_plugin,
+                },
+              },
+            },
+          },
+          filetypes = tsserver_filetypes,
+        },
         vue_ls = {},
         yamlls = {},
       }
@@ -328,88 +370,27 @@ return {
         "prettier",
         "markdownlint",
       })
-      require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
+      -- A list of servers to automatically install if they're not already installed
+      local registry = require("mason-registry")
+      for _, pkg_name in ipairs(ensure_installed) do
+        local ok, pkg = pcall(registry.get_package, pkg_name)
+        if ok then
+          if not pkg:is_installed() then
+            pkg:install()
+          end
+        end
+      end
 
       require("mason-lspconfig").setup({
-        ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
-        -- automatic_installation = false,
-        -- handlers = {
-        --   function(server_name)
-        --     local server = servers[server_name] or {}
-        --     -- This handles overriding only values explicitly passed
-        --     -- by the server configuration above. Useful when disabling
-        --     -- certain features of an LSP (for example, turning off formatting for ts_ls)
-        --     server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
-        --     require("lspconfig")[server_name].setup(server)
-        --   end,
-        -- },
+        ensure_installed = vim.tbl_keys(servers or {}),
       })
 
-      -- Deno setup
-      -- https://docs.deno.com/runtime/getting_started/setup_your_environment/#neovim-0.6%2B-using-the-built-in-language-server
-      vim.lsp.config("denols", {
-        -- on_attach = on_attach,
-        root_markers = { "deno.json", "deno.jsonc" },
-      })
-      vim.lsp.config("ts_ls", {
-        -- on_attach = on_attach,
-        root_markers = { "package.json" },
-        single_file_support = false,
-      })
+      -- LSP configs
+      for name, config in pairs(servers) do
+        vim.lsp.config(name, config)
+      end
 
-      -- Lua setup
-      --
-      vim.lsp.config["lua_ls"] = {
-        -- cmd = {...},
-        -- filetypes = { ...},
-        -- capabilities = {},
-        settings = {
-          Lua = {
-            completion = {
-              callSnippet = "Replace",
-            },
-            -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-            -- diagnostics = { disable = { 'missing-fields' } },
-          },
-        },
-      }
-
-      -- Vue setup
-      -- https://github.com/vuejs/language-tools/wiki/Neovim
-      local vue_language_server_path = vim.fn.expand("$MASON/packages")
-        .. "/vue-language-server"
-        .. "/node_modules/@vue/language-server"
-      local tsserver_filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" }
-      local vue_plugin = {
-        name = "@vue/typescript-plugin",
-        location = vue_language_server_path,
-        languages = { "vue" },
-        configNamespace = "typescript",
-      }
-      local vtsls_config = {
-        settings = {
-          vtsls = {
-            tsserver = {
-              globalPlugins = {
-                vue_plugin,
-              },
-            },
-          },
-        },
-        filetypes = tsserver_filetypes,
-      }
-      local ts_ls_config = {
-        init_options = {
-          plugins = {
-            vue_plugin,
-          },
-        },
-        filetypes = tsserver_filetypes,
-      }
-      local vue_ls_config = {}
-      vim.lsp.config("vtsls", vtsls_config)
-      vim.lsp.config("vue_ls", vue_ls_config)
-      vim.lsp.config("ts_ls", ts_ls_config)
       -- vim.lsp.enable({ "vtsls", "vue_ls" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
       vim.lsp.enable({ "tsls", "vue_ls" })
     end,
