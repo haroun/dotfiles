@@ -43,6 +43,11 @@ zle -N zle-line-finish
 # check with prompt_basic_setup & https://gist.github.com/knadh/123bca5cfdae8645db750bfb49cb44b0
 PS1='%F{cyan}%B${PWD/#$HOME/~}%b%f%F{gray}${vcs_info_msg_0_}%f %(?.%F{magenta}.%F{red})${VIM_PROMPT}%f '
 
+# deno
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":${HOME}/.zsh/completions:"* ]]; then export FPATH="${HOME}/.zsh/completions:$FPATH"; fi
+. "${HOME}/.deno/env"
+
 # Autosuggestions
 source ${HOME}/.zshmodules/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
 
