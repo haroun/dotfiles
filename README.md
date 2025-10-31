@@ -18,6 +18,7 @@
 * install [bc][bc]
 * install nerd fonts
 * install [luarocks][luarocks]
+* install [wget][wget]
 
 ## With GUI
 
@@ -117,3 +118,4 @@ Be sure to read the command output for post install instructions.
 [catpuccin-alacritty]: https://github.com/catppuccin/alacritty
 [catpuccin-bat]: https://github.com/catppuccin/bat
 [luarocks]: https://github.com/luarocks/luarocks
+[wget]: https://www.gnu.org/software/wget/
