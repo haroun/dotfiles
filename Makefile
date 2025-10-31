@@ -58,12 +58,13 @@ install:
 
 terminal:
 	@echo '>> terminal'
-	@echo 'Link alacritty'
-	mkdir -p "$(TARGETDIR)/.config/alacritty"
-	ln -fs "$(CURDIR)/terminal/alacritty/alacritty.toml" "$(TARGETDIR)/.config/alacritty/alacritty.toml"
-	ln -fs "$(CURDIR)/terminal/alacritty/color-base16-ocean.toml" "$(TARGETDIR)/.config/alacritty/color-base16-ocean.toml"
-	ln -fs "$(CURDIR)/terminal/alacritty/color-catpuccin-mocha.toml" "$(TARGETDIR)/.config/alacritty/color-catpuccin-mocha.toml"
-	ln -fs "$(CURDIR)/terminal/alacritty/color-nord.toml" "$(TARGETDIR)/.config/alacritty/color-nord.toml"
+	mkdir -p "$(TARGETDIR)/.config"
+	# @echo 'Link alacritty'
+	# mkdir -p "$(TARGETDIR)/.config/alacritty"
+	# ln -fs "$(CURDIR)/terminal/alacritty/alacritty.toml" "$(TARGETDIR)/.config/alacritty/alacritty.toml"
+	# ln -fs "$(CURDIR)/terminal/alacritty/color-base16-ocean.toml" "$(TARGETDIR)/.config/alacritty/color-base16-ocean.toml"
+	# ln -fs "$(CURDIR)/terminal/alacritty/color-catpuccin-mocha.toml" "$(TARGETDIR)/.config/alacritty/color-catpuccin-mocha.toml"
+	# ln -fs "$(CURDIR)/terminal/alacritty/color-nord.toml" "$(TARGETDIR)/.config/alacritty/color-nord.toml"
 	@echo 'Link tmux'
 	ln -fs "$(CURDIR)/terminal/tmux/.tmux.conf" "$(TARGETDIR)/.tmux.conf"
 	@echo 'Link dircolors'
@@ -86,7 +87,7 @@ upgrade:
 
 vim:
 	@echo '>> vim'
-	@echo 'Please refer to https://github.com/haroun/kickstart.nvim'
+	ln -nfs "$(CURDIR)/nvim" "$(TARGETDIR)/.config/nvim"
 
 zsh:
 	@echo '>> zsh'
