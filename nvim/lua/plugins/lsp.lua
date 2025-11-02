@@ -392,7 +392,7 @@ return {
       end
 
       -- vim.lsp.enable({ "vtsls", "vue_ls" }) -- If using `ts_ls` replace `vtsls` to `ts_ls`
-      vim.lsp.enable({ "tsls", "vue_ls" })
+      vim.lsp.enable({ "ts_ls", "vue_ls" })
     end,
   },
 }
