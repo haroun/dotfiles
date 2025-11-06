@@ -46,7 +46,7 @@ PS1='%F{cyan}%B${PWD/#$HOME/~}%b%f%F{gray}${vcs_info_msg_0_}%f %(?.%F{magenta}.%
 # deno
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":${HOME}/.zsh/completions:"* ]]; then export FPATH="${HOME}/.zsh/completions:$FPATH"; fi
-. "${HOME}/.deno/env"
+[ -f "${HOME}/.deno/env" ] && source "${HOME}/.deno/env"
 
 # Autosuggestions
 source ${HOME}/.zshmodules/zsh-users/zsh-autosuggestions/zsh-autosuggestions.zsh
