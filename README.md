@@ -11,6 +11,7 @@
 * copy `git/.gitconfig.user.example` to `git/.gitconfig.user`
 * install [docker][docker] + [docker compose][docker compose]
 * install [ripgrep][ripgrep]
+* install [fd][fd]
 * install [fzf][fzf]
 * install [bat][bat]
 * install [zoxide][zoxide]
@@ -106,6 +107,7 @@ Be sure to read the command output for post install instructions.
 [zsh-history-substring-search]: https://github.com/zsh-users/zsh-history-substring-search
 [zsh-syntax-highlighting]: https://github.com/zsh-users/zsh-syntax-highlighting
 [ripgrep]: https://github.com/BurntSushi/ripgrep
+[fd]: https://github.com/sharkdp/fd
 [fzf]: https://github.com/junegunn/fzf
 [bat]: https://github.com/sharkdp/bat?tab=readme-ov-file#installation
 [zoxide]: https://github.com/ajeetdsouza/zoxide
