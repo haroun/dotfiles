@@ -6,6 +6,7 @@ return {
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = {
+        "astro",
         "css",
         "diff",
         "dockerfile",
@@ -20,6 +21,7 @@ return {
         "markdown_inline",
         "query",
         "scss",
+        "svelte",
         "typescript",
         "vim",
         "vimdoc",

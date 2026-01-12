@@ -263,6 +263,7 @@ return {
         -- ts_ls = {},
         --
 
+        astro = {},
         css_variables = {},
         cssls = {},
         cssmodules_ls = {},
@@ -298,6 +299,7 @@ return {
           },
         },
         markdown_oxide = {},
+        svelte = {},
         tailwindcss = {},
         ts_ls = {
           settings = {
