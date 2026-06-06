@@ -20,14 +20,6 @@ export NVM_DIR="$HOME/.nvm"
 #  fzf --bind "change:reload:$RG_PREFIX {q} || true" \
 #      --ansi --phony --query "$INITIAL_QUERY"
 #FZF_DEFAULT_COMMAND="rg --column --line-number --no-heading --color=always --smart-case "
-# opt-tools
-# if [[ -d "/opt/opt-tools/bin" ]]; then
-#   PATH="${PATH}:/opt/ops-tools/bin"
-# fi
-# stagecoach
-# if [[ -d "/opt/stagecoach/bin" ]]; then
-#   PATH="${PATH}:/opt/stagecoach/bin"
-# fi
 # brew
 if [[ -d "/opt/homebrew/bin" ]]; then
   export PATH="${PATH}:/opt/homebrew/bin:/opt/homebrew/sbin"
@@ -36,6 +28,11 @@ if [[ -d "/opt/homebrew/opt/coreutils/libexec/gnubin" ]]; then
   PATH="${PATH}:/opt/homebrew/opt/coreutils/libexec/gnubin"
 fi
 # rust
-if [[ -d "${HOME}/.cargo/bin" ]]; then
-  export PATH="${HOME}/.cargo/bin:${PATH}"
+. "$HOME/.cargo/env"
+# go
+if [[ -d '/usr/local/go/bin' ]]; then
+  export PATH="${PATH}:/usr/local/go/bin"
+fi
+if [[ -d "${HOME}/go/bin" ]]; then
+  export PATH="${PATH}:${HOME}/go/bin"
 fi

@@ -20,6 +20,8 @@
 * install nerd fonts
 * install [luarocks][luarocks]
 * install [wget][wget]
+* install [go][go]
+* install [rust][rust]
 
 ## With GUI
 
@@ -125,3 +127,5 @@ Be sure to read the command output for post install instructions.
 [catpuccin-bat]: https://github.com/catppuccin/bat
 [luarocks]: https://github.com/luarocks/luarocks
 [wget]: https://www.gnu.org/software/wget/
+[go]: https://go.dev/doc/install
+[rust]: https://rustup.rs/

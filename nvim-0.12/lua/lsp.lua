@@ -20,6 +20,10 @@ vim.lsp.enable("terraformls")            -- cf. https://github.com/hashicorp/ter
 vim.lsp.enable("ts_ls")                  -- npm install -g typescript typescript-language-server
 vim.lsp.enable("yamlls")                 -- npm install -g yaml-language-server
 
+vim.lsp.config("elixirls", {
+  cmd = { vim.fn.expand("~/.local/share/elixir-ls/language_server.sh") },
+})
+
 -- autocompletion
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("my.lsp", {}),

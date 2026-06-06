@@ -92,6 +92,26 @@ vim:
 	ln -nfs "$(CURDIR)/nvim-0.12" "$(TARGETDIR)/.config/nvim-0.12"
 	ln -nfs "$(CURDIR)/nvim-0.11" "$(TARGETDIR)/.config/nvim-0.11"
 	@echo 'NVIM_APPNAME=nvim-0.12 nvim to run a specific config of neovim'
+	@echo 'install LSPs'
+	npm install -g @astrojs/language-server
+	# cf. https://github.com/denoland/deno#installation
+	npm install -g diagnostic-languageserver
+	go install github.com/docker/docker-language-server/cmd/docker-language-server@latest
+	# cf. https://github.com/elixir-lsp/elixir-ls#building-and-running
+	npm install -g vscode-langservers-extracted
+	cargo install gitlab-ci-ls
+	npm install -g vscode-langservers-extracted
+	npm install -g vscode-langservers-extracted
+	# cf. https://luals.github.io/#neovim-install
+	cargo install --locked --git https://github.com/Feel-ix-343/markdown-oxide.git markdown-oxide
+	npm install -g @stylelint/language-server
+	npm install -g svelte-language-server
+	npm install -g @tailwindcss/language-server
+	# cf. https://github.com/hashicorp/terraform-ls/blob/main/docs/installation.md
+	npm install -g typescript typescript-language-server
+	npm install -g yaml-language-server
+	@echo 'install telescope fzf'
+	cd ~/.local/share/nvim/site/pack/core/opt/telescope-fzf-native.nvim && make && cd -
 
 zsh:
 	@echo '>> zsh'
