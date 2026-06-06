@@ -20,6 +20,7 @@ additional-arch:
 
 additional-arch-system:
 	@echo '>> arch (system)'
+	sudo rsync -a --chown=root:root "$(CURDIR)/additional/arch/etc/greetd/" /etc/greetd/
 	sudo rsync -a --chown=root:root "$(CURDIR)/additional/arch/etc/systemd/" /etc/systemd/
 
 additional-brew:
