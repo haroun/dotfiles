@@ -1,0 +1,6 @@
+require("opt")
+require("colorscheme")
+require("lsp")
+require("diagnostic")
+require("keymap")
+require("pack")

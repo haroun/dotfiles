@@ -87,7 +87,10 @@ upgrade:
 
 vim:
 	@echo '>> vim'
-	ln -nfs "$(CURDIR)/nvim" "$(TARGETDIR)/.config/nvim"
+	ln -nfs "$(CURDIR)/nvim-0.12" "$(TARGETDIR)/.config/nvim"
+	ln -nfs "$(CURDIR)/nvim-0.12" "$(TARGETDIR)/.config/nvim-0.12"
+	ln -nfs "$(CURDIR)/nvim-0.11" "$(TARGETDIR)/.config/nvim-0.11"
+  @echo 'NVIM_APPNAME=nvim-0.12 nvim to run a specific config of neovim'
 
 zsh:
 	@echo '>> zsh'
