@@ -58,6 +58,10 @@ We use catpuccin-mocha
 * [alacritty][catpuccin-alacritty]
 * [bat][catpuccin-bat]
 
+## Fonts
+
+Copy fonts in `~/.local/share/fonts` (linux) and update `alacritty.toml` with the font name
+
 ## Keyboard layout
 
 `localectl --no-convert set-x11-keymap us pc104 altgr-intl`
