@@ -35,3 +35,7 @@ fi
 if [[ -d "/opt/homebrew/opt/coreutils/libexec/gnubin" ]]; then
   PATH="${PATH}:/opt/homebrew/opt/coreutils/libexec/gnubin"
 fi
+# rust
+if [[ -d "${HOME}/.cargo/bin" ]]; then
+  export PATH="${HOME}/.cargo/bin:${PATH}"
+fi
